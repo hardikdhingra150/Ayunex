@@ -1,0 +1,42 @@
+name: Backend regression and evidence controls
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: ayunex_test
+          POSTGRES_PASSWORD: local-ci-only
+          POSTGRES_DB: ayunex_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U ayunex_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.lock.txt
+      - run: python -m pytest -q
+      - name: PostgreSQL migrations and regressions
+        env:
+          DATABASE_URL: postgresql+psycopg://ayunex_test:local-ci-only@127.0.0.1:5432/ayunex_test
+          TEST_POSTGRES_URL: postgresql+psycopg://ayunex_test:local-ci-only@127.0.0.1:5432/ayunex_test
+        run: |
+          python -m alembic upgrade head
+          python -m alembic check
+          python -m pytest -q
+      - run: python -m scripts.evaluate_knowledge
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: synthetic-module-c-checks
+          path: backend/reports/

@@ -1,0 +1,45 @@
+/* A restrained public introduction; motion belongs in the working dashboard. */
+.landing{background:#101316;color:#eeece5;--lp-bg:#101316;--lp-accent:#d8bb87;--lp-gold:#b6a27f;--lp-muted:#a9adb0}
+.landing main{background:none}
+.landing .lp-nav{background:none;height:88px;border-color:#ffffff12}
+.landing .lp-logo>span{background:none;border:1px solid #bba27555;border-radius:8px}
+.landing .lp-hero{background:none}
+.landing .lp-hero-grid{grid-template-columns:1.15fr 1fr;min-height:590px;gap:85px;padding-block:75px 65px}
+.landing .lp-hero-copy{animation:none}
+.landing .lp-hero-copy h1{font-family:Manrope,system-ui,sans-serif;font-size:clamp(44px,4.5vw,66px);font-weight:500;line-height:1.12;letter-spacing:-.055em;margin-block:24px}
+.landing .lp-hero-copy h1 em{font-family:inherit;font-style:normal;color:#d8bb87}
+.landing .lp-hero-copy>p{font-size:17px;line-height:1.8;color:#adb2b6;text-shadow:none;max-width:510px}
+.landing .lp-eyebrow{font-size:11px;letter-spacing:.12em;color:#ad9b7d}
+.landing .lp-button.primary{background:#ddc395;border-color:#ddc395;box-shadow:none;color:#232019;border-radius:5px}
+.landing .lp-button.primary:hover{background:#ecd7b0;box-shadow:none;transform:none}
+.landing .lp-button.ghost{background:none;border-color:#ffffff25}
+.landing .lp-hero-note{color:#8e969c;font-size:12px}
+.landing .lp-hero-bottom{border-color:#ffffff13}
+.lp-start-panel{padding:30px;border:1px solid #ffffff18;border-radius:10px;background:#171b1e}
+.landing .lp-start-panel h2{font-family:Manrope,system-ui,sans-serif;font-size:29px;line-height:1.3;margin:17px 0 23px;letter-spacing:-.035em}
+.lp-start-panel>a{display:flex;align-items:center;gap:15px;padding:21px 0;border-top:1px solid #ffffff12}
+.lp-start-panel>a>span{color:#c2ad88;background:#b9a07809;border:1px solid #b9a07820;border-radius:7px;padding:10px;display:grid;place-items:center}
+.lp-start-panel>a>div{flex:1}.lp-start-panel strong{font-size:15px;font-weight:500}.landing .lp-start-panel p{font-size:13px;line-height:1.6;margin-top:5px;color:#949da4}.lp-start-panel>a>svg{color:#a59c8c}.lp-start-panel>a:hover strong{color:#e2c79a}
+.lp-start-note{display:flex;align-items:center;gap:9px;border-top:1px solid #ffffff12;padding-top:19px;color:#858e96;font-size:12px}
+.landing .lp-source-band,.landing .lp-workflow-wrap{background:#14181b;border-color:#ffffff0f}
+.landing .lp-source-band a{font-size:18px;color:#b2b6b8}
+.landing .lp-section{padding-block:80px}
+.landing h2{font-family:Manrope,system-ui,sans-serif;font-size:clamp(32px,3vw,43px);font-weight:500;letter-spacing:-.04em}
+.landing h2 em{font-family:inherit;font-style:normal;color:#b8ada0}
+.landing .lp-feature,.landing .lp-feature-wide,.landing .lp-evidence-card{background:#171c20;border-color:#ffffff18;box-shadow:none;transform:none}
+.landing .lp-feature:hover,.landing .lp-evidence-visual:hover .lp-evidence-card{transform:none;border-color:#b6a27f55}
+.landing .lp-feature h3{font-size:28px}.landing .lp-feature-wide h3{font-size:33px}
+.landing .lp-mini-passport{transform:none;box-shadow:none;background:#111619}
+.landing .lp-feature-icon{background:none;box-shadow:none;border-color:#b9a07825}
+.landing .lp-pill-row span{border-color:#ffffff18;color:#b6b6b1}
+.landing .lp-evidence-tag{position:static;transform:none;margin:16px 0 0;background:none;border:1px solid #ffffff18;color:#c7b591;box-shadow:none;border-radius:6px}
+.landing .lp-evidence-visual{padding:0}.landing .lp-final{background:#171c20;border-color:#ffffff18;border-radius:10px;padding-block:50px}.landing .lp-final h2{font-size:42px}
+.landing .lp-faq details,.landing .lp-footer{background:none}
+.landing .lp-reveal.will-reveal{opacity:1;transform:none;transition:none}
+.landing .lp-motion{display:none}.landing .lp-status-dot{box-shadow:none;background:#baa47e}
+.landing .lp-journey-copy{animation:none}
+.app-shell{background:#0e151c;background-image:none}.app-shell .hero-panel{background:radial-gradient(ellipse at 84% 50%,#5d503a26,transparent 45%),#1b2834;background-image:radial-gradient(ellipse at 84% 50%,#5d503a26,transparent 45%)}
+.app-shell .orbit-label{display:none}.app-shell .heading-dot{animation:none}.app-shell .action-card:hover{transform:translateY(-2px)}
+@media(max-width:1000px){.landing .lp-hero-grid{gap:40px}.lp-start-panel{padding:23px}.landing .lp-hero-copy h1{font-size:49px}}
+@media(max-width:800px){.landing .lp-hero-grid{grid-template-columns:1fr;padding-block:50px;gap:38px}.lp-start-panel{max-width:600px;width:100%}.landing .lp-section{padding-block:60px}.landing .lp-links{background:#181d21}.landing .lp-hero-copy h1{font-size:clamp(41px,7vw,58px)}}
+@media(max-width:480px){.landing .lp-hero-copy h1{font-size:42px}.landing .lp-start-panel h2{font-size:26px}.lp-start-panel{padding:22px}.lp-start-panel>a{gap:10px}.lp-start-panel strong{font-size:14px}.landing .lp-start-panel p{font-size:12px}.landing .lp-final h2{font-size:34px}}

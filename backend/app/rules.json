@@ -1,0 +1,16 @@
+{
+  "version": "ayunex-routing-0.1.0-unvalidated",
+  "review_status": "UNVALIDATED",
+  "effective_from": null,
+  "effective_to": null,
+  "evidence_refs": [],
+  "rules": [
+    {"route":"CLASSICAL_AYURVEDA","conditions":{"intended_use":"THERAPEUTIC","formula_matches_text":true,"method_matches_text":true}},
+    {"route":"PROPRIETARY_AYURVEDA","conditions":{"intended_use":"THERAPEUTIC","ingredients_in_texts":true,"modified":true}},
+    {"route":"NON_CLASSICAL_REVIEW","conditions":{"intended_use":"THERAPEUTIC","ingredients_in_texts":false}},
+    {"route":"PHYTOPHARMACEUTICAL","conditions":{"intended_use":"THERAPEUTIC","purified_fraction":true}},
+    {"route":"FOOD_AYURVEDA_AAHARA","conditions":{"intended_use":"FOOD","food_subroute":"AYURVEDA_AAHARA"}},
+    {"route":"FOOD_OTHER_NUTRACEUTICAL","conditions":{"intended_use":"FOOD","food_subroute":"OTHER"}},
+    {"route":"COSMETIC","conditions":{"intended_use":"COSMETIC","administration_route":"EXTERNAL"}}
+  ]
+}

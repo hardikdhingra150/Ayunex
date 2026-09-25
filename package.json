@@ -1,0 +1,23 @@
+{
+  "name": "ayunex",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/start-backend.mjs",
+    "backend": "node scripts/start-backend.mjs",
+    "backend:check": "node scripts/start-backend.mjs --check",
+    "backend:test": "node scripts/backend-task.mjs test",
+    "module-c:evaluate": "node scripts/backend-task.mjs evaluate",
+    "corpus:index": "node scripts/backend-task.mjs index",
+    "provider:check": "node scripts/backend-task.mjs provider",
+    "corpus:reparse": "node scripts/backend-task.mjs reparse",
+    "backend:migrate": "node scripts/backend-task.mjs migrate",
+    "backend:openapi": "node scripts/backend-task.mjs openapi",
+    "corpus:sync": "node scripts/backend-task.mjs corpus",
+    "corpus:list": "node scripts/backend-task.mjs corpus --list",
+    "frontend": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "production": "node scripts/start-production.mjs",
+    "module-d:test": "node scripts/backend-task.mjs test tests/test_module_d.py"
+  }
+}

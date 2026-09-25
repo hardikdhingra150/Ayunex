@@ -1,0 +1,219 @@
+{"kind":"deck","id":"pr/jcbqpe","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"subtitle","type":"subtitle","textPreview":"Click to edit Master subtitle style"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"Title and Content","type":"obj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout3.xml","name":"Section Header","type":"secHead","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout4.xml","name":"Two Content","type":"twoObj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"content placeholder 3","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout5.xml","name":"Comparison","type":"twoTxTwoObj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"content placeholder 3","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"content placeholder 5","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout6.xml","name":"Title Only","type":"titleOnly","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout7.xml","name":"Blank","type":"blank","placeholders":[{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout8.xml","name":"Content with Caption","type":"objTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout9.xml","name":"Picture with Caption","type":"picTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"picture","type":"picture"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout10.xml","name":"Title and Vertical Text","type":"vertTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout11.xml","name":"Vertical Title and Text","type":"vertTitleAndTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"SMART INDIA HACKATHON 2026","textShapes":8}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Freeform 2","bbox":[594,89,487,542]}
+{"kind":"shape","id":"sh/7qp4be9c","slide":1,"name":"Freeform 4","bbox":[720,180,336,360]}
+{"kind":"shape","id":"sh/ts7md4r2","slide":1,"name":"Freeform 6","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/sryl4zqx","slide":1,"name":"TextBox 7","bbox":[516.8,14.56,13.53,71.69]}
+{"kind":"shape","id":"sh/fu94fe98","slide":1,"bbox":[38,121,597,415]}
+{"kind":"shape","id":"sh/utg3698n","slide":1,"bbox":[38,539,597,69]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"text":"SMART INDIA HACKATHON 2026","textPreview":"SMART INDIA HACKATHON 2026","textChars":26,"textLines":1,"bbox":[105,22,915,65]}
+{"kind":"textbox","id":"sh/hofulsf2","slide":1,"text":"IP-SAKTI SAHAYAK","textPreview":"IP-SAKTI SAHAYAK","textChars":16,"textLines":1,"bbox":[58,134,580,60]}
+{"kind":"textbox","id":"sh/ul4vaxgb","slide":1,"text":"Problem Statement ID: 26045","textPreview":"Problem Statement ID: 26045","textChars":27,"textLines":1,"bbox":[58,214,565,36]}
+{"kind":"textbox","id":"sh/vmdcj2xw","slide":1,"text":"Multilingual, source-cited AI assistant for\nAyurveda IP and regulatory guidance","textPreview":"Multilingual, source-cited AI assistant for | Ayurveda IP and regulatory guidance","textChars":79,"textLines":2,"bbox":[58,265,575,94]}
+{"kind":"textbox","id":"sh/4r6dg7et","slide":1,"text":"Theme: MedTech / BioTech / HealthTech","textPreview":"Theme: MedTech / BioTech / HealthTech","textChars":37,"textLines":1,"bbox":[58,386,560,38]}
+{"kind":"textbox","id":"sh/5sfepcfe","slide":1,"text":"Category: Software","textPreview":"Category: Software","textChars":18,"textLines":1,"bbox":[58,442,550,34]}
+{"kind":"textbox","id":"sh/ipovexwn","slide":1,"text":"Team ID: To be assigned","textPreview":"Team ID: To be assigned","textChars":23,"textLines":1,"bbox":[58,498,550,34]}
+{"kind":"textbox","id":"sh/3qxwn2x8","slide":1,"text":"Team Name: Naut IQ","textPreview":"Team Name: Naut IQ","textChars":18,"textLines":1,"bbox":[58,554,550,40]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"SIH Problem Statement 26045, Ministry of Ayush / All India Institute of Ayurveda. Official problem title: IP-SAKTI Sahayak, a multilingual, RAG-based (source-cited) AI assistant for Intellectual Property and regulatory guidance in Ayurveda, across national and international regimes. Team ID remains unassigned in the supplied deck."}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"PROBLEM AND SOLUTION","textShapes":11}
+{"kind":"shape","id":"sh/9072xkry","slide":2,"name":"Freeform 2","bbox":[27.5,18.51,163.01,101]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"name":"Freeform 4","bbox":[1027,0,236,112]}
+{"kind":"textbox","id":"sh/a10jqpsj","slide":2,"text":"PROBLEM AND SOLUTION","textPreview":"PROBLEM AND SOLUTION","textChars":20,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"shape","id":"sh/w3i1sfa9","slide":2,"bbox":[40,140,462,418]}
+{"kind":"shape","id":"sh/r65knqtk","slide":2,"bbox":[691,140,550,418]}
+{"kind":"shape","id":"sh/q5wjelsz","slide":2,"bbox":[40,591,1201,62]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"text":"THE PROBLEM","textPreview":"THE PROBLEM","textChars":11,"textLines":1,"bbox":[60,160,420,35]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"text":"One Ayurvedic product.\nSeveral legal questions.","textPreview":"One Ayurvedic product. | Several legal questions.","textChars":47,"textLines":2,"bbox":[60,213,440,75]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"text":"Which product rules apply?\n\nWhich IP rights may be relevant?\n\nWhat biological-resource duties arise?\n\nWhat changes in an export market?","textPreview":"Which product rules apply? |  | Which IP rights may be relevant? |  | What biological-resource duties arise? |  | What changes in an expo...","textChars":135,"textLines":7,"bbox":[60,315,440,255]}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"text":"OUR SOLUTION","textPreview":"OUR SOLUTION","textChars":12,"textLines":1,"bbox":[710,160,500,35]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"text":"IP-SAKTI Sahayak","textPreview":"IP-SAKTI Sahayak","textChars":16,"textLines":1,"bbox":[710,210,500,48]}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"text":"Ask only the facts the question needs.\n\nAssess regulation, IP and ABS separately.\n\nRetrieve dated provisions. Keep India and\ntarget-country guidance separate.\n\nCheck the evidence before answering.","textPreview":"Ask only the facts the question needs. |  | Assess regulation, IP and ABS separately. |  | Retrieve dated provisions. Keep India and | ta...","textChars":196,"textLines":8,"bbox":[710,280,500,270]}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"text":"PRODUCT\nPASSPORT","textPreview":"PRODUCT | PASSPORT","textChars":16,"textLines":2,"bbox":[526,290,150,90]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"text":"Product-specific\nquestions only","textPreview":"Product-specific | questions only","textChars":31,"textLines":2,"bbox":[512,403,180,60]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"text":"General questions can go straight to source-based guidance.","textPreview":"General questions can go straight to source-based guidance.","textChars":59,"textLines":1,"bbox":[60,606,1150,36]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"Proposed design. Regulatory classification does not establish patentability or ABS compliance. ABS means Access and Benefit Sharing. Product Passport fact collection is progressive and unnecessary for general information queries. Research rationale: https://arxiv.org/abs/2405.20362 and https://aclanthology.org/2023.emnlp-main.398/"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"SYSTEM WORKFLOW","textShapes":17}
+{"kind":"shape","id":"sh/d0jax03i","slide":3,"name":"Freeform 3","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/298ryl4v","slide":3,"name":"Freeform 4","bbox":[27.5,18.51,163.01,101]}
+{"kind":"textbox","id":"sh/3ah8rqlg","slide":3,"text":"SYSTEM WORKFLOW","textPreview":"SYSTEM WORKFLOW","textChars":15,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/obq90bml","slide":3,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"text":"USER QUESTION","textPreview":"USER QUESTION","textChars":13,"textLines":1,"bbox":[500,123,280,43]}
+{"kind":"textbox","id":"sh/m5cra54z","slide":3,"text":"Language, jurisdiction and as-of date","textPreview":"Language, jurisdiction and as-of date","textChars":37,"textLines":1,"bbox":[420,190,440,50]}
+{"kind":"shape","id":"sh/n6ls3alk","slide":3,"bbox":[544,264,192,90]}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"text":"Product\nquestion?","textPreview":"Product | question?","textChars":17,"textLines":2,"bbox":[564,288,152,60]}
+{"kind":"textbox","id":"sh/m1c3mlsn","slide":3,"text":"General information\nNo Passport required","textPreview":"General information | No Passport required","textChars":40,"textLines":2,"bbox":[75,282,305,67]}
+{"kind":"textbox","id":"sh/943mhgre","slide":3,"text":"Ask relevant facts\nConfirm key details","textPreview":"Ask relevant facts | Confirm key details","textChars":38,"textLines":2,"bbox":[902,273,305,72]}
+{"kind":"textbox","id":"sh/83ulovat","slide":3,"text":"Regulatory route, IP and ABS\nSeparate assessments","textPreview":"Regulatory route, IP and ABS | Separate assessments","textChars":49,"textLines":2,"bbox":[870,380,345,67]}
+{"kind":"textbox","id":"sh/v6l4jq94","slide":3,"text":"Retrieve official provisions\nCheck dates and exceptions","textPreview":"Retrieve official provisions | Check dates and exceptions","textChars":55,"textLines":2,"bbox":[420,431,440,68]}
+{"kind":"shape","id":"sh/a5c3ql8z","slide":3,"bbox":[520,534,240,92]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"text":"Evidence\nsufficient?","textPreview":"Evidence | sufficient?","textChars":20,"textLines":2,"bbox":[540,558,200,62]}
+{"kind":"textbox","id":"sh/w7ulsvqp","slide":3,"text":"CITED ACTION PLAN\nSources, next steps and forms","textPreview":"CITED ACTION PLAN | Sources, next steps and forms","textChars":47,"textLines":2,"bbox":[65,551,320,76]}
+{"kind":"textbox","id":"sh/ja54na9g","slide":3,"text":"MISSING OR CONFLICTING EVIDENCE\nOne retrieval retry, then partial\nguidance or human review","textPreview":"MISSING OR CONFLICTING EVIDENCE | One retrieval retry, then partial | guidance or human review","textChars":90,"textLines":3,"bbox":[883,541,342,98]}
+{"kind":"shape","id":"sh/i9w3u58v","slide":3,"bbox":[640,166,1,24]}
+{"kind":"shape","id":"sh/e10f2twf","slide":3,"bbox":[636,182,8,8]}
+{"kind":"shape","id":"sh/f29gbyx0","slide":3,"bbox":[640,240,1,24]}
+{"kind":"shape","id":"sh/03ix43e5","slide":3,"bbox":[636,256,8,8]}
+{"kind":"shape","id":"sh/14ryd8fq","slide":3,"bbox":[380,309,164,6]}
+{"kind":"shape","id":"sh/6d0fytg3","slide":3,"bbox":[380,311,8,8]}
+{"kind":"shape","id":"sh/re9g7yxo","slide":3,"bbox":[736,309,166,1]}
+{"kind":"shape","id":"sh/sfix03y9","slide":3,"bbox":[894,305,8,8]}
+{"kind":"shape","id":"sh/tgry9ofu","slide":3,"bbox":[1042,345,12,35]}
+{"kind":"shape","id":"sh/a9kfadwn","slide":3,"bbox":[1038,372,8,8]}
+{"kind":"shape","id":"sh/batgjixs","slide":3,"bbox":[860,413,10,52]}
+{"kind":"shape","id":"sh/l4fi9cza","slide":3,"bbox":[860,461,8,8]}
+{"kind":"shape","id":"sh/k3m1g7yp","slide":3,"bbox":[227,349,193,116]}
+{"kind":"shape","id":"sh/z2d07mh4","slide":3,"bbox":[412,461,8,8]}
+{"kind":"shape","id":"sh/y14jehgj","slide":3,"bbox":[640,499,1,35]}
+{"kind":"shape","id":"sh/x0vi5czy","slide":3,"bbox":[636,526,8,8]}
+{"kind":"shape","id":"sh/czmhc7id","slide":3,"bbox":[385,580,135,9]}
+{"kind":"shape","id":"sh/byd032h8","slide":3,"bbox":[385,585,8,8]}
+{"kind":"shape","id":"sh/ax4zax0n","slide":3,"bbox":[760,580,123,10]}
+{"kind":"shape","id":"sh/hwzihwzi","slide":3,"bbox":[875,586,8,8]}
+{"kind":"textbox","id":"sh/wv61obyx","slide":3,"text":"No","textPreview":"No","textChars":2,"textLines":1,"bbox":[438,293,55,26]}
+{"kind":"textbox","id":"sh/4nuhs7uh","slide":3,"text":"Yes","textPreview":"Yes","textChars":3,"textLines":1,"bbox":[790,293,55,26]}
+{"kind":"textbox","id":"sh/po3ilcvm","slide":3,"text":"Yes","textPreview":"Yes","textChars":3,"textLines":1,"bbox":[424,550,50,25]}
+{"kind":"textbox","id":"sh/21szqxcb","slide":3,"text":"No","textPreview":"No","textChars":2,"textLines":1,"bbox":[800,550,50,25]}
+{"kind":"textbox","id":"sh/32l0j2dw","slide":3,"text":"Unknown facts stay unresolved. A product category never guarantees a patent or ABS clearance.","textPreview":"Unknown facts stay unresolved. A product category never guarantees a patent or ABS clearance.","textChars":93,"textLines":1,"bbox":[92,667,1100,28]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"Proposed workflow. Rules use met/not_met/unknown conditions and reviewed provision references. Missing decisive facts can trigger clarification or partial guidance. Verification includes source IDs, exact passages, jurisdiction, dates, conditions and semantic support. At most one retrieval repair is allowed. General information bypasses product classification. Only verified sections reach the user. https://aclanthology.org/2023.emnlp-main.398/ https://arxiv.org/abs/2310.11511"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"TECHNICAL APPROACH","textShapes":25}
+{"kind":"shape","id":"sh/0ba143al","slide":4,"name":"Freeform 3","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/rm1k7yt4","slide":4,"name":"Freeform 4","bbox":[27.5,18.51,163.01,101]}
+{"kind":"textbox","id":"sh/ql8jytsj","slide":4,"text":"TECHNICAL APPROACH","textPreview":"TECHNICAL APPROACH","textChars":18,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/doj29oba","slide":4,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"shape","id":"sh/sna103ap","slide":4,"bbox":[42,214,1193,34]}
+{"kind":"shape","id":"sh/3ihk3et8","slide":4,"bbox":[42,251,1193,70]}
+{"kind":"shape","id":"sh/ih8ju9sn","slide":4,"bbox":[42,326,1193,70]}
+{"kind":"shape","id":"sh/kbm987y5","slide":4,"bbox":[42,401,1193,70]}
+{"kind":"shape","id":"sh/5cva1cfq","slide":4,"bbox":[42,476,1193,70]}
+{"kind":"shape","id":"sh/i94r6xgz","slide":4,"bbox":[42,551,1193,70]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"text":"A  FRONTEND","textPreview":"A  FRONTEND","textChars":11,"textLines":1,"bbox":[60,141,245,54]}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"text":"B  DOMAIN LOGIC","textPreview":"B  DOMAIN LOGIC","textChars":15,"textLines":1,"bbox":[360,141,245,54]}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"text":"C  AI + EVIDENCE","textPreview":"C  AI + EVIDENCE","textChars":16,"textLines":1,"bbox":[660,141,245,54]}
+{"kind":"textbox","id":"sh/a5kr2xg3","slide":4,"text":"D  PLATFORM\nSupports all modules","textPreview":"D  PLATFORM | Supports all modules","textChars":32,"textLines":2,"bbox":[960,141,245,54]}
+{"kind":"shape","id":"sh/v6tsv2xo","slide":4,"bbox":[305,168,55,1]}
+{"kind":"shape","id":"sh/g36tgryd","slide":4,"bbox":[352,164,8,8]}
+{"kind":"shape","id":"sh/h4fa9wfy","slide":4,"bbox":[605,168,55,1]}
+{"kind":"shape","id":"sh/p0batw72","slide":4,"bbox":[652,164,8,8]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"text":"MODULE","textPreview":"MODULE","textChars":6,"textLines":1,"bbox":[60,218,220,25]}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"text":"TECHNOLOGY","textPreview":"TECHNOLOGY","textChars":10,"textLines":1,"bbox":[290,218,420,25]}
+{"kind":"textbox","id":"sh/2xkrih8b","slide":4,"text":"PURPOSE","textPreview":"PURPOSE","textChars":7,"textLines":1,"bbox":[742,218,478,25]}
+{"kind":"textbox","id":"sh/1wbapc7q","slide":4,"text":"A  FRONTEND","textPreview":"A  FRONTEND","textChars":11,"textLines":1,"bbox":[60,260,220,55]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"text":"Next.js, TypeScript, Tailwind\nBHASHINI adapter","textPreview":"Next.js, TypeScript, Tailwind | BHASHINI adapter","textChars":46,"textLines":2,"bbox":[290,260,420,65]}
+{"kind":"textbox","id":"sh/fu9sn2p0","slide":4,"text":"Guided questions and evidence views\nHindi text first, voice after validation","textPreview":"Guided questions and evidence views | Hindi text first, voice after validation","textChars":76,"textLines":2,"bbox":[742,260,478,65]}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"text":"B  BACKEND","textPreview":"B  BACKEND","textChars":10,"textLines":1,"bbox":[60,335,220,55]}
+{"kind":"textbox","id":"sh/tsrqlc7u","slide":4,"text":"FastAPI, Pydantic\nVersioned decision tables","textPreview":"FastAPI, Pydantic | Versioned decision tables","textChars":43,"textLines":2,"bbox":[290,335,420,65]}
+{"kind":"textbox","id":"sh/sri9s7q9","slide":4,"text":"Typed APIs and confirmed facts\nIndependent regulatory, IP and ABS rules","textPreview":"Typed APIs and confirmed facts | Independent regulatory, IP and ABS rules","textChars":71,"textLines":2,"bbox":[742,335,478,65]}
+{"kind":"textbox","id":"sh/ilwf69kv","slide":4,"text":"C  RETRIEVAL","textPreview":"C  RETRIEVAL","textChars":12,"textLines":1,"bbox":[60,410,220,55]}
+{"kind":"textbox","id":"sh/jm5gze1g","slide":4,"text":"PostgreSQL FTS + pgvector\nBGE-M3 embeddings","textPreview":"PostgreSQL FTS + pgvector | BGE-M3 embeddings","textChars":43,"textLines":2,"bbox":[290,410,420,65]}
+{"kind":"textbox","id":"sh/knex8j21","slide":4,"text":"Exact terms and semantic search\nProvision versions and reviewed aliases","textPreview":"Exact terms and semantic search | Provision versions and reviewed aliases","textChars":71,"textLines":2,"bbox":[742,410,478,65]}
+{"kind":"textbox","id":"sh/5ony1oj6","slide":4,"text":"C  ANSWERS","textPreview":"C  ANSWERS","textChars":10,"textLines":1,"bbox":[60,485,220,55]}
+{"kind":"textbox","id":"sh/axcf29kj","slide":4,"text":"Qwen3-8B candidate\nTyped verification workflow","textPreview":"Qwen3-8B candidate | Typed verification workflow","textChars":46,"textLines":2,"bbox":[290,485,420,65]}
+{"kind":"textbox","id":"sh/vy5gbe14","slide":4,"text":"Structured answers with evidence IDs\nReranker and model selection by testing","textPreview":"Structured answers with evidence IDs | Reranker and model selection by testing","textChars":76,"textLines":2,"bbox":[742,485,478,65]}
+{"kind":"textbox","id":"sh/wzex4z2p","slide":4,"text":"D  PLATFORM","textPreview":"D  PLATFORM","textChars":11,"textLines":1,"bbox":[60,560,220,55]}
+{"kind":"textbox","id":"sh/xknyx4ja","slide":4,"text":"Docker Compose, object storage\nRole-based access, audit logs","textPreview":"Docker Compose, object storage | Role-based access, audit logs","textChars":60,"textLines":2,"bbox":[290,560,420,65]}
+{"kind":"textbox","id":"sh/mtcfypkn","slide":4,"text":"One backend and one worker initially\nPrivate cases stay outside the legal corpus","textPreview":"One backend and one worker initially | Private cases stay outside the legal corpus","textChars":80,"textLines":2,"bbox":[742,560,478,65]}
+{"kind":"textbox","id":"sh/nulw7u18","slide":4,"text":"Graph database and extra agents follow only if evaluation shows a benefit.","textPreview":"Graph database and extra agents follow only if evaluation shows a benefit.","textChars":74,"textLines":1,"bbox":[60,660,1160,29]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"Proposed technology stack, not an implemented or benchmark-proven system. Qwen3-8B retains the supplied deck's generator as an evaluation candidate, not a selected production winner. BGE-M3 is a retrieval candidate. PostgreSQL FTS ranking is not BM25. Reranker and generator revisions will be selected and pinned using the project benchmark and available hardware. BHASHINI processing requires approved data handling. https://arxiv.org/abs/2402.03216 https://www.postgresql.org/docs/current/textsearch-controls.html https://github.com/AI4Bharat/IndicTrans2"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"KEY FEATURES AND INNOVATION","textShapes":15}
+{"kind":"shape","id":"sh/x4vedgvm","slide":5,"name":"Freeform 11","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/ahkvi1cb","slide":5,"name":"Freeform 12","bbox":[27.23,18.23,163.27,101.27]}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"text":"KEY FEATURES AND INNOVATION","textPreview":"KEY FEATURES AND INNOVATION","textChars":27,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"shape","id":"sh/58vehgvy","slide":5,"bbox":[60,166,560,190]}
+{"kind":"textbox","id":"sh/i54fmlc7","slide":5,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[85,186,55,40]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"text":"Relevant questions","textPreview":"Relevant questions","textChars":18,"textLines":1,"bbox":[154,188,440,63]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"text":"General queries bypass the Passport. Product guidance asks only for facts that change the assessment.","textPreview":"General queries bypass the Passport. Product guidance asks only for facts that change the assessment.","textChars":101,"textLines":1,"bbox":[85,253,510,88]}
+{"kind":"shape","id":"sh/tcfel0vu","slide":5,"bbox":[670,166,560,190]}
+{"kind":"textbox","id":"sh/hgrmpwj2","slide":5,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[695,186,55,40]}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"text":"Separate legal assessments","textPreview":"Separate legal assessments","textChars":26,"textLines":1,"bbox":[764,188,440,63]}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"text":"Regulatory category, IP opportunities and ABS duties each have their own conditions. Unknown facts remain visible.","textPreview":"Regulatory category, IP opportunities and ABS duties each have their own conditions. Unknown facts remain visible.","textChars":114,"textLines":1,"bbox":[695,253,510,88]}
+{"kind":"shape","id":"sh/ud0ne10b","slide":5,"bbox":[60,389,560,190]}
+{"kind":"textbox","id":"sh/pkr6tgjy","slide":5,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[85,409,55,40]}
+{"kind":"textbox","id":"sh/4ji5kbid","slide":5,"text":"Evidence users can inspect","textPreview":"Evidence users can inspect","textChars":26,"textLines":1,"bbox":[154,411,440,63]}
+{"kind":"textbox","id":"sh/3i94r61s","slide":5,"text":"Each material claim links to the exact provision and source version. The system checks jurisdiction, effective dates and exceptions.","textPreview":"Each material claim links to the exact provision and source version. The system checks jurisdiction, effective dates and exceptions.","textChars":132,"textLines":1,"bbox":[85,476,510,88]}
+{"kind":"shape","id":"sh/2h0ni107","slide":5,"bbox":[670,389,560,190]}
+{"kind":"textbox","id":"sh/5o7mhcju","slide":5,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[695,409,55,40]}
+{"kind":"textbox","id":"sh/kny587i9","slide":5,"text":"A clear path when uncertain","textPreview":"A clear path when uncertain","textChars":27,"textLines":1,"bbox":[764,411,440,63]}
+{"kind":"textbox","id":"sh/atcjidg7","slide":5,"text":"Unsupported sections trigger clarification or human review. The case file preserves facts, sources and unresolved questions.","textPreview":"Unsupported sections trigger clarification or human review. The case file preserves facts, sources and unresolved questions.","textChars":124,"textLines":1,"bbox":[695,476,510,88]}
+{"kind":"textbox","id":"sh/vu5kbihc","slide":5,"text":"Information, not legal advice. Expert review remains essential for legal decisions.","textPreview":"Information, not legal advice. Expert review remains essential for legal decisions.","textChars":83,"textLines":1,"bbox":[65,644,1150,37]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"Proposed features. Claim verification reduces risk but cannot guarantee correctness. Evidence-support labels are not confidence probabilities. For international requests, treaty frameworks and target-country market access remain distinct. https://arxiv.org/abs/2405.20362 https://aclanthology.org/2023.emnlp-main.398/"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"FEASIBILITY AND VIABILITY","textShapes":18}
+{"kind":"shape","id":"sh/yhg7epsj","slide":6,"name":"Freeform 2","bbox":[24.33,16.33,167.33,105.33]}
+{"kind":"shape","id":"sh/pc76hkr2","slide":6,"name":"Freeform 9","bbox":[200,-2,1063,110]}
+{"kind":"textbox","id":"sh/h4bupgn6","slide":6,"text":"FEASIBILITY AND VIABILITY","textPreview":"FEASIBILITY AND VIABILITY","textChars":25,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"shape","id":"sh/v2tcn650","slide":6,"bbox":[40,135,580,442]}
+{"kind":"shape","id":"sh/u1kbu1ov","slide":6,"bbox":[678,135,558,442]}
+{"kind":"shape","id":"sh/5svutgni","slide":6,"bbox":[40,608,1196,43]}
+{"kind":"textbox","id":"sh/47mt0b6x","slide":6,"text":"BUILD AND VALIDATE","textPreview":"BUILD AND VALIDATE","textChars":18,"textLines":1,"bbox":[60,147,550,35]}
+{"kind":"textbox","id":"sh/j6dcr65c","slide":6,"text":"01  Reviewed foundation","textPreview":"01  Reviewed foundation","textChars":23,"textLines":1,"bbox":[60,208,550,35]}
+{"kind":"textbox","id":"sh/i54bylor","slide":6,"text":"Official provisions, decision rules and 30 expert-reviewed cases","textPreview":"Official provisions, decision rules and 30 expert-reviewed cases","textChars":64,"textLines":1,"bbox":[60,254,515,64]}
+{"kind":"textbox","id":"sh/twfux0ne","slide":6,"text":"02  Working demonstrator","textPreview":"02  Working demonstrator","textChars":24,"textLines":1,"bbox":[60,333,550,35]}
+{"kind":"textbox","id":"sh/svmt4v6t","slide":6,"text":"Two product journeys, general queries and verified citations","textPreview":"Two product journeys, general queries and verified citations","textChars":60,"textLines":1,"bbox":[60,379,515,64]}
+{"kind":"textbox","id":"sh/cbe5g3ih","slide":6,"text":"03  Tested expansion","textPreview":"03  Tested expansion","textChars":20,"textLines":1,"bbox":[60,458,550,35]}
+{"kind":"textbox","id":"sh/dcnm98zm","slide":6,"text":"About 150 base cases, then Hindi and one export market","textPreview":"About 150 base cases, then Hindi and one export market","textChars":54,"textLines":1,"bbox":[60,504,515,64]}
+{"kind":"textbox","id":"sh/qpwnet0b","slide":6,"text":"PRACTICAL CONTROLS","textPreview":"PRACTICAL CONTROLS","textChars":18,"textLines":1,"bbox":[700,147,500,35]}
+{"kind":"textbox","id":"sh/bq547yhw","slide":6,"text":"Changing law","textPreview":"Changing law","textChars":12,"textLines":1,"bbox":[700,208,500,35]}
+{"kind":"textbox","id":"sh/0fy5k3id","slide":6,"text":"Curator approval, effective dates and regression tests","textPreview":"Curator approval, effective dates and regression tests","textChars":54,"textLines":1,"bbox":[700,254,500,64]}
+{"kind":"textbox","id":"sh/lg76d8zy","slide":6,"text":"Incorrect or incomplete answers","textPreview":"Incorrect or incomplete answers","textChars":31,"textLines":1,"bbox":[700,333,500,35]}
+{"kind":"textbox","id":"sh/ydgnit07","slide":6,"text":"Claim checks, one repair attempt and human review","textPreview":"Claim checks, one repair attempt and human review","textChars":49,"textLines":1,"bbox":[700,379,500,64]}
+{"kind":"textbox","id":"sh/zep4byhs","slide":6,"text":"Confidential product details","textPreview":"Confidential product details","textChars":28,"textLines":1,"bbox":[700,458,500,35]}
+{"kind":"textbox","id":"sh/gju58ji9","slide":6,"text":"Minimum data collection, scoped access and redacted logs","textPreview":"Minimum data collection, scoped access and redacted logs","textChars":56,"textLines":1,"bbox":[700,504,500,64]}
+{"kind":"textbox","id":"sh/1k3mhozu","slide":6,"text":"Pilot targets: 95% citation support and 90% required-abstention recall.","textPreview":"Pilot targets: 95% citation support and 90% required-abstention recall.","textChars":71,"textLines":1,"bbox":[60,618,1160,33]}
+{"kind":"textbox","id":"sh/jet8nm1c","slide":6,"text":"Targets await testing. Qualified reviewers and permitted source access are prerequisites.","textPreview":"Targets await testing. Qualified reviewers and permitted source access are prerequisites.","textChars":89,"textLines":1,"bbox":[60,661,1160,28]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"Proposed scope and acceptance targets, not achieved results. Begin with 30 expert-reviewed cases and grow to approximately 150 independent base cases, with separate paired Hindi variants. Assess answer correctness, citation completeness, unnecessary abstention, jurisdiction leakage, latency and cost as well. Any observed critical fabricated authority or wrong-jurisdiction obligation blocks release. Keep unreviewed routes explicitly unsupported. Corpus update example: NBA lists the 2025 ABS Regulations at https://nbaindia.nic.in/public-information/notification-guidelines . Evaluation methodologies: https://arxiv.org/abs/2408.10343 and https://arxiv.org/abs/2603.01710"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"IMPACT AND BENEFITS","textShapes":12}
+{"kind":"shape","id":"sh/dcbud0ra","slide":7,"name":"Freeform 3","bbox":[1027,0,236,110]}
+{"kind":"shape","id":"sh/ydkbm5sv","slide":7,"name":"Freeform 4","bbox":[27.5,18.51,163.01,101]}
+{"kind":"textbox","id":"sh/zedcfa9g","slide":7,"text":"IMPACT AND BENEFITS","textPreview":"IMPACT AND BENEFITS","textChars":19,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"textbox","id":"sh/l0vuh0rm","slide":7,"text":"Expected benefits for the Ayurveda community","textPreview":"Expected benefits for the Ayurveda community","textChars":44,"textLines":1,"bbox":[65,159,1150,42]}
+{"kind":"shape","id":"sh/eh0ba1sr","slide":7,"bbox":[60,230,560,178]}
+{"kind":"textbox","id":"sh/fi9c369c","slide":7,"text":"Startups & MSMEs","textPreview":"Startups & MSMEs","textChars":16,"textLines":1,"bbox":[85,250,510,66]}
+{"kind":"textbox","id":"sh/baxkjqlk","slide":7,"text":"Clearer next steps before spending on filings, licences or export preparation.","textPreview":"Clearer next steps before spending on filings, licences or export preparation.","textChars":78,"textLines":1,"bbox":[85,318,510,80]}
+{"kind":"shape","id":"sh/a9ojq5kz","slide":7,"bbox":[670,230,560,178]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"text":"Practitioners & researchers","textPreview":"Practitioners & researchers","textChars":27,"textLines":1,"bbox":[695,250,510,66]}
+{"kind":"textbox","id":"sh/cbq1sv25","slide":7,"text":"Plain-language explanations with official evidence that they can inspect and discuss with experts.","textPreview":"Plain-language explanations with official evidence that they can inspect and discuss with experts.","textChars":98,"textLines":1,"bbox":[695,318,510,80]}
+{"kind":"shape","id":"sh/n6x0fqlo","slide":7,"bbox":[60,435,560,178]}
+{"kind":"textbox","id":"sh/25ojml43","slide":7,"text":"Cultivators & TK holders","textPreview":"Cultivators & TK holders","textChars":24,"textLines":1,"bbox":[85,455,510,66]}
+{"kind":"textbox","id":"sh/p8fih03e","slide":7,"text":"Earlier visibility of resource-origin questions and benefit-sharing checkpoints.","textPreview":"Earlier visibility of resource-origin questions and benefit-sharing checkpoints.","textChars":80,"textLines":1,"bbox":[85,523,510,80]}
+{"kind":"shape","id":"sh/o761ov2t","slide":7,"bbox":[670,435,560,178]}
+{"kind":"textbox","id":"sh/f2d0b6lc","slide":7,"text":"IP facilitators","textPreview":"IP facilitators","textChars":15,"textLines":1,"bbox":[695,455,510,66]}
+{"kind":"textbox","id":"sh/eh4jil4r","slide":7,"text":"A structured case file with the facts, provisions and unresolved issues ready for review.","textPreview":"A structured case file with the facts, provisions and unresolved issues ready for review.","textChars":89,"textLines":1,"bbox":[695,523,510,80]}
+{"kind":"textbox","id":"sh/id4ju1oz","slide":7,"text":"The pilot will measure guidance quality, review effort and language accessibility.","textPreview":"The pilot will measure guidance quality, review effort and language accessibility.","textChars":82,"textLines":1,"bbox":[65,667,1150,28]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"These are expected benefits to validate in a pilot, not measured outcomes. Do not interpret guidance as a guarantee of compliance, patent grant, market entry or protection from misappropriation. TK means traditional knowledge. Compare expert review effort and user comprehension alongside correctness and citation quality."}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"REFERENCES","textShapes":18}
+{"kind":"shape","id":"sh/w3ed8r6x","slide":8,"name":"Oval 28","bbox":[34.62,26.48,147.38,84.76]}
+{"kind":"textbox","id":"sh/na1sb2lg","slide":8,"text":"REFERENCES","textPreview":"REFERENCES","textChars":10,"textLines":1,"bbox":[205,28,805,65]}
+{"kind":"textbox","id":"sh/8bat47ml","slide":8,"text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[51,49,115,34]}
+{"kind":"textbox","id":"sh/9w3uds36","slide":8,"text":"India Code and IP India","textPreview":"India Code and IP India","textChars":23,"textLines":1,"bbox":[65,170,545,35]}
+{"kind":"textbox","id":"sh/y5sbed4j","slide":8,"text":"Patents Act, rules and amendments","textPreview":"Patents Act, rules and amendments","textChars":33,"textLines":1,"bbox":[65,213,545,60]}
+{"kind":"textbox","id":"sh/z61s7il4","slide":8,"text":"CDSCO and FSSAI","textPreview":"CDSCO and FSSAI","textChars":15,"textLines":1,"bbox":[65,289,545,35]}
+{"kind":"textbox","id":"sh/07atgnmp","slide":8,"text":"Product definitions and Ayurveda Aahara","textPreview":"Product definitions and Ayurveda Aahara","textChars":39,"textLines":1,"bbox":[65,332,545,60]}
+{"kind":"textbox","id":"sh/l8ja9s3a","slide":8,"text":"National Biodiversity Authority","textPreview":"National Biodiversity Authority","textChars":31,"textLines":1,"bbox":[65,408,545,35]}
+{"kind":"textbox","id":"sh/q18bad4n","slide":8,"text":"Biodiversity rules and ABS Regulations, 2025","textPreview":"Biodiversity rules and ABS Regulations, 2025","textChars":44,"textLines":1,"bbox":[65,451,545,60]}
+{"kind":"textbox","id":"sh/b2hs3il8","slide":8,"text":"WIPO and TKDL","textPreview":"WIPO and TKDL","textChars":13,"textLines":1,"bbox":[65,527,545,35]}
+{"kind":"textbox","id":"sh/3u18fepo","slide":8,"text":"Treaty status and traditional-knowledge resources","textPreview":"Treaty status and traditional-knowledge resources","textChars":49,"textLines":1,"bbox":[65,570,545,60]}
+{"kind":"textbox","id":"sh/2ts769o3","slide":8,"text":"ALCE, Gao et al. (2023)","textPreview":"ALCE, Gao et al. (2023)","textChars":23,"textLines":1,"bbox":[675,170,545,35]}
+{"kind":"textbox","id":"sh/pwjqho7u","slide":8,"text":"Answer generation with supporting citations","textPreview":"Answer generation with supporting citations","textChars":43,"textLines":1,"bbox":[675,213,545,60]}
+{"kind":"textbox","id":"sh/4vap8j69","slide":8,"text":"LegalBench-RAG (2024)","textPreview":"LegalBench-RAG (2024)","textChars":21,"textLines":1,"bbox":[675,289,545,35]}
+{"kind":"textbox","id":"sh/fq1obeps","slide":8,"text":"Precise legal retrieval evaluation","textPreview":"Precise legal retrieval evaluation","textChars":34,"textLines":1,"bbox":[675,332,545,60]}
+{"kind":"textbox","id":"sh/up872987","slide":8,"text":"BGE-M3 (2024)","textPreview":"BGE-M3 (2024)","textChars":13,"textLines":1,"bbox":[675,408,545,35]}
+{"kind":"textbox","id":"sh/hsjqd47y","slide":8,"text":"Multilingual text embeddings","textPreview":"Multilingual text embeddings","textChars":28,"textLines":1,"bbox":[675,451,545,60]}
+{"kind":"textbox","id":"sh/grap4zqd","slide":8,"text":"IndicTrans2, Gala et al. (2023)","textPreview":"IndicTrans2, Gala et al. (2023)","textChars":31,"textLines":1,"bbox":[675,527,545,35]}
+{"kind":"textbox","id":"sh/72ho7upg","slide":8,"text":"Translation across Indian languages","textPreview":"Translation across Indian languages","textChars":35,"textLines":1,"bbox":[675,570,545,60]}
+{"kind":"image","id":"im/pc3upgn2","slide":8,"name":"Picture 10","bbox":[1026.78,-1.84,236.2,111.53]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"Official sources and research references. Additional links: https://www.ipindia.gov.in/ https://fssai.gov.in/upload/notifications/2022/05/62789a20b54bdGazette_Notification_Ayurveda_Aahara_09_05_2022.pdf https://www.tkdl.res.in/ https://bhashini.gov.in/ https://arxiv.org/abs/2202.00216 https://arxiv.org/abs/2405.20362 . Source access and reuse terms require review before ingestion. Research supports individual design choices, not a proven best complete system."}

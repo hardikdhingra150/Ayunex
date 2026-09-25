@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-25T20:44:27.650885+00:00",
+  "engine": "lexical-bm25-1.0",
+  "catalog_sha256": "1d338efaae17c4e8f5ecb859b4d512e82869b0fb43b7bbe79e6649c001ef4c83",
+  "fixture_type": "SYNTHETIC_ENGINEERING_ONLY",
+  "legal_accuracy": "NOT_MEASURED",
+  "expert_benchmark": "NOT_PROVIDED",
+  "exit_code": 0,
+  "tests": 50,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+}

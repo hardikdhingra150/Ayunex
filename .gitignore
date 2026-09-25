@@ -1,0 +1,35 @@
+.DS_Store
+*.DS_Store
+**/.DS_Store
+
+# Environments & Secrets
+**/.env
+**/.env.*
+!**/.env.example
+**/production.env
+**/.dev-token*
+
+# Dependencies & Build
+**/.venv/
+**/venv/
+**/node_modules/
+**/dist/
+**/build/
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+**/.pytest_cache/
+*.pyc
+
+# Databases & local state
+**/*.db
+**/*.db-shm
+**/*.db-wal
+ayunex.db
+
+# Ingestion raw binaries & backups
+data/corpus/raw/
+deploy/backups/
+tmp/
+*.log
+

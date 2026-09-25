@@ -1,0 +1,334 @@
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"subtitle","type":"subtitle","textPreview":"Click to edit Master subtitle style"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"Title and Content","type":"obj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout3.xml","name":"Section Header","type":"secHead","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout4.xml","name":"Two Content","type":"twoObj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"content placeholder 3","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout5.xml","name":"Comparison","type":"twoTxTwoObj","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"content placeholder 3","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"content placeholder 5","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout6.xml","name":"Title Only","type":"titleOnly","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout7.xml","name":"Blank","type":"blank","placeholders":[{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout8.xml","name":"Content with Caption","type":"objTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"content placeholder 2","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout9.xml","name":"Picture with Caption","type":"picTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"picture","type":"picture"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout10.xml","name":"Title and Vertical Text","type":"vertTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout11.xml","name":"Vertical Title and Text","type":"vertTitleAndTx","placeholders":[{"name":"title","type":"title","textPreview":"Click to edit Master title style"},{"name":"body","type":"body","textPreview":"Click to edit Master text styles | Second level | Third level | Fourth level | Fifth level"},{"name":"dateTime","type":"dateTime","textPreview":"9/2/2026"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"TITLE PAGE","textShapes":11}
+{"kind":"shape","id":"sh/547294r6","slide":1,"name":"Freeform 2","bbox":[594,89,487,542]}
+{"kind":"shape","id":"sh/7qp4be9c","slide":1,"name":"Freeform 4","bbox":[720,180,336,360]}
+{"kind":"shape","id":"sh/ts7md4r2","slide":1,"name":"Freeform 6","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/sryl4zqx","slide":1,"name":"TextBox 7","bbox":[516.8,14.56,13.53,71.69]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"name":"TextBox 8","text":"TITLE PAGE","textPreview":"TITLE PAGE","textChars":10,"textLines":1,"bbox":[465.91,73.98,262.03,60.68]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"name":"TextBox 9","text":"SMART INDIAHACKATHON 2026","textPreview":"SMART INDIAHACKATHON 2026","textChars":25,"textLines":1,"bbox":[155.73,14.56,862.8,71.69]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"name":"TextBox 10","text":"Theme — ","textPreview":"Theme —","textChars":8,"textLines":1,"bbox":[50.03,376.17,133.23,36.88]}
+{"kind":"textbox","id":"sh/hofulsf2","slide":1,"name":"TextBox 11","text":"PS Category — ","textPreview":"PS Category —","textChars":14,"textLines":1,"bbox":[50.03,445.28,209.12,36.88]}
+{"kind":"textbox","id":"sh/ul4vaxgb","slide":1,"name":"TextBox 12","text":"Team ID — ","textPreview":"Team ID —","textChars":10,"textLines":1,"bbox":[50.03,514.37,149.89,36.88]}
+{"kind":"textbox","id":"sh/vmdcj2xw","slide":1,"name":"TextBox 13","text":"Team Name — Naut IQ","textPreview":"Team Name — Naut IQ","textChars":19,"textLines":1,"bbox":[50.03,583.47,296.93,36.88]}
+{"kind":"textbox","id":"sh/4r6dg7et","slide":1,"name":"TextBox 14","text":"Problem Statement ID — SIH26045","textPreview":"Problem Statement ID — SIH26045","textChars":31,"textLines":1,"bbox":[50.03,169.9,457.09,36.88]}
+{"kind":"textbox","id":"sh/ipovexwn","slide":1,"name":"TextBox 16","text":"Problem Statement Title — Multilingual, source-cited AI assistant for Ayurveda IP and regulatory guidance.\n","textPreview":"Problem Statement Title — Multilingual, source-cited AI assistant for Ayurveda IP and regulatory guidance. |","textChars":107,"textLines":2,"bbox":[53,239,587,147.58]}
+{"kind":"textbox","id":"sh/sfqdkrep","slide":1,"name":"TextBox 18","text":"MedTech / BioTech / HealthTech","textPreview":"MedTech / BioTech / HealthTech","textChars":30,"textLines":1,"bbox":[180.8,376.17,398.03,34.49]}
+{"kind":"textbox","id":"sh/dgzetcfa","slide":1,"name":"TextBox 19","text":"Software","textPreview":"Software","textChars":8,"textLines":1,"bbox":[255.2,445.28,110.13,36.88]}
+{"kind":"textbox","id":"sh/1cvuxc7e","slide":1,"name":"TextBox 20","text":"To be assigned","textPreview":"To be assigned","textChars":14,"textLines":1,"bbox":[197.13,514.37,186.65,36.88]}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"PROBLEM AND SOLUTION","textShapes":15}
+{"kind":"shape","id":"sh/9072xkry","slide":2,"name":"Freeform 2","bbox":[27.5,18.51,163.01,101]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"name":"Freeform 4","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"name":"Freeform 5","bbox":[40.33,166.33,445.33,355.33]}
+{"kind":"shape","id":"sh/x4r21kru","slide":2,"name":"Freeform 6","bbox":[516.13,230.13,247.73,189.73]}
+{"kind":"shape","id":"sh/w3i1sfa9","slide":2,"name":"Freeform 7","bbox":[116.53,550.53,1046.93,76.93]}
+{"kind":"shape","id":"sh/r65knqtk","slide":2,"name":"Freeform 8","bbox":[794.33,166.33,445.33,355.33]}
+{"kind":"textbox","id":"sh/q5wjelsz","slide":2,"name":"TextBox 9","text":"PROBLEM AND SOLUTION","textPreview":"PROBLEM AND SOLUTION","textChars":20,"textLines":1,"bbox":[302.27,26.15,598.55,62.04]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"name":"TextBox 10","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[68.03,49.75,82.23,33.16]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"name":"TextBox 12","text":"SOLUTION —IP-SAKTI SAHAYAK","textPreview":"SOLUTION —IP-SAKTI SAHAYAK","textChars":26,"textLines":1,"bbox":[831.64,201.96,368.35,27.05]}
+{"kind":"shape","id":"sh/nu58f2hs","slide":2,"name":"TextBox 13","bbox":[110.03,330.54,4.82,24.05]}
+{"kind":"shape","id":"sh/xk7qlczu","slide":2,"name":"TextBox 15","bbox":[891.53,283.49,4.82,24.05]}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"name":"TextBox 16","text":"1  Classify the product with minimum questions\n\n2  Keep India and international guidance separate\n\n3  Route the case across IP, ABS/TK and regulation\n\n4  Retrieve versioned official sources\n\n5  Deliver a cited checklist, risks, forms and human-handoff path","textPreview":"1  Classify the product with minimum questions |  | 2  Keep India and international guidance separate |  | 3  Route the case across IP, A...","textChars":256,"textLines":9,"bbox":[831.64,237.33,343.97,234.51]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"TextBox 17","text":"• What category is the formulation?\n\n• Which IP rights can protect it?\n\n• Do ABS and traditional-knowledge duties apply?\n\n• Which evidence, licence, label and advertisement rules apply?\n\n• What changes for an export market?\n","textPreview":"• What category is the formulation? |  | • Which IP rights can protect it? |  | • Do ABS and traditional-knowledge duties apply? |  | • W...","textChars":224,"textLines":10,"bbox":[93.28,251.33,336.45,238.08]}
+{"kind":"shape","id":"sh/do3q9szq","slide":2,"name":"TextBox 19","bbox":[577.21,355.05,5.1,25.23]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"name":"TextBox 20","text":"novelty • target market","textPreview":"novelty • target market","textChars":23,"textLines":1,"bbox":[543.67,376.01,197.29,25.27]}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"name":"TextBox 21","text":"PRODUCT PASSPORT","textPreview":"PRODUCT PASSPORT","textChars":16,"textLines":1,"bbox":[591.53,249.85,100.17,43.29]}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"name":"TextBox 22","text":"Ingredients • biological ","textPreview":"Ingredients • biological","textChars":25,"textLines":1,"bbox":[541.67,310.95,206.09,25.27]}
+{"kind":"textbox","id":"sh/65kfmpor","slide":2,"name":"TextBox 23","text":"source\ntextreference • claims","textPreview":"source | textreference • claims","textChars":29,"textLines":2,"bbox":[545.17,335.01,194.1,45.27]}
+{"kind":"textbox","id":"sh/hcvy14ne","slide":2,"name":"TextBox 24","text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[483.36,294.14,34.71,46.14]}
+{"kind":"textbox","id":"sh/gbmxszmt","slide":2,"name":"TextBox 25","text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[763.6,294.14,34.71,46.14]}
+{"kind":"textbox","id":"sh/fadgzu58","slide":2,"name":"TextBox 26","text":"OUTPUT Product classification•","textPreview":"OUTPUT Product classification•","textChars":30,"textLines":1,"bbox":[142.33,576.68,276.02,24.05]}
+{"kind":"textbox","id":"sh/u94fqp4n","slide":2,"name":"TextBox 27","text":"IP strategy • ABS/TK checklist","textPreview":"IP strategy • ABS/TK checklist","textChars":30,"textLines":1,"bbox":[421.97,576.68,256.35,24.05]}
+{"kind":"textbox","id":"sh/p0vy54na","slide":2,"name":"TextBox 28","text":"•market-specific obligations • provision-level citations","textPreview":"•market-specific obligations • provision-level citations","textChars":56,"textLines":1,"bbox":[682.59,576.68,465.11,24.05]}
+{"kind":"textbox","id":"sh/4zmxwzmp","slide":2,"name":"TextBox 11","text":"PROBLEM","textPreview":"PROBLEM","textChars":7,"textLines":1,"bbox":[92.3,215.71,274.47,22.62]}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"SYSTEM WORKFLOW","textShapes":22}
+{"kind":"shape","id":"sh/d0jax03i","slide":3,"name":"Freeform 3","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/298ryl4v","slide":3,"name":"Freeform 4","bbox":[27.5,18.51,163.01,101]}
+{"kind":"shape","id":"sh/3ah8rqlg","slide":3,"name":"Freeform 5","bbox":[56.58,111.17,1168.83,544.83]}
+{"kind":"textbox","id":"sh/obq90bml","slide":3,"name":"TextBox 6","text":"SYSTEM WORKFLOW","textPreview":"SYSTEM WORKFLOW","textChars":15,"textLines":1,"bbox":[358.36,21.66,493.56,62.04]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"name":"TextBox 7","text":"MISSING / HIGH-RISK FACTS","textPreview":"MISSING / HIGH-RISK FACTS","textChars":25,"textLines":1,"bbox":[111.07,603.67,188.36,18.33]}
+{"kind":"shape","id":"sh/m5cra54z","slide":3,"name":"TextBox 8","bbox":[147.3,619.64,3.7,18.37]}
+{"kind":"textbox","id":"sh/n6ls3alk","slide":3,"name":"TextBox 9","text":"Classical or patent-proprietary ","textPreview":"Classical or patent-proprietary","textChars":32,"textLines":1,"bbox":[120.77,460.87,200.06,18.33]}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"name":"TextBox 10","text":"rou te\nLicence • evidence • label","textPreview":"rou te | Licence • evidence • label","textChars":33,"textLines":2,"bbox":[137.03,478.84,163.56,29.4]}
+{"kind":"textbox","id":"sh/m1c3mlsn","slide":3,"name":"TextBox 11","text":"START —USER QUERY","textPreview":"START —USER QUERY","textChars":17,"textLines":1,"bbox":[563.87,125,155.82,18.33]}
+{"kind":"textbox","id":"sh/943mhgre","slide":3,"name":"TextBox 12","text":"SET LANGUAGE + JURISDICTION|","textPreview":"SET LANGUAGE + JURISDICTION|","textChars":28,"textLines":1,"bbox":[493.69,169.67,230.67,18.33]}
+{"kind":"shape","id":"sh/83ulovat","slide":3,"name":"TextBox 13","bbox":[633.12,184.64,3.7,18.37]}
+{"kind":"shape","id":"sh/v6l4jq94","slide":3,"name":"TextBox 14","bbox":[589.18,467.44,3.7,18.37]}
+{"kind":"textbox","id":"sh/a5c3ql8z","slide":3,"name":"TextBox 15","text":"FSSAI / cosmetic compliance","textPreview":"FSSAI / cosmetic compliance","textChars":27,"textLines":1,"bbox":[548.27,483.51,187.63,18.33]}
+{"kind":"shape","id":"sh/x8nml0ra","slide":3,"name":"TextBox 16","bbox":[580.37,227.7,3.7,18.37]}
+{"kind":"textbox","id":"sh/w7ulsvqp","slide":3,"name":"TextBox 17","text":"SOURCE • CLAIMS • NOVELTY","textPreview":"SOURCE • CLAIMS • NOVELTY","textChars":25,"textLines":1,"bbox":[542.93,242.78,198.29,18.33]}
+{"kind":"textbox","id":"sh/ja54na9g","slide":3,"name":"TextBox 18","text":"INDIA OR ","textPreview":"INDIA OR","textChars":9,"textLines":1,"bbox":[727.19,169.67,65.01,18.33]}
+{"kind":"textbox","id":"sh/i9w3u58v","slide":3,"name":"TextBox 19","text":"CITED ACTION PLAN\nClassification • checklist • forms • risks","textPreview":"CITED ACTION PLAN | Classification • checklist • forms • risks","textChars":60,"textLines":2,"bbox":[955.33,603.67,251.95,34.34]}
+{"kind":"textbox","id":"sh/e10f2twf","slide":3,"name":"TextBox 20","text":"Clarify or hand off to facilitator","textPreview":"Clarify or hand off to facilitator","textChars":34,"textLines":1,"bbox":[106.33,619.64,197.75,18.37]}
+{"kind":"textbox","id":"sh/f29gbyx0","slide":3,"name":"TextBox 21","text":"TARGET COUNTRY","textPreview":"TARGET COUNTRY","textChars":14,"textLines":1,"bbox":[578.2,184.64,127.1,18.37]}
+{"kind":"textbox","id":"sh/03ix43e5","slide":3,"name":"TextBox 22","text":"Ayurveda Aahara or cosmetic route","textPreview":"Ayurveda Aahara or cosmetic route","textChars":33,"textLines":1,"bbox":[528.23,467.44,228.58,18.37]}
+{"kind":"textbox","id":"sh/14ryd8fq","slide":3,"name":"TextBox 23","text":"ASK MINIMUMFACTS | TEXT • INGREDIENTS • ","textPreview":"ASK MINIMUMFACTS | TEXT • INGREDIENTS •","textChars":40,"textLines":1,"bbox":[488.47,227.7,313.43,18.37]}
+{"kind":"textbox","id":"sh/6d0fytg3","slide":3,"name":"TextBox 24","text":"CLASSIFY FORMULATION","textPreview":"CLASSIFY FORMULATION","textChars":20,"textLines":1,"bbox":[592,311.85,96.03,30.81]}
+{"kind":"textbox","id":"sh/re9g7yxo","slide":3,"name":"TextBox 25","text":"AYUSH DRUG","textPreview":"AYUSH DRUG","textChars":10,"textLines":1,"bbox":[164.2,403.99,107.48,22.87]}
+{"kind":"textbox","id":"sh/sfix03y9","slide":3,"name":"TextBox 26","text":"FOOD / COSMETIC","textPreview":"FOOD / COSMETIC","textChars":15,"textLines":1,"bbox":[568.27,408.99,147.34,22.87]}
+{"kind":"textbox","id":"sh/tgry9ofu","slide":3,"name":"TextBox 27","text":"IP + ABS/TK + PRIOR-ART + OFFICIAL-","textPreview":"IP + ABS/TK + PRIOR-ART + OFFICIAL-","textChars":35,"textLines":1,"bbox":[491.89,572.62,303.11,22.87]}
+{"kind":"shape","id":"sh/a9kfadwn","slide":3,"name":"TextBox 28","bbox":[654.44,591.59,4.55,22.91]}
+{"kind":"textbox","id":"sh/batgjixs","slide":3,"name":"TextBox 29","text":"SOURCERAG","textPreview":"SOURCERAG","textChars":9,"textLines":1,"bbox":[586.27,591.59,110.9,22.91]}
+{"kind":"textbox","id":"sh/l4fi9cza","slide":3,"name":"TextBox 30","text":"NEW DRUG / PHYTOPHARMA","textPreview":"NEW DRUG / PHYTOPHARMA","textChars":22,"textLines":1,"bbox":[952,403.22,246.44,20.85]}
+{"kind":"textbox","id":"sh/k3m1g7yp","slide":3,"name":"TextBox 31","text":"Non-classical evidence route Safety • efficacy • approvals","textPreview":"Non-classical evidence route Safety • efficacy • approvals","textChars":58,"textLines":1,"bbox":[960.4,463.56,210.63,38.76]}
+{"kind":"textbox","id":"sh/z2d07mh4","slide":3,"name":"TextBox 32","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[68.03,49.75,82.23,33.16]}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"TECHNICAL APPROACH","textShapes":31}
+{"kind":"shape","id":"sh/0ba143al","slide":4,"name":"Freeform 3","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/rm1k7yt4","slide":4,"name":"Freeform 4","bbox":[27.5,18.51,163.01,101]}
+{"kind":"shape","id":"sh/ql8jytsj","slide":4,"name":"Freeform 5","bbox":[46.58,324.58,1182.83,312.83]}
+{"kind":"shape","id":"sh/doj29oba","slide":4,"name":"Freeform 6","bbox":[46.58,164.58,1182.83,106.83]}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"name":"TextBox 7","text":"TECHNICAL APPROACH","textPreview":"TECHNICAL APPROACH","textChars":18,"textLines":1,"bbox":[331.67,23.66,548.03,62.04]}
+{"kind":"textbox","id":"sh/3ihk3et8","slide":4,"name":"TextBox 8","text":"DATA","textPreview":"DATA","textChars":4,"textLines":1,"bbox":[128.13,530.15,42.37,22.87]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"name":"TextBox 9","text":"BACKEND","textPreview":"BACKEND","textChars":7,"textLines":1,"bbox":[109.27,407.99,103.72,20.85]}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"name":"TextBox 10","text":"FRONTEND","textPreview":"FRONTEND","textChars":8,"textLines":1,"bbox":[134.69,187.1,90.25,22.87]}
+{"kind":"shape","id":"sh/5cva1cfq","slide":4,"name":"TextBox 11","bbox":[143.94,204.06,4.55,22.91]}
+{"kind":"shape","id":"sh/i94r6xgz","slide":4,"name":"TextBox 12","bbox":[307.46,459.42,4.55,22.91]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"name":"TextBox 13","text":"Instruct BGE-M3","textPreview":"Instruct BGE-M3","textChars":15,"textLines":1,"bbox":[254.53,478.48,127.67,22.87]}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"name":"TextBox 14","text":"PostgreSQL + pgvector","textPreview":"PostgreSQL + pgvector","textChars":21,"textLines":1,"bbox":[254.53,530.15,181.35,22.87]}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"name":"TextBox 15","text":"BACKEND ","textPreview":"BACKEND","textChars":8,"textLines":1,"bbox":[445.51,186.48,86.33,22.87]}
+{"kind":"textbox","id":"sh/a5kr2xg3","slide":4,"name":"TextBox 16","text":"RAG + AI","textPreview":"RAG + AI","textChars":8,"textLines":1,"bbox":[756.96,186.48,70.8,22.87]}
+{"kind":"shape","id":"sh/v6tsv2xo","slide":4,"name":"TextBox 17","bbox":[799.93,205.45,4.55,22.91]}
+{"kind":"shape","id":"sh/g36tgryd","slide":4,"name":"TextBox 18","bbox":[1113.49,196.06,4.55,22.91]}
+{"kind":"textbox","id":"sh/h4fa9wfy","slide":4,"name":"TextBox 19","text":"PostgreSQL / SQLite","textPreview":"PostgreSQL / SQLite","textChars":19,"textLines":1,"bbox":[1019.11,215.12,160.97,22.87]}
+{"kind":"textbox","id":"sh/p0batw72","slide":4,"name":"TextBox 20","text":"FRONTEND","textPreview":"FRONTEND","textChars":8,"textLines":1,"bbox":[104.67,346.85,90.29,22.91]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"name":"TextBox 21","text":"AI + SEARCH","textPreview":"AI + SEARCH","textChars":11,"textLines":1,"bbox":[98.23,469.02,103.72,22.91]}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"name":"TextBox 22","text":"OPS + SECURITY","textPreview":"OPS + SECURITY","textChars":14,"textLines":1,"bbox":[82.57,591.19,135.22,22.91]}
+{"kind":"textbox","id":"sh/2xkrih8b","slide":4,"name":"TextBox 23","text":"React+JavaScript + ","textPreview":"React+JavaScript +","textChars":19,"textLines":1,"bbox":[101,204.06,163.43,22.91]}
+{"kind":"textbox","id":"sh/1wbapc7q","slide":4,"name":"TextBox 24","text":"Tailwind","textPreview":"Tailwind","textChars":8,"textLines":1,"bbox":[147.53,221.09,89.84,20.85]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"name":"TextBox 25","text":"FastAPI+ Pydantic LangGraph","textPreview":"FastAPI+ Pydantic LangGraph","textChars":27,"textLines":1,"bbox":[254.53,400.32,147.63,39.95]}
+{"kind":"textbox","id":"sh/fu9sn2p0","slide":4,"name":"TextBox 26","text":"Qwen38B","textPreview":"Qwen38B","textChars":7,"textLines":1,"bbox":[254.53,459.42,79.02,22.91]}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"name":"TextBox 27","text":"React + JS + Tailwind CSS","textPreview":"React + JS + Tailwind CSS","textChars":25,"textLines":1,"bbox":[254.53,346.85,203.43,22.91]}
+{"kind":"textbox","id":"sh/tsrqlc7u","slide":4,"name":"TextBox 28","text":"FastAPI + Pydantic\nProduct Passport validation","textPreview":"FastAPI + Pydantic | Product Passport validation","textChars":46,"textLines":2,"bbox":[378.97,207.45,216.72,39.95]}
+{"kind":"textbox","id":"sh/sri9s7q9","slide":4,"name":"TextBox 29","text":"LangGraph+ Qwen3-8B","textPreview":"LangGraph+ Qwen3-8B","textChars":19,"textLines":1,"bbox":[700.53,205.45,186.02,22.91]}
+{"kind":"textbox","id":"sh/ilwf69kv","slide":4,"name":"TextBox 30","text":"BGE-M3 embeddings","textPreview":"BGE-M3 embeddings","textChars":17,"textLines":1,"bbox":[711.04,224.49,164.37,22.91]}
+{"kind":"textbox","id":"sh/jm5gze1g","slide":4,"name":"TextBox 31","text":"Database + AUDIT","textPreview":"Database + AUDIT","textChars":16,"textLines":1,"bbox":[1029.09,196.06,140.01,22.91]}
+{"kind":"textbox","id":"sh/knex8j21","slide":4,"name":"TextBox 32","text":"TECH STACK:","textPreview":"TECH STACK:","textChars":11,"textLines":1,"bbox":[59.03,285.47,128.09,26.45]}
+{"kind":"textbox","id":"sh/5ony1oj6","slide":4,"name":"TextBox 33","text":"actions","textPreview":"actions","textChars":7,"textLines":1,"bbox":[574.8,600.19,50.94,22.91]}
+{"kind":"shape","id":"sh/axcf29kj","slide":4,"name":"TextBox 34","bbox":[665.76,459.06,4.54,22.87]}
+{"kind":"textbox","id":"sh/vy5gbe14","slide":4,"name":"TextBox 35","text":"legal text","textPreview":"legal text","textChars":10,"textLines":1,"bbox":[574.8,478.02,125.73,20.85]}
+{"kind":"textbox","id":"sh/wzex4z2p","slide":4,"name":"TextBox 36","text":"Versioned metadata and vector search; law–ingredient relationships; source-document storage","textPreview":"Versioned metadata and vector search; law–ingredient relationships; source-document storage","textChars":91,"textLines":1,"bbox":[574.8,522.09,615.52,39.95]}
+{"kind":"textbox","id":"sh/xknyx4ja","slide":4,"name":"TextBox 37","text":"Typed APIs and validated facts; deterministic orchestration across classify → retrieve → verify","textPreview":"Typed APIs and validated facts; deterministic orchestration across classify → retrieve → verify","textChars":95,"textLines":1,"bbox":[574.8,399.93,623.94,39.94]}
+{"kind":"textbox","id":"sh/mtcfypkn","slide":4,"name":"TextBox 38","text":"Responsive multilingual PWA; Indian-language translation, speech input and audio output","textPreview":"Responsive multilingual PWA; Indian-language translation, speech input and audio output","textChars":87,"textLines":1,"bbox":[574.8,336,630.44,22.91]}
+{"kind":"textbox","id":"sh/nulw7u18","slide":4,"name":"TextBox 39","text":"Caching and background jobs; reproducible deployment; controlled access and auditable ","textPreview":"Caching and background jobs; reproducible deployment; controlled access and auditable","textChars":86,"textLines":1,"bbox":[574.8,581.22,629.33,22.87]}
+{"kind":"textbox","id":"sh/fm5c3q54","slide":4,"name":"TextBox 40","text":"Self-hostableanswersynthesis;multilingualembeddingsforIndian-languageandEnglish ","textPreview":"Self-hostableanswersynthesis;multilingualembeddingsforIndian-languageandEnglish","textChars":80,"textLines":1,"bbox":[574.8,459.06,632.76,22.87]}
+{"kind":"textbox","id":"sh/elwba54j","slide":4,"name":"TextBox 41","text":"DOCKER +JWT / RBAC\n","textPreview":"DOCKER +JWT / RBAC |","textChars":19,"textLines":2,"bbox":[258.2,593.61,165.8,35.98]}
+{"kind":"textbox","id":"sh/18nu50nu","slide":4,"name":"TextBox 42","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[68.03,49.75,82.23,33.16]}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"KEY FEATURES AND INNOVATION","textShapes":17}
+{"kind":"shape","id":"sh/dgbulwnm","slide":5,"name":"Freeform 2","bbox":[27.5,18.51,147.01,101]}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"name":"Freeform 4","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/yhkbe1o7","slide":5,"name":"Freeform 5","bbox":[46.58,380.58,590.83,106.83]}
+{"kind":"shape","id":"sh/l4bupwny","slide":5,"name":"Freeform 6","bbox":[46.58,496.58,590.83,106.83]}
+{"kind":"shape","id":"sh/032tgr6d","slide":5,"name":"Freeform 7","bbox":[642.58,380.58,590.83,106.83]}
+{"kind":"shape","id":"sh/n6dcr65o","slide":5,"name":"Freeform 8","bbox":[642.58,496.58,590.83,106.83]}
+{"kind":"shape","id":"sh/m5kbi1oj","slide":5,"name":"Freeform 9","bbox":[46.58,204.58,1190.83,108.83]}
+{"kind":"shape","id":"sh/x4vedgvm","slide":5,"name":"Freeform 11","bbox":[1027,0,236,112]}
+{"kind":"shape","id":"sh/ahkvi1cb","slide":5,"name":"Freeform 12","bbox":[27.23,18.23,163.27,101.27]}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"name":"TextBox 13","text":"KEY FEATURES AND INNOVATION","textPreview":"KEY FEATURES AND INNOVATION","textChars":27,"textLines":1,"bbox":[223.07,23.66,769,62.04]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"name":"TextBox 14","text":"Naut IQ ","textPreview":"Naut IQ","textChars":8,"textLines":1,"bbox":[80.3,44.16,45.39,47.85]}
+{"kind":"textbox","id":"sh/58vehgvy","slide":5,"name":"TextBox 15","text":"1  ASK\nText or voice query\nEnglish / Hindi","textPreview":"1  ASK | Text or voice query | English / Hindi","textChars":42,"textLines":3,"bbox":[24,234.68,252.66,53.32]}
+{"kind":"shape","id":"sh/i54fmlc7","slide":5,"name":"TextBox 16","bbox":[118.7,246.46,4.54,22.87]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"name":"TextBox 17","text":"2 BUILD PASSPORT Ingredients • source claims • novelty","textPreview":"2 BUILD PASSPORT Ingredients • source claims • novelty","textChars":54,"textLines":1,"bbox":[323.17,230.4,157.77,56.94]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"name":"TextBox 18","text":"3 SWITCH REGIME","textPreview":"3 SWITCH REGIME","textChars":15,"textLines":1,"bbox":[570.43,227.4,147.46,22.91]}
+{"kind":"shape","id":"sh/tcfel0vu","slide":5,"name":"TextBox 19","bbox":[589.84,246.46,4.54,22.87]}
+{"kind":"textbox","id":"sh/hgrmpwj2","slide":5,"name":"TextBox 20","text":"kept separate","textPreview":"kept separate","textChars":13,"textLines":1,"bbox":[592.31,264.42,123.27,20.85]}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"name":"TextBox 21","text":"4 VERIFY EVIDENCE Primary law first claim-to-citation gate","textPreview":"4 VERIFY EVIDENCE Primary law first claim-to-citation gate","textChars":58,"textLines":1,"bbox":[792,230.4,169.89,56.94]}
+{"kind":"textbox","id":"sh/fe94nm1w","slide":5,"name":"TextBox 22","text":"5 EXPORT CASE FILE","textPreview":"5 EXPORT CASE FILE","textChars":18,"textLines":1,"bbox":[1043.63,227.4,169.89,22.91]}
+{"kind":"shape","id":"sh/ud0ne10b","slide":5,"name":"TextBox 23","bbox":[1107.25,246.46,4.54,22.87]}
+{"kind":"textbox","id":"sh/pkr6tgjy","slide":5,"name":"TextBox 24","text":"expert handoff","textPreview":"expert handoff","textChars":14,"textLines":1,"bbox":[1072.84,264.42,140.65,20.85]}
+{"kind":"textbox","id":"sh/4ji5kbid","slide":5,"name":"TextBox 25","text":"India and target country","textPreview":"India and target country","textChars":24,"textLines":1,"bbox":[537.77,246.46,214.23,20.85]}
+{"kind":"textbox","id":"sh/3i94r61s","slide":5,"name":"TextBox 26","text":"Checklist • forms • risks","textPreview":"Checklist • forms • risks","textChars":25,"textLines":1,"bbox":[1038.31,246.46,185.69,20.85]}
+{"kind":"textbox","id":"sh/2h0ni107","slide":5,"name":"TextBox 27","text":"CORE INNOVATIONS:","textPreview":"CORE INNOVATIONS:","textChars":17,"textLines":1,"bbox":[59.03,335.9,210.16,28.62]}
+{"kind":"textbox","id":"sh/5o7mhcju","slide":5,"name":"TextBox 28","text":"PRODUCT-FIRST CLASSIFICATION\nThe system asks what the formulation is before discussing patentability or licences.","textPreview":"PRODUCT-FIRST CLASSIFICATION | The system asks what the formulation is before discussing patentability or licences.","textChars":113,"textLines":2,"bbox":[70.4,401.11,537.44,68.5]}
+{"kind":"textbox","id":"sh/kny587i9","slide":5,"name":"TextBox 29","text":"CLAIM-TO-CITATION GATE\nAn unsupported legal proposition is blocked; the assistant asks for facts or abstains.","textPreview":"CLAIM-TO-CITATION GATE | An unsupported legal proposition is blocked; the assistant asks for facts or abstains.","textChars":109,"textLines":2,"bbox":[70.4,517.27,534.41,68.51]}
+{"kind":"textbox","id":"sh/atcjidg7","slide":5,"name":"TextBox 30","text":"JURISDICTION FIREWALL\nIndia and international regimes are generated and displayed as separate answer sets.","textPreview":"JURISDICTION FIREWALL | India and international regimes are generated and displayed as separate answer sets.","textChars":106,"textLines":2,"bbox":[666.87,401.11,546.62,68.5]}
+{"kind":"textbox","id":"sh/vu5kbihc","slide":5,"name":"TextBox 31","text":"ACTIONABLE OUTPUT\nThe answer becomes a reusable case file with classifications, obligations, forms, sources and escalation.","textPreview":"ACTIONABLE OUTPUT | The answer becomes a reusable case file with classifications, obligations, forms, sources and escalation.","textChars":123,"textLines":2,"bbox":[666.87,517.27,546.62,68.51]}
+{"kind":"textbox","id":"sh/wve1knyx","slide":5,"name":"TextBox 32","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[68.03,49.75,82.23,33.16]}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"EXPECTED OUTCOMES","textShapes":29}
+{"kind":"shape","id":"sh/yhg7epsj","slide":6,"name":"Freeform 2","bbox":[24.33,16.33,167.33,105.33]}
+{"kind":"shape","id":"sh/zi98nu94","slide":6,"name":"Freeform 3","bbox":[39.42,594,622.58,101.58]}
+{"kind":"shape","id":"sh/87ipkzal","slide":6,"name":"Freeform 4","bbox":[94.21,478.21,520.58,111.58]}
+{"kind":"shape","id":"sh/98rqt4r6","slide":6,"name":"Freeform 5","bbox":[95.21,134.21,519.58,110.58]}
+{"kind":"shape","id":"sh/ml07i9sv","slide":6,"name":"Freeform 6","bbox":[95.21,249.21,519.58,111.58]}
+{"kind":"shape","id":"sh/7m98ru9g","slide":6,"name":"Freeform 7","bbox":[95.21,365.21,519.58,110.58]}
+{"kind":"shape","id":"sh/pc76hkr2","slide":6,"name":"Freeform 9","bbox":[200,-2,1063,110]}
+{"kind":"shape","id":"sh/h4bupgn6","slide":6,"name":"Freeform 10","bbox":[668,601,67,72]}
+{"kind":"shape","id":"sh/v2tcn650","slide":6,"name":"Freeform 12","bbox":[720,129,12,579]}
+{"kind":"shape","id":"sh/5svutgni","slide":6,"name":"Freeform 14","bbox":[661,137,256,95]}
+{"kind":"shape","id":"sh/j6dcr65c","slide":6,"name":"Freeform 16","bbox":[671,140,62,64]}
+{"kind":"shape","id":"sh/twfux0ne","slide":6,"name":"Freeform 18","bbox":[768,213,25,43]}
+{"kind":"shape","id":"sh/cbe5g3ih","slide":6,"name":"Freeform 20","bbox":[660,245,255,95]}
+{"kind":"shape","id":"sh/qpwnet0b","slide":6,"name":"Freeform 22","bbox":[671,255,49,64]}
+{"kind":"shape","id":"sh/0fy5k3id","slide":6,"name":"Freeform 24","bbox":[768,329,25,42]}
+{"kind":"shape","id":"sh/ydgnit07","slide":6,"name":"Freeform 26","bbox":[663,365,255,96]}
+{"kind":"shape","id":"sh/gju58ji9","slide":6,"name":"Freeform 28","bbox":[671,381,49,54]}
+{"kind":"shape","id":"sh/jet8nm1c","slide":6,"name":"Freeform 30","bbox":[768,445,25,42]}
+{"kind":"shape","id":"sh/50bqpcj2","slide":6,"name":"Freeform 32","bbox":[661,480,256,95]}
+{"kind":"shape","id":"sh/va98j210","slide":6,"name":"Freeform 34","bbox":[671,497,49,53]}
+{"kind":"shape","id":"sh/hcrqlcj6","slide":6,"name":"Freeform 36","bbox":[768,560,25,43]}
+{"kind":"shape","id":"sh/7698f214","slide":6,"name":"Freeform 38","bbox":[663,602,255,85]}
+{"kind":"shape","id":"sh/2dkbalg3","slide":6,"name":"Freeform 40","bbox":[671,613,49,53]}
+{"kind":"shape","id":"sh/of2tcvy9","slide":6,"name":"Freeform 42","bbox":[947,162,327,495]}
+{"kind":"shape","id":"sh/pgbul0fu","slide":6,"name":"Freeform 43","bbox":[965.85,174.39,56.72,6.34]}
+{"kind":"textbox","id":"sh/ep0b6lg7","slide":6,"name":"TextBox 44","text":"EXPECTED OUTCOMES","textPreview":"EXPECTED OUTCOMES","textChars":17,"textLines":1,"bbox":[1035.94,168.26,152.71,18.7]}
+{"kind":"shape","id":"sh/fq9cfqxc","slide":6,"name":"Freeform 45","bbox":[1198.43,174.39,56.72,6.34]}
+{"kind":"shape","id":"sh/0r2t8vyx","slide":6,"name":"Freeform 46","bbox":[959.52,192.93,56.72,61.95]}
+{"kind":"textbox","id":"sh/1sbuh0fi","slide":6,"name":"TextBox 47","text":"Higher accuracy and citation correctness for legal answers","textPreview":"Higher accuracy and citation correctness for legal answers","textChars":58,"textLines":1,"bbox":[1032.35,205.64,230.21,37.48]}
+{"kind":"shape","id":"sh/ql0b21gv","slide":6,"name":"Freeform 48","bbox":[953.18,254.71,308.31,12.52]}
+{"kind":"shape","id":"sh/rm9sb6xg","slide":6,"name":"Freeform 49","bbox":[959.52,267.07,56.72,55.93]}
+{"kind":"textbox","id":"sh/9gfeh4zy","slide":6,"name":"TextBox 50","text":"Faster expert-assisted research and routing","textPreview":"Faster expert-assisted research and routing","textChars":43,"textLines":1,"bbox":[1032.35,276.91,177.23,37.48]}
+{"kind":"shape","id":"sh/8f6x8jid","slide":6,"name":"Freeform 51","bbox":[953.18,329.02,308.31,6.34]}
+{"kind":"shape","id":"sh/7exwfehs","slide":6,"name":"Freeform 52","bbox":[959.52,335.2,56.72,61.95]}
+{"kind":"textbox","id":"sh/mdof6907","slide":6,"name":"TextBox 53","text":"Reliable, compliant and secure decision support","textPreview":"Reliable, compliant and secure decision support","textChars":47,"textLines":1,"bbox":[1032.35,348.18,177.23,37.48]}
+{"kind":"shape","id":"sh/lcfed4z2","slide":6,"name":"Freeform 54","bbox":[953.18,396.98,308.31,6.34]}
+{"kind":"shape","id":"sh/kb6d4zih","slide":6,"name":"Freeform 55","bbox":[959.52,403.16,56.72,62.1]}
+{"kind":"textbox","id":"sh/zaxwbuhw","slide":6,"name":"TextBox 56","text":"Ready for collaboration and global market insights","textPreview":"Ready for collaboration and global market insights","textChars":50,"textLines":1,"bbox":[1032.35,417.97,158.92,37.48]}
+{"kind":"shape","id":"sh/y94v2p0b","slide":6,"name":"Freeform 57","bbox":[947,471.29,327,6.34]}
+{"kind":"shape","id":"sh/x8ve9kzq","slide":6,"name":"Freeform 58","bbox":[947,483.65,327,160.97]}
+{"kind":"shape","id":"sh/c7md0zi5","slide":6,"name":"Freeform 59","bbox":[959.52,502.18,63.06,6.34]}
+{"kind":"textbox","id":"sh/o3a5cjud","slide":6,"name":"TextBox 60","text":"KEY ASSUMPTIONS","textPreview":"KEY ASSUMPTIONS","textChars":15,"textLines":1,"bbox":[1031.37,496.34,128.51,18.83]}
+{"kind":"shape","id":"sh/p4j6loby","slide":6,"name":"Freeform 61","bbox":[1173.24,502.18,88.25,6.34]}
+{"kind":"shape","id":"sh/21snatc7","slide":6,"name":"Freeform 62","bbox":[953.18,520.72,25.35,25.03]}
+{"kind":"textbox","id":"sh/n21ojets","slide":6,"name":"TextBox 63","text":"Availability of updated laws and official sources","textPreview":"Availability of updated laws and official sources","textChars":49,"textLines":1,"bbox":[984.93,526.94,240.34,15.04]}
+{"kind":"shape","id":"sh/0zq58ju1","slide":6,"name":"Freeform 64","bbox":[953.18,551.77,25.35,24.87]}
+{"kind":"textbox","id":"sh/10z6hobm","slide":6,"name":"TextBox 65","text":"Cooperation from domain experts for validation","textPreview":"Cooperation from domain experts for validation","textChars":46,"textLines":1,"bbox":[984.93,554.16,241.33,15.04]}
+{"kind":"shape","id":"sh/ed8n69cb","slide":6,"name":"Freeform 66","bbox":[953.18,576.49,25.35,24.87]}
+{"kind":"textbox","id":"sh/fyhofetw","slide":6,"name":"TextBox 67","text":"Access to required APIs and datasets","textPreview":"Access to required APIs and datasets","textChars":36,"textLines":1,"bbox":[984.93,581.38,189.99,15.04]}
+{"kind":"shape","id":"sh/kvu5k3ul","slide":6,"name":"Freeform 68","bbox":[953.18,601.2,25.35,24.87]}
+{"kind":"textbox","id":"sh/lw36d8b6","slide":6,"name":"TextBox 69","text":"User feedback loop for continuous improvement","textPreview":"User feedback loop for continuous improvement","textChars":45,"textLines":1,"bbox":[984.93,608.67,244.6,14.9]}
+{"kind":"textbox","id":"sh/vq58j2d8","slide":6,"name":"TextBox 70","text":"FEASIBILITY AND VIABILITY","textPreview":"FEASIBILITY AND VIABILITY","textChars":25,"textLines":1,"bbox":[275.71,13.29,661.94,62.04]}
+{"kind":"shape","id":"sh/hs7qlcve","slide":6,"name":"TextBox 72","bbox":[141.9,178.06,4.25,20.69]}
+{"kind":"textbox","id":"sh/3up8nmd4","slide":6,"name":"TextBox 74","text":"3 RULES BEFORE GENERATION","textPreview":"3 RULES BEFORE GENERATION","textChars":25,"textLines":1,"bbox":[106.9,390.3,245.51,20.73]}
+{"kind":"shape","id":"sh/itgrehwz","slide":6,"name":"TextBox 75","bbox":[204.83,409.35,4.25,20.69]}
+{"kind":"textbox","id":"sh/5w7qpwva","slide":6,"name":"TextBox 76","text":"2 LIMITED FIRST SCOPE\nIndia guidance, English/Hindi and priority formulation routes before exportexpansion","textPreview":"2 LIMITED FIRST SCOPE | India guidance, English/Hindi and priority formulation routes before exportexpansion","textChars":106,"textLines":2,"bbox":[106.9,275.16,496.76,56.79]}
+{"kind":"textbox","id":"sh/4vy9grep","slide":6,"name":"TextBox 77","text":"4 MODULAR DELIVERY\nEach source connector, language and country module can be added independently","textPreview":"4 MODULAR DELIVERY | Each source connector, language and country module can be added independently","textChars":96,"textLines":2,"bbox":[105.9,505.7,501.91,55.79]}
+{"kind":"textbox","id":"sh/zyl8bid0","slide":6,"name":"TextBox 78","text":"RISKS AND CONTROLS Stale law → version checks | unsupported answer → citation gate | incomplete facts → clarify / human review | sensitive formula → consent+ encryption","textPreview":"RISKS AND CONTROLS Stale law → version checks | unsupported answer → citation gate | incomplete facts → clarify / human review | sensitiv...","textChars":168,"textLines":1,"bbox":[61.3,616.19,594.44,56.79]}
+{"kind":"textbox","id":"sh/yxc72dwf","slide":6,"name":"TextBox 79","text":"Classification and jurisdiction routing are deterministic; RAG explains the result","textPreview":"Classification and jurisdiction routing are deterministic; RAG explains the result","textChars":82,"textLines":1,"bbox":[106.9,411.35,449.73,36.73]}
+{"kind":"textbox","id":"sh/m9szm1kf","slide":6,"name":"TextBox 80","text":"1  AUTHORITATIVE INPUTS\nIndia Code, IP India, NBA, FSSAI, AYUSH, WIPO and public registry links","textPreview":"1  AUTHORITATIVE INPUTS | India Code, IP India, NBA, FSSAI, AYUSH, WIPO and public registry links","textChars":95,"textLines":2,"bbox":[107.78,159.21,495.63,55.21]}
+{"kind":"textbox","id":"sh/na1gf610","slide":6,"name":"TextBox 81","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[67.93,48.79,82.7,33.16]}
+{"kind":"textbox","id":"sh/8bahobil","slide":6,"name":"TextBox 82","text":"Core setup with essential jurisdictions, routes and official sources","textPreview":"Core setup with essential jurisdictions, routes and official sources","textChars":68,"textLines":1,"bbox":[754.17,168.52,125.06,41.15]}
+{"kind":"textbox","id":"sh/9cjyhgj6","slide":6,"name":"TextBox 83","text":"Validate with all formulation classes, ABS helper and source-update console","textPreview":"Validate with all formulation classes, ABS helper and source-update console","textChars":75,"textLines":1,"bbox":[754.17,289.44,139.34,32.16]}
+{"kind":"textbox","id":"sh/adszq10r","slide":6,"name":"TextBox 84","text":"PILOT","textPreview":"PILOT","textChars":5,"textLines":1,"bbox":[754.17,259.62,39.46,19.74]}
+{"kind":"textbox","id":"sh/ve1gj61w","slide":6,"name":"TextBox 85","text":"EVALUAT E\nExpert-reviewed benchmark set and continuous feedback loop","textPreview":"EVALUAT E | Expert-reviewed benchmark set and continuous feedback loop","textChars":68,"textLines":2,"bbox":[754.17,380.35,141.45,61.27]}
+{"kind":"textbox","id":"sh/wfahsbih","slide":6,"name":"TextBox 86","text":"SCALE & SECURE","textPreview":"SCALE & SECURE","textChars":14,"textLines":1,"bbox":[752.89,613.31,113.01,19.74]}
+{"kind":"shape","id":"sh/xg3ylgj2","slide":6,"name":"TextBox 87","bbox":[799.82,635.78,3.04,16.32]}
+{"kind":"textbox","id":"sh/qh8fehk7","slide":6,"name":"TextBox 88","text":"Add voice, export regimes,knowledge graph and dashboard","textPreview":"Add voice, export regimes,knowledge graph and dashboard","textChars":55,"textLines":1,"bbox":[754.17,517.49,116.9,43.41]}
+{"kind":"shape","id":"sh/rihg7m1s","slide":6,"name":"TextBox 89","bbox":[811.82,650.81,3.04,16.32]}
+{"kind":"textbox","id":"sh/tcn2dk3a","slide":6,"name":"TextBox 90","text":"security & compliance","textPreview":"security & compliance","textChars":21,"textLines":1,"bbox":[752.89,660.75,148.07,16.16]}
+{"kind":"textbox","id":"sh/sbe1kf2p","slide":6,"name":"TextBox 91","text":"Integrate paid-source","textPreview":"Integrate paid-source","textChars":21,"textLines":1,"bbox":[752.89,635.78,126.34,16.16]}
+{"kind":"textbox","id":"sh/7a50bal4","slide":6,"name":"TextBox 92","text":"connectors and ensure","textPreview":"connectors and ensure","textChars":21,"textLines":1,"bbox":[752,647.62,140.62,16.16]}
+{"kind":"textbox","id":"sh/69wji54z","slide":6,"name":"TextBox 93","text":"EXPAND","textPreview":"EXPAND","textChars":6,"textLines":1,"bbox":[754.17,493.77,55.14,19.7]}
+{"kind":"textbox","id":"sh/h072hk3m","slide":6,"name":"TextBox 94","text":"PROTOTYPE","textPreview":"PROTOTYPE","textChars":9,"textLines":1,"bbox":[754.17,147.49,81.45,19.7]}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"06","textShapes":35}
+{"kind":"shape","id":"sh/dcbud0ra","slide":7,"name":"Freeform 3","bbox":[1027,0,236,110]}
+{"kind":"shape","id":"sh/ydkbm5sv","slide":7,"name":"Freeform 4","bbox":[27.5,18.51,163.01,101]}
+{"kind":"shape","id":"sh/l0vuh0rm","slide":7,"name":"Freeform 7","bbox":[834.04,362.82,222.64,27.17]}
+{"kind":"shape","id":"sh/eh0ba1sr","slide":7,"name":"Freeform 8","bbox":[1056.48,335.98,180.8,135.21]}
+{"kind":"shape","id":"sh/fi9c369c","slide":7,"name":"Freeform 9","bbox":[1056.67,359.41,41.84,40.59]}
+{"kind":"textbox","id":"sh/baxkjqlk","slide":7,"name":"TextBox 10","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1073.07,337.71,20.61,23]}
+{"kind":"textbox","id":"sh/a9ojq5kz","slide":7,"name":"TextBox 11","text":"Informed decision and reduced legal risks","textPreview":"Informed decision and reduced legal risks","textChars":41,"textLines":1,"bbox":[1084.46,401.68,125.21,38.32]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"name":"TextBox 12","text":"Outcome","textPreview":"Outcome","textChars":7,"textLines":1,"bbox":[1115.38,359.61,81.5,18.58]}
+{"kind":"shape","id":"sh/cbq1sv25","slide":7,"name":"Freeform 13","bbox":[41.84,119.89,472.76,13.43]}
+{"kind":"textbox","id":"sh/n6x0fqlo","slide":7,"name":"TextBox 14","text":"PRIMARY BENEFICIARIES","textPreview":"PRIMARY BENEFICIARIES","textChars":21,"textLines":1,"bbox":[528.34,115.95,213.58,25.74]}
+{"kind":"shape","id":"sh/25ojml43","slide":7,"name":"Freeform 15","bbox":[750.66,119.89,486.81,13.43]}
+{"kind":"shape","id":"sh/p8fih03e","slide":7,"name":"Freeform 16","bbox":[41.84,514.57,417.17,13.43]}
+{"kind":"textbox","id":"sh/o761ov2t","slide":7,"name":"TextBox 17","text":"PROPOSED PILOT SUCCESS MEASURES","textPreview":"PROPOSED PILOT SUCCESS MEASURES","textChars":31,"textLines":1,"bbox":[474.63,505.11,314.44,22.89]}
+{"kind":"shape","id":"sh/f2d0b6lc","slide":7,"name":"Freeform 18","bbox":[792.21,514.57,444.96,13.43]}
+{"kind":"shape","id":"sh/eh4jil4r","slide":7,"name":"Freeform 19","bbox":[41.84,544,277.91,108.35]}
+{"kind":"shape","id":"sh/id4ju1oz","slide":7,"name":"Freeform 20","bbox":[69.32,558.5,69.63,81.19]}
+{"kind":"shape","id":"sh/jedkn654","slide":7,"name":"Freeform 21","bbox":[83.37,572.24,41.84,54.02]}
+{"kind":"textbox","id":"sh/4fm1wb6p","slide":7,"name":"TextBox 22","text":"≥ 90%","textPreview":"≥ 90%","textChars":5,"textLines":1,"bbox":[150.82,563.17,69.01,32.51]}
+{"kind":"textbox","id":"sh/50v2pgna","slide":7,"name":"TextBox 23","text":"satisfaction with\nexpert-reviewed cases","textPreview":"satisfaction with | expert-reviewed cases","textChars":39,"textLines":2,"bbox":[140.54,597.26,125.21,34.17]}
+{"kind":"shape","id":"sh/q143ylov","slide":7,"name":"Freeform 24","bbox":[319.75,572.24,14.05,67.76]}
+{"kind":"shape","id":"sh/r2dkrq5g","slide":7,"name":"Freeform 25","bbox":[333.49,544,292.27,108.35]}
+{"kind":"shape","id":"sh/s3ml0v61","slide":7,"name":"Freeform 26","bbox":[361.59,558.5,83.68,81.19]}
+{"kind":"shape","id":"sh/d4f2t0nm","slide":7,"name":"Freeform 27","bbox":[375.33,572.24,55.89,54.02]}
+{"kind":"textbox","id":"sh/e5o32lor","slide":7,"name":"TextBox 28","text":"≥ 95%","textPreview":"≥ 95%","textChars":5,"textLines":1,"bbox":[468.07,564.17,66.51,31.51]}
+{"kind":"textbox","id":"sh/f6xkvq5c","slide":7,"name":"TextBox 29","text":"citations correctness\nfor legal claims","textPreview":"citations correctness | for legal claims","textChars":38,"textLines":2,"bbox":[457.77,599.98,113.97,32.46]}
+{"kind":"shape","id":"sh/p0zmlk7u","slide":7,"name":"Freeform 30","bbox":[625.45,572.24,14.05,67.76]}
+{"kind":"shape","id":"sh/ozq5szq9","slide":7,"name":"Freeform 31","bbox":[639.5,544,277.91,108.35]}
+{"kind":"shape","id":"sh/nyh4jupo","slide":7,"name":"Freeform 32","bbox":[653.24,572.24,83.68,67.76]}
+{"kind":"shape","id":"sh/2x8nqp83","slide":7,"name":"Freeform 33","bbox":[667.29,572.24,55.89,54.02]}
+{"kind":"textbox","id":"sh/x4j6p47q","slide":7,"name":"TextBox 34","text":"India / international\njurisdiction rejection","textPreview":"India / international | jurisdiction rejection","textChars":44,"textLines":2,"bbox":[744.42,599.96,108.66,32.49]}
+{"kind":"shape","id":"sh/c3a5wzq5","slide":7,"name":"Freeform 35","bbox":[917.41,572.24,14.05,67.76]}
+{"kind":"shape","id":"sh/b2h4nupk","slide":7,"name":"Freeform 36","bbox":[945.2,544,291.96,108.35]}
+{"kind":"shape","id":"sh/a18nup8z","slide":7,"name":"Freeform 37","bbox":[959.25,572.24,69.63,67.76]}
+{"kind":"shape","id":"sh/lsj6t47m","slide":7,"name":"Freeform 38","bbox":[972.99,572.24,41.84,54.02]}
+{"kind":"textbox","id":"sh/kra50jqh","slide":7,"name":"TextBox 39","text":"100%","textPreview":"100%","textChars":4,"textLines":1,"bbox":[1053.86,564.39,54.96,30.06]}
+{"kind":"textbox","id":"sh/wneps3ap","slide":7,"name":"TextBox 40","text":"high-risk & moderate cases\nshow escalation path","textPreview":"high-risk & moderate cases | show escalation path","textChars":47,"textLines":2,"bbox":[1044.81,598.46,152.07,34.49]}
+{"kind":"shape","id":"sh/honq18ru","slide":7,"name":"Freeform 41","bbox":[834.04,362.82,41.84,27.17]}
+{"kind":"shape","id":"sh/ulc7qdsj","slide":7,"name":"Freeform 42","bbox":[861.83,336.79,180.8,135.21]}
+{"kind":"shape","id":"sh/vm58zi94","slide":7,"name":"Freeform 43","bbox":[875.57,351.41,41.84,40.59]}
+{"kind":"textbox","id":"sh/8jupo3ad","slide":7,"name":"TextBox 44","text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[775.02,563.17,14.05,32.51]}
+{"kind":"textbox","id":"sh/9k3qx8ry","slide":7,"name":"TextBox 45","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[883.66,357,17.8,19]}
+{"kind":"shape","id":"sh/7yl8vy9s","slide":7,"name":"Freeform 47","bbox":[42.07,146.84,291.85,135.16]}
+{"kind":"shape","id":"sh/sfy907ah","slide":7,"name":"Freeform 48","bbox":[55.8,160.27,83.65,81.16]}
+{"kind":"shape","id":"sh/tg7q9sr2","slide":7,"name":"Freeform 49","bbox":[69.53,174,55.87,40.58]}
+{"kind":"textbox","id":"sh/na9sz6tk","slide":7,"name":"TextBox 50","text":"Ayush Practitioners","textPreview":"Ayush Practitioners","textChars":19,"textLines":1,"bbox":[152.25,163.76,156.69,18.67]}
+{"kind":"textbox","id":"sh/pcra1wba","slide":7,"name":"TextBox 52","text":"Access to verified IP and global markets","textPreview":"Access to verified IP and global markets","textChars":40,"textLines":1,"bbox":[152.25,207.44,117.68,38.99]}
+{"kind":"shape","id":"sh/obitsrup","slide":7,"name":"Freeform 53","bbox":[333.6,146.84,305.9,135.16]}
+{"kind":"shape","id":"sh/betc36tg","slide":7,"name":"Freeform 54","bbox":[347.65,160.27,83.65,81.16]}
+{"kind":"shape","id":"sh/adkbu1cv","slide":7,"name":"Freeform 55","bbox":[361.7,174,55.56,54.31]}
+{"kind":"textbox","id":"sh/xgbu5gbm","slide":7,"name":"TextBox 56","text":"Startups & MSMEs","textPreview":"Startups & MSMEs","textChars":16,"textLines":1,"bbox":[445.04,164.92,125.17,18.97]}
+{"kind":"shape","id":"sh/cf2twbu1","slide":7,"name":"Freeform 57","bbox":[445.04,187.42,41.83,13.42]}
+{"kind":"textbox","id":"sh/ripsrmtc","slide":7,"name":"TextBox 58","text":"Easier compliance and faster market entry","textPreview":"Easier compliance and faster market entry","textChars":41,"textLines":1,"bbox":[445.04,207.44,131.72,38.99]}
+{"kind":"shape","id":"sh/6hgbihcr","slide":7,"name":"Freeform 59","bbox":[639.5,146.84,291.85,135.16]}
+{"kind":"shape","id":"sh/uponm90b","slide":7,"name":"Freeform 60","bbox":[653.23,160.27,69.92,81.16]}
+{"kind":"shape","id":"sh/vah4fehw","slide":7,"name":"Freeform 61","bbox":[653.23,174,55.87,40.58]}
+{"kind":"textbox","id":"sh/gbq5ojih","slide":7,"name":"TextBox 62","text":"Researchers & Cultivators","textPreview":"Researchers & Cultivators","textChars":25,"textLines":1,"bbox":[737.82,165.5,168.87,17.81]}
+{"kind":"shape","id":"sh/hczmhoz2","slide":7,"name":"Freeform 63","bbox":[736.58,187.42,41.83,13.42]}
+{"kind":"textbox","id":"sh/6loni90f","slide":7,"name":"TextBox 64","text":"Better visibility and collaboration opportunities","textPreview":"Better visibility and collaboration opportunities","textChars":49,"textLines":1,"bbox":[737.82,207.44,159.82,38.99]}
+{"kind":"shape","id":"sh/7mx4buh0","slide":7,"name":"Freeform 65","bbox":[931.35,146.84,305.9,135.16]}
+{"kind":"shape","id":"sh/8n65kzil","slide":7,"name":"Freeform 66","bbox":[959.13,160.27,69.61,81.16]}
+{"kind":"shape","id":"sh/tofmd4z6","slide":7,"name":"Freeform 67","bbox":[972.86,174,41.83,54.31]}
+{"kind":"textbox","id":"sh/yh4nep0j","slide":7,"name":"TextBox 68","text":"IP Facilitators & Regulators","textPreview":"IP Facilitators & Regulators","textChars":28,"textLines":1,"bbox":[1044.66,165.65,172.61,17.5]}
+{"kind":"shape","id":"sh/jix47uho","slide":7,"name":"Freeform 69","bbox":[1042.47,187.42,41.83,13.42]}
+{"kind":"textbox","id":"sh/1c3qdsj6","slide":7,"name":"TextBox 70","text":"Efficient verification and monitoring","textPreview":"Efficient verification and monitoring","textChars":37,"textLines":1,"bbox":[1044.66,207.44,116.43,38.99]}
+{"kind":"shape","id":"sh/0bupkn21","slide":7,"name":"Freeform 71","bbox":[42.07,306.58,500.36,13.42]}
+{"kind":"textbox","id":"sh/fal8bi1g","slide":7,"name":"TextBox 72","text":"IMPACT PATHWAY","textPreview":"IMPACT PATHWAY","textChars":14,"textLines":1,"bbox":[553.97,306.1,147.02,21.9]}
+{"kind":"shape","id":"sh/e9c7ixkv","slide":7,"name":"Freeform 73","bbox":[708.79,306.58,528.14,13.42]}
+{"kind":"shape","id":"sh/d8jq9sja","slide":7,"name":"Freeform 74","bbox":[41.95,336.84,194.46,135.16]}
+{"kind":"shape","id":"sh/s7apgn2p","slide":7,"name":"Freeform 75","bbox":[54.71,352.13,28.09,40.58]}
+{"kind":"textbox","id":"sh/r6187i14","slide":7,"name":"TextBox 76","text":"Identify the right commercialization path","textPreview":"Identify the right commercialization path","textChars":41,"textLines":1,"bbox":[64,393.6,149.51,38.4]}
+{"kind":"shape","id":"sh/q5s7edkj","slide":7,"name":"Freeform 77","bbox":[236.22,362.84,28.09,27.16]}
+{"kind":"shape","id":"sh/54jq58je","slide":7,"name":"Freeform 78","bbox":[250.26,336.84,208.51,135.16]}
+{"kind":"shape","id":"sh/4japc32t","slide":7,"name":"Freeform 79","bbox":[264.31,351.42,41.83,40.58]}
+{"kind":"textbox","id":"sh/gj2doje1","slide":7,"name":"TextBox 80","text":"Right Protection","textPreview":"Right Protection","textChars":16,"textLines":1,"bbox":[316.12,359.88,97.08,16.12]}
+{"kind":"textbox","id":"sh/hkvuxovm","slide":7,"name":"TextBox 81","text":"Choose the right IP protection (trend, design, GI, etc.)","textPreview":"Choose the right IP protection (trend, design, GI, etc.)","textChars":56,"textLines":1,"bbox":[295.52,391.51,147.02,56.49]}
+{"kind":"shape","id":"sh/uhkvm9wv","slide":7,"name":"Freeform 82","bbox":[458.77,362.84,28.09,27.16]}
+{"kind":"shape","id":"sh/fitcvedg","slide":7,"name":"Freeform 83","bbox":[472.51,336.84,208.82,135.16]}
+{"kind":"shape","id":"sh/4nmdsjux","slide":7,"name":"Freeform 84","bbox":[486.55,352,41.83,40.58]}
+{"kind":"textbox","id":"sh/povu1ovi","slide":7,"name":"TextBox 85","text":"Early ASs / TK Check","textPreview":"Early ASs / TK Check","textChars":20,"textLines":1,"bbox":[534.62,360.19,120.17,15.81]}
+{"kind":"textbox","id":"sh/2l4vqtc7","slide":7,"name":"TextBox 86","text":"Spot access and provenance risks early","textPreview":"Spot access and provenance risks early","textChars":38,"textLines":1,"bbox":[525.57,391.51,99.57,56.49]}
+{"kind":"shape","id":"sh/3mdczydc","slide":7,"name":"Freeform 87","bbox":[667.28,362.84,27.78,27.16]}
+{"kind":"shape","id":"sh/cb6dw3u9","slide":7,"name":"Freeform 88","bbox":[681.33,336.84,166.99,135.16]}
+{"kind":"shape","id":"sh/dcfe58vu","slide":7,"name":"Freeform 89","bbox":[697.22,354,41.83,40.58]}
+{"kind":"textbox","id":"sh/n6hgv2xw","slide":7,"name":"TextBox 90","text":"Correct Route","textPreview":"Correct Route","textChars":13,"textLines":1,"bbox":[96.07,360,81.78,15.79]}
+{"kind":"textbox","id":"sh/m58f2xwb","slide":7,"name":"TextBox 91","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[61.72,358.63,15.29,18.07]}
+{"kind":"textbox","id":"sh/98zyxcf2","slide":7,"name":"TextBox 92","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[281.68,360.57,15.29,16.12]}
+{"kind":"textbox","id":"sh/o7qx47eh","slide":7,"name":"TextBox 93","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[497.29,359.61,15.29,16.12]}
+{"kind":"textbox","id":"sh/zixgr2xk","slide":7,"name":"TextBox 94","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[707.65,360.87,12.99,14.97]}
+{"kind":"textbox","id":"sh/ehofyxgf","slide":7,"name":"TextBox 95","text":"IMPACT AND BENEFITS","textPreview":"IMPACT AND BENEFITS","textChars":19,"textLines":1,"bbox":[339.53,23.66,531.16,62.04]}
+{"kind":"textbox","id":"sh/14zytsfq","slide":7,"name":"TextBox 96","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[68.03,49.75,82.23,33.16]}
+{"kind":"shape","id":"sh/0jqx0ne5","slide":7,"name":"Freeform 63","bbox":[150.17,188.17,41.83,13.42]}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"REFERENCES","textShapes":10}
+{"kind":"textbox","id":"sh/tw7e9gnq","slide":8,"name":"Title 1","text":"REFERENCES","textPreview":"REFERENCES","textChars":10,"textLines":1,"bbox":[200,25.24,800,115]}
+{"kind":"textbox","id":"sh/svydgb65","slide":8,"name":"source-01","text":"01.  The Patents Act, 1970 — India Code\nindiacode.nic.in/handle/123456789/1392","textPreview":"01.  The Patents Act, 1970 — India Code | indiacode.nic.in/handle/123456789/1392","textChars":78,"textLines":2,"bbox":[64,168,552,92]}
+{"kind":"textbox","id":"sh/7u5w765k","slide":8,"name":"source-02","text":"02.  Patent Rules and amendments — IP India\nipindia.gov.in/resource/patents-resources-rules","textPreview":"02.  Patent Rules and amendments — IP India | ipindia.gov.in/resource/patents-resources-rules","textChars":91,"textLines":2,"bbox":[64,274,552,92]}
+{"kind":"textbox","id":"sh/6twve1oz","slide":8,"name":"source-03","text":"03.  Biological diversity and ABS — NBA\nnbaindia.org","textPreview":"03.  Biological diversity and ABS — NBA | nbaindia.org","textChars":52,"textLines":2,"bbox":[64,380,552,92]}
+{"kind":"textbox","id":"sh/5sne5wne","slide":8,"name":"source-04","text":"04.  Drugs and Cosmetics Act / Rules — AYUSH\nayush.gov.in/resources/quality-standards","textPreview":"04.  Drugs and Cosmetics Act / Rules — AYUSH | ayush.gov.in/resources/quality-standards","textChars":85,"textLines":2,"bbox":[64,486,552,92]}
+{"kind":"textbox","id":"sh/kredcr6t","slide":8,"name":"source-05","text":"05.  Ayurveda Aahara Regulations, 2022 — FSSAI\nfssai.gov.in","textPreview":"05.  Ayurveda Aahara Regulations, 2022 — FSSAI | fssai.gov.in","textChars":59,"textLines":2,"bbox":[664,170,552,92]}
+{"kind":"textbox","id":"sh/jq5w365o","slide":8,"name":"source-06","text":"06.  Traditional Knowledge Digital Library — CSIR\ntkdl.res.in","textPreview":"06.  Traditional Knowledge Digital Library — CSIR | tkdl.res.in","textChars":61,"textLines":2,"bbox":[664,274,552,92]}
+{"kind":"textbox","id":"sh/i5wva1o3","slide":8,"name":"source-07","text":"07.  WIPO GRATK Treaty and treaty status — WIPO\nwipo.int/en/web/treaties/ip/gratk","textPreview":"07.  WIPO GRATK Treaty and treaty status — WIPO | wipo.int/en/web/treaties/ip/gratk","textChars":81,"textLines":2,"bbox":[664,380,552,92]}
+{"kind":"textbox","id":"sh/x4ne1wni","slide":8,"name":"source-08","text":"08.  National Language Translation Mission — BHASHINI\nbhashini.gov.in","textPreview":"08.  National Language Translation Mission — BHASHINI | bhashini.gov.in","textChars":69,"textLines":2,"bbox":[664,486,552,92]}
+{"kind":"textbox","id":"sh/w3ed8r6x","slide":8,"name":"Oval 28","text":"Naut IQ","textPreview":"Naut IQ","textChars":7,"textLines":1,"bbox":[34.62,26.48,147.38,84.76]}
+{"kind":"image","id":"im/pc3upgn2","slide":8,"name":"Picture 10","bbox":[1026.78,-1.84,236.2,111.53]}

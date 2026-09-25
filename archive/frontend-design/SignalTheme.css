@@ -1,0 +1,29 @@
+/* Reference-inspired composition, with original abstract orbital geometry. */
+.landing{background:#060708;--lp-accent:#edb570;--lp-gold:#b69162}
+.landing .lp-nav{border-bottom-color:#ffffff0b;background:transparent}
+.landing .lp-hero{isolation:isolate;position:relative;overflow:hidden;background:radial-gradient(ellipse at 75% 45%,#53301917,transparent 55%),#060708}
+.landing .lp-hero-grid{position:relative;display:block;min-height:760px;padding-block:105px 90px}
+.landing .lp-hero-copy{max-width:570px;position:relative;z-index:2}
+.landing .lp-hero-copy:before{content:'';display:block;width:58px;height:2px;background:#d99542;margin-bottom:29px}
+.landing .lp-hero-copy>.lp-eyebrow{display:inline-flex;border:1px solid #ffffff20;background:#111214a8;border-radius:25px;padding:8px 13px;font:10px monospace;letter-spacing:.08em}
+.landing .lp-hero-copy h1{font-size:clamp(60px,6.5vw,94px);font-weight:750;letter-spacing:-.055em;line-height:1;margin:28px 0 25px;color:#fafafa}
+.signal-subtitle{display:block;font-size:20px;letter-spacing:.4em;font-weight:400;color:#c9a57b;margin-top:16px}
+.landing .signal-intro{font-size:28px;line-height:1.4;letter-spacing:-.025em;font-family:Manrope,sans-serif;margin-bottom:20px;color:#d2d2d2}
+.landing .signal-intro em{font-family:inherit;font-style:normal;color:#d9a86c}
+.landing .lp-hero-copy>p{font-size:16px;max-width:445px;color:#969ba1;line-height:1.8}
+.landing .lp-button.primary{background:#f4f3ef;color:#171717;border-color:#f4f3ef;border-radius:30px;padding-inline:25px;font-weight:500}
+.landing .lp-button.primary:hover{background:#e9bc83}.landing .lp-actions .lp-button.ghost{border:0;color:#969ba1;font-weight:400}
+.landing .lp-hero-note{margin-top:30px;color:#747c83}.landing .lp-hero-bottom{border-top-color:#ffffff13}
+.signal-orbit{position:absolute;z-index:0;pointer-events:none;width:780px;height:780px;top:10px;left:42%;opacity:.9;transform:rotate(-23deg);mask-image:linear-gradient(90deg,transparent,black 28%,black 90%,transparent)}
+.signal-ring{position:absolute;inset:65px;border:2px solid #e7b474;border-radius:50%;box-shadow:0 0 14px #e1a45365,0 0 65px #d9822630,inset 0 0 28px #e6a95f30;transform:rotateX(22deg) rotateY(-23deg);background:radial-gradient(ellipse,transparent 62%,#d8a45f0c 70%,transparent 74%)}
+.signal-ring-inner{inset:81px;border:1px solid #8b633f65;box-shadow:none;transform:rotateX(22deg) rotateY(-23deg)}
+.signal-axis{position:absolute;left:0;right:0;height:120px;top:330px;border-top:1px solid #d5ae7360;border-bottom:1px solid #bd98661a;border-radius:50%;transform:rotate(-14deg);box-shadow:0 -8px 55px #d8a45f10}
+.signal-point{position:absolute;width:12px;height:12px;right:120px;top:172px;border-radius:50%;background:#ffd6a2;box-shadow:0 0 25px #ffc785,0 0 90px #e08d37;animation:signal-breathe 5s ease-in-out infinite}
+@keyframes signal-breathe{50%{opacity:.5;box-shadow:0 0 15px #ffc785,0 0 55px #e08d37}}
+.landing .lp-source-band,.landing .lp-workflow-wrap{background:#0c0e10}
+.landing .lp-feature,.landing .lp-feature-wide,.landing .lp-evidence-card,.landing .lp-final{background:#111416;border-color:#ffffff16;box-shadow:none}
+.landing .lp-section{padding-block:90px}.landing .lp-motion{display:grid}.landing .lp-logo>span{border-color:#a57b4144;color:#d7b17d}
+@media(max-width:1100px){.signal-orbit{left:33%;opacity:.55}.landing .lp-hero-grid{min-height:720px}.landing .lp-hero-copy{max-width:520px}}
+@media(max-width:800px){.landing .lp-hero-grid{min-height:730px;padding-block:70px 65px}.signal-orbit{left:15%;top:70px;opacity:.3}.landing .lp-hero-copy{max-width:560px}.landing .lp-hero-copy h1{font-size:76px}.landing .lp-hero-copy>p{color:#b0b3b7}}
+@media(max-width:480px){.landing .lp-hero-grid{padding-top:55px;min-height:720px}.landing .lp-hero-copy h1{font-size:62px}.landing .signal-intro{font-size:25px}.signal-subtitle{font-size:16px}.signal-orbit{left:-15%;top:120px;opacity:.22}.landing .lp-actions{gap:10px}.landing .lp-hero-copy>.lp-eyebrow{font-size:8px}.landing .lp-hero-note{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.signal-point{animation:none}}

@@ -1,0 +1,22 @@
+/* Landing-only refinement: softer scenery and less visual density. */
+.landing{background-image:linear-gradient(#101c2be3,#101c2be3),url('/sky-clouds.png')}
+.landing .lp-hero{background-image:linear-gradient(90deg,#101d2ce8,#101d2cc2 45%,#101d2c80),linear-gradient(0deg,#101c2bb3,transparent 45%),url('/sky-clouds.png')}
+.landing .lp-hero-grid{min-height:650px;gap:65px;padding-block:65px}
+.landing .lp-hero-copy h1{font-size:clamp(46px,4.6vw,68px);line-height:1.09;margin-block:24px}
+.landing .lp-hero-copy>p{max-width:410px;font-size:16px;line-height:1.85}
+.landing .lp-hero-art{height:490px;opacity:.88}
+.landing .lp-floating{background:#2033458c;backdrop-filter:blur(16px);border-color:#bcb49440;box-shadow:0 12px 25px #0002}
+.landing .lp-coordinate,.landing .lp-art-caption{display:none}
+.landing .lp-section{padding-block:100px}
+.landing .lp-section-intro{margin-bottom:45px}
+.landing h2{font-size:clamp(32px,3.2vw,45px)}
+.landing .lp-feature,.landing .lp-feature-wide,.landing .lp-evidence-card{background:linear-gradient(135deg,#25384b80,#15283a94);backdrop-filter:blur(12px);box-shadow:none;border-color:#aab9c02b}
+.landing .lp-feature{padding:32px}.landing .lp-feature-wide{display:flex;flex-direction:column;justify-content:center;padding:40px}
+.landing .lp-feature-wide h3{font-size:34px}.landing .lp-feature h3{font-size:28px}.landing .lp-feature p{line-height:1.85}
+.landing .lp-feature-icon{margin-block:24px;background:#d1bc8c08;box-shadow:none}
+.landing .lp-workflow-wrap,.landing .lp-source-band{background:#14263940}
+.landing .lp-evidence{gap:100px}.landing .lp-evidence-card h3{font-size:28px}
+.landing .lp-final{background:#21324770;padding-block:55px}.landing .lp-final h2{font-size:clamp(32px,3.6vw,48px)}
+.landing .lp-faq details{background:transparent}
+@media(max-width:800px){.landing .lp-hero-grid{gap:20px;min-height:0}.landing .lp-hero-art{height:420px}.landing .lp-section{padding-block:65px}.landing .lp-evidence{gap:45px}.landing .lp-hero{background-image:linear-gradient(#101d2cc9,#101d2cbd),url('/sky-clouds.png')}}
+@media(max-width:480px){.landing .lp-hero-copy h1{font-size:46px}.landing .lp-hero-art{height:340px}.landing .lp-feature,.landing .lp-feature-wide{padding:27px}.landing .lp-feature-wide h3{font-size:30px}}

@@ -1,0 +1,55 @@
+export const SUPPORT_STATES=['SUPPORTED_IN_SCOPE','MISSING_FACTS','MISSING_EVIDENCE','CONFLICTING_SOURCES','OUT_OF_SCOPE','REVIEW_REQUIRED']
+export function invalidateCase(item,patch){return {...item,...patch,status:'Needs information',confirmed:false,assessment:null,mockAnswer:null,sharing:null,completed:[]}}
+export function missingFacts(facts){return ['use','form','source','ingredients','origin'].filter(k=>!facts[k]||facts[k]==='Unknown')}
+export function progressFor(facts){return Math.round(['use','form','source','ingredients','origin','processing','applicant','stage','market','disclosure'].filter(k=>facts[k]&&facts[k]!=='Unknown').length*10)}
+export function exportPayload(c){return {format:'ip-sakti-case-v1',disclaimer:'Frontend demonstration. Information, not legal advice. No authoritative legal assessment has been performed.',generated_at:new Date().toISOString(),timeline:c.timeline||[],updated_at:c.updatedAt||null,case_id:c.id,title:c.title,jurisdiction:c.jurisdiction,as_of_date:c.asOf,facts:c.facts,confirmed:c.confirmed,support_status:c.assessment?.support||'MISSING_EVIDENCE',classification:'UNRESOLVED',citations:c.mockAnswer?.sources||[],mock_answer:c.mockAnswer||null,evidence_files:c.evidenceFiles||[],missing_facts:missingFacts(c.facts),checklist:c.completed,versions:c.versions,sharing:c.sharing||null}}
+export function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+export function exportHtml(c){const d=exportPayload(c);return `<!doctype html><html lang="en"><meta charset="utf-8"><title>AYUNEX case</title><style>body{font:16px system-ui;max-width:900px;margin:50px auto;padding:20px;line-height:1.7;color:#173321}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f5ef;padding:24px}h1{font-size:30px}</style><h1>${escapeHtml(c.title)}</h1><p>${escapeHtml(d.disclaimer)}</p><pre>${escapeHtml(JSON.stringify(d,null,2))}</pre></html>`}
+export function downloadFile(content,name,type){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+export function factsToBackendPassport(facts, ingredientRows = []) {
+  const backendFacts = {}
+  const useMap = { 'Therapeutic': 'THERAPEUTIC', 'Food': 'FOOD', 'Cosmetic': 'COSMETIC', 'Research': 'RESEARCH' }
+  if (facts.use) {
+    const val = useMap[facts.use]
+    backendFacts['intended_use'] = { value: val || null, provenance: 'user-entered', confirmed: true, unknown: facts.use === 'Unknown' }
+  }
+  const adminMap = { 'Oral': 'ORAL', 'External': 'EXTERNAL' }
+  if (facts.administration) {
+    const val = adminMap[facts.administration] || facts.administration.toUpperCase()
+    backendFacts['administration_route'] = { value: val || null, provenance: 'user-entered', confirmed: true, unknown: facts.administration === 'Unknown' }
+  }
+  if (facts.foodRoute) {
+    const val = facts.foodRoute.includes('Ayurveda Aahara') ? 'AYURVEDA_AAHARA' : 'OTHER'
+    backendFacts['food_subroute'] = { value: val, provenance: 'user-entered', confirmed: true, unknown: facts.foodRoute === 'Unknown' }
+  }
+  if (facts.source) {
+    const isUnknown = facts.source === 'Unknown'
+    const isTextMatch = !isUnknown && facts.source.trim().length > 0
+    backendFacts['formula_matches_text'] = { value: isTextMatch, provenance: 'user-entered', confirmed: true, unknown: isUnknown }
+    backendFacts['method_matches_text'] = { value: isTextMatch, provenance: 'user-entered', confirmed: true, unknown: isUnknown }
+    backendFacts['ingredients_in_texts'] = { value: isTextMatch, provenance: 'user-entered', confirmed: true, unknown: isUnknown }
+  }
+  if (facts.processing) {
+    const isMod = facts.processing.toLowerCase().includes('modif') || facts.processing.toLowerCase().includes('extract')
+    backendFacts['modified'] = { value: isMod, provenance: 'user-entered', confirmed: true, unknown: facts.processing === 'Unknown' }
+    backendFacts['purified_fraction'] = { value: facts.processing.toLowerCase().includes('purif') || facts.processing.toLowerCase().includes('isolat'), provenance: 'user-entered', confirmed: true, unknown: facts.processing === 'Unknown' }
+    backendFacts['processing'] = { value: facts.processing, provenance: 'user-entered', confirmed: true, unknown: facts.processing === 'Unknown' }
+  }
+  if (facts.origin) {
+    const originMap = { 'India': 'IN', 'Outside India': 'FOREIGN', 'Mixed': 'MIXED', 'Unknown': 'UNKNOWN' }
+    backendFacts['origin'] = { value: originMap[facts.origin] || facts.origin, provenance: 'user-entered', confirmed: true, unknown: facts.origin === 'Unknown' }
+  }
+  if (facts.applicant) {
+    backendFacts['applicant'] = { value: facts.applicant, provenance: 'user-entered', confirmed: true, unknown: facts.applicant === 'Unknown' }
+  }
+  const ingredients = (ingredientRows || []).map(r => ({
+    name: r.name || 'Unknown',
+    biological_type: ['PLANT', 'ANIMAL', 'MICROBIAL', 'NON_BIOLOGICAL'].includes(r.kind) ? r.kind : 'UNKNOWN',
+    part: r.part || 'Unknown',
+    origin: ['IN', 'FOREIGN', 'MIXED'].includes(r.origin) ? r.origin : 'UNKNOWN',
+    sourcing: ['CULTIVATED', 'WILD', 'PURCHASED'].includes(r.sourcing) ? r.sourcing : 'UNKNOWN',
+    alias_unresolved: true
+  }))
+  return { facts: backendFacts, ingredients }
+}
+
