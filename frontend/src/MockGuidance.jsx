@@ -4,6 +4,39 @@ import { Sparkles, BookOpen, ExternalLink, ShieldCheck, AlertTriangle, RefreshCw
 import { useApp } from './context'
 import Modal from './components/Modal'
 
+function renderClaimText(text) {
+  if (!text) return null
+  const clean = text
+    .replace(/\*{1,3}(.*?)\*{1,3}/g, '$1')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/^[\*\-•]\s+/gm, '')
+    .replace(/`+([^`]+)`+/g, '$1')
+    .replace(/\*+/g, '')
+    .trim()
+
+  const paras = clean.split(/\n\s*\n/).filter(Boolean)
+  return (
+    <div className="claim-text-container" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      {paras.map((p, idx) => {
+        const colonMatch = p.match(/^([A-Za-z0-9\s()·.,/-]{3,50}:)\s*(.*)$/s)
+        if (colonMatch) {
+          return (
+            <p key={idx} style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: '#f3ede2' }}>
+              <strong style={{ color: '#d4af37', fontWeight: 600 }}>{colonMatch[1]}</strong>{' '}
+              {colonMatch[2]}
+            </p>
+          )
+        }
+        return (
+          <p key={idx} style={{ margin: 0, fontSize: 14.5, lineHeight: 1.65, color: '#f3ede2' }}>
+            {p}
+          </p>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function MockGuidance({ item }) {
   const { language, updateCase, backendMode, backendClient, notify } = useApp()
   const hi = language === 'hi'
@@ -205,7 +238,7 @@ export default function MockGuidance({ item }) {
                   <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 12 }}>
                     {sec.claims?.map(claim => (
                       <div key={claim.id} className="panel" style={{ background: '#1c1b18', padding: 14, borderLeft: '3px solid #d4af37' }}>
-                        <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6 }}>{claim.text}</p>
+                        {renderClaimText(claim.text)}
                         <div style={{ marginTop: 10, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                           {claim.citation_ids?.map(cid => {
                             const cItem = liveAnswer.citations?.find(c => c.id === cid)
