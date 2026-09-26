@@ -79,6 +79,12 @@ class Credentials(EmailIn):
     model_config=ConfigDict(extra='forbid',str_strip_whitespace=False)
     password:str=Field(min_length=12,max_length=128)
 
+class SignupIn(Credentials):
+    display_name:str=Field(default='',max_length=80)
+    @field_validator('display_name')
+    @classmethod
+    def clean_name(cls,value):return ' '.join(value.split())
+
 class ActionIn(Strict):
     token:str=Field(min_length=32,max_length=256)
 
@@ -127,12 +133,12 @@ def accounts_router(sessions,settings):
         try:send_action(settings,account.email,purpose,token)
         except Exception:raise HTTPException(503,'Email delivery unavailable; retry later') from None
     @router.post('/signup',status_code=202)
-    def signup(body:Credentials,request:Request):
+    def signup(body:SignupIn,request:Request):
         guard(request,body.email)
         with sessions() as db:
             account=db.scalar(select(Account).where(Account.email==body.email).with_for_update())
             if not account:
-                account=Account(email=body.email,password_hash=password_hash(body.password));db.add(account);db.flush()
+                account=Account(email=body.email,display_name=body.display_name,password_hash=password_hash(body.password));db.add(account);db.flush()
             if settings.require_email_verification and not account.verified:
                 account.password_hash=password_hash(body.password)
                 issue_action(db,account,'verify')

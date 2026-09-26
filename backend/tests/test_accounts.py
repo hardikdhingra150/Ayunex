@@ -91,3 +91,16 @@ def test_existing_unverified_account_can_login_in_showcase_mode(client,monkeypat
     c.post('/api/v1/auth/signup',headers=HEADERS,json=body)
     app.state.settings.require_email_verification=False
     assert c.post('/api/v1/auth/login',headers=HEADERS,json=body).status_code==200
+
+def test_account_profile_is_persisted_and_returned_only_to_its_owner(client):
+    c,app=client;app.state.settings.require_email_verification=False
+    body={'email':'profile@example.org','password':secrets.token_urlsafe(24),'display_name':'  Example   User  '}
+    assert c.post('/api/v1/auth/signup',headers=HEADERS,json=body).status_code==202
+    assert c.post('/api/v1/auth/login',headers=HEADERS,json={k:body[k] for k in ('email','password')}).status_code==200
+    me=c.get('/api/v1/me').json()
+    assert me['display_name']=='Example User' and me['email']==body['email']
+    assert 'password_hash' not in me
+    with app.state.sessions() as db:
+        assert db.scalar(select(Account)).display_name=='Example User'
+    c.post('/api/v1/auth/logout',headers=HEADERS)
+    assert c.get('/api/v1/me').status_code==401

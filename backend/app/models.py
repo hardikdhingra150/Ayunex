@@ -134,6 +134,7 @@ class Account(Base):
     __tablename__='accounts'
     id: Mapped[str]=mapped_column(String(36),primary_key=True,default=uid)
     email: Mapped[str]=mapped_column(String(254),unique=True)
+    display_name: Mapped[str]=mapped_column(String(80),default='',server_default='')
     password_hash: Mapped[str]=mapped_column(String(256))
     tenant: Mapped[str]=mapped_column(String(36),default=uid)
     verified: Mapped[bool]=mapped_column(default=False)

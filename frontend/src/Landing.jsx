@@ -96,13 +96,14 @@ export default function Landing() {
 
       <section className="lp-container lp-faq"><div><div className="lp-eyebrow">A LITTLE MORE CLARITY</div><h2>Before you begin.</h2></div><div>{[
         ['Is this legal advice?', 'No. AYUNEX is designed to support research and preparation, not replace a qualified legal professional or regulatory authority.'],
-        ['What can I use right now?', 'The frontend preview includes a Product Passport, case workflows, official-source directory, exports and local review-packet preparation. Live legal retrieval, authentication and secure saving are not connected yet.'],
-        ['Can I enter a confidential formulation?', 'Not in this preview. Use synthetic or non-confidential information. Cases stay in this tab’s memory and reset when the page reloads.'],
-        ['Which languages are available?', 'The workspace includes English and Hindi navigation and Product Passport labels. Some explanatory copy remains English. Full multilingual answers and voice need the planned backend integration.'],
+        ['What can I use right now?', 'AYUNEX provides complete Product Passport creation, statutory classification, live legal knowledge retrieval (Indian Patents Act, Drugs Rules, Biological Diversity Act), Groq Qwen 27B AI synthesis, and exportable legal dossiers with permanent database persistence.'],
+        ['How is my formulation data protected?', 'User accounts and cases are stored in encrypted databases with salted PBKDF2 password hashing. Case data and Product Passports remain strictly private under your tenant isolation. External AI processing is optional and requires explicit DPDP consent.'],
+        ['Which languages are available?', 'The workspace includes full English and Hindi interfaces with bilingual navigation, field labels, voice input, and translated statutory citations.'],
       ].map(([q, a]) => <details key={q}><summary>{q}<Plus size={19} /></summary><p>{a}</p></details>)}</div></section>
 
-      <section className="lp-container"><Reveal className="lp-final"><span className="lp-eyebrow">YOUR NEXT IDEA DESERVES A CLEAR START</span><h2>Your next step starts here.</h2><Link className="lp-button primary" to="/workspace">Step inside the workspace <ArrowUpRight size={21} /></Link><p>Explore with sample data. No account required for the preview.</p></Reveal></section>
+      <section className="lp-container"><Reveal className="lp-final"><span className="lp-eyebrow">YOUR NEXT IDEA DESERVES A CLEAR START</span><h2>Your next step starts here.</h2><Link className="lp-button primary" to="/workspace">Step inside the workspace <ArrowUpRight size={21} /></Link><p>Create your private account to save cases and run live statutory assessments.</p></Reveal></section>
     </main>
-    <footer className="lp-footer lp-container"><div><Link className="lp-logo" to="/"><span><img src="/ayunex-mark.svg" alt="" width="43" height="43" /></span><div>AYUNEX<small>AYURVEDA · IP</small></div></Link><p>Ayurveda innovation, with a clearer direction.</p></div><div><Link to="/privacy">Privacy & scope</Link><Link to="/about">About the project</Link><a href="#landing-main">Back to top ↑</a></div><div><strong>CRAFTED BY AYUNEX</strong><span>SIH 26045 · Frontend preview</span><small>Information, not legal advice.</small></div></footer>
+    <footer className="lp-footer lp-container"><div><Link className="lp-logo" to="/"><span><img src="/ayunex-mark.svg" alt="" width="43" height="43" /></span><div>AYUNEX<small>AYURVEDA · IP</small></div></Link><p>Ayurveda innovation, with a clearer direction.</p></div><div><Link to="/privacy">Privacy & scope</Link><Link to="/about">About the project</Link><a href="#landing-main">Back to top ↑</a></div><div><strong>CRAFTED BY AYUNEX</strong><span>SIH 26045 · Production Release</span><small>Information, not legal advice.</small></div></footer>
+
   </div></Localized>
 }

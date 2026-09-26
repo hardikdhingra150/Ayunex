@@ -79,7 +79,7 @@ class Passport(Strict):
 
     @model_validator(mode='after')
     def names(self):
-        allowed = {'intended_use', 'claims', 'dosage_form', 'administration_route', 'formula_source', 'formula_matches_text', 'method_matches_text', 'ingredients_in_texts', 'modified', 'purified_fraction', 'food_subroute', 'processing', 'evidence', 'applicant', 'origin', 'activity', 'traditional_knowledge', 'exception', 'commercial_stage', 'target_market', 'prior_disclosure', 'brand', 'geographic_link', 'ornamental_design', 'original_content', 'confidential_knowhow', 'new_plant_variety', 'ownership'}
+        allowed = {'ingredient_summary', 'intended_use', 'claims', 'dosage_form', 'administration_route', 'formula_source', 'formula_matches_text', 'method_matches_text', 'ingredients_in_texts', 'modified', 'purified_fraction', 'food_subroute', 'processing', 'evidence', 'applicant', 'origin', 'activity', 'traditional_knowledge', 'exception', 'commercial_stage', 'target_market', 'prior_disclosure', 'brand', 'geographic_link', 'ornamental_design', 'original_content', 'confidential_knowhow', 'new_plant_variety', 'ownership'}
         if set(self.facts) - allowed:
             raise ValueError('Unknown fact keys: ' + ', '.join(sorted(set(self.facts) - allowed)))
         enums={'intended_use':{'THERAPEUTIC','FOOD','COSMETIC','RESEARCH'},'administration_route':{'ORAL','EXTERNAL','OTHER'},'food_subroute':{'AYURVEDA_AAHARA','OTHER'},'origin':{'IN','FOREIGN','MIXED'}}

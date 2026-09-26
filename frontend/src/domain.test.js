@@ -1,6 +1,14 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { invalidateCase, missingFacts, progressFor, exportPayload, exportHtml, factsToBackendPassport } from './domain.js'
+import { invalidateCase, missingFacts, progressFor, exportPayload, exportHtml, factsToBackendPassport, backendPassportToFacts } from './domain.js'
+
+test('saved passport round trip preserves form, stage and ingredient details',()=>{
+ const facts={use:'Cosmetic',form:'Topical',stage:'Prototype',market:'India',ingredients:'Neem',origin:'India',disclosure:'Not disclosed',source:'Unknown'}
+ const rows=[{name:'Neem',kind:'PLANT',part:'Leaf',origin:'IN',sourcing:'CULTIVATED'}]
+ const restored=backendPassportToFacts(factsToBackendPassport(facts,rows),'My case')
+ for(const key of Object.keys(facts))assert.equal(restored[key],facts[key])
+ assert.equal(restored.ingredientRows[0].name,'Neem')
+})
 
 const sample = { id:'test', title:'Synthetic concept', jurisdiction:'IN', asOf:'2026-09-10', facts:{use:'Cosmetic'}, confirmed:true, completed:[0], versions:[], assessment:{support:'SUPPORTED_IN_SCOPE'}, sharing:{sent:false} }
 test('context changes invalidate assessment, confirmation and handoff',()=>{

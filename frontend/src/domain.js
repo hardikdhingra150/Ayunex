@@ -8,6 +8,9 @@ export function exportHtml(c){const d=exportPayload(c);return `<!doctype html><h
 export function downloadFile(content,name,type){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 export function factsToBackendPassport(facts, ingredientRows = []) {
   const backendFacts = {}
+  for(const [ui,key] of Object.entries({form:'dosage_form',claims:'claims',evidence:'evidence',stage:'commercial_stage',market:'target_market',disclosure:'prior_disclosure',ingredients:'ingredient_summary'})){
+    if(facts[ui])backendFacts[key]={value:facts[ui]==='Unknown'?null:facts[ui],provenance:'user-entered',confirmed:facts[ui]!=='Unknown',unknown:facts[ui]==='Unknown'}
+  }
   const useMap = { 'Therapeutic': 'THERAPEUTIC', 'Food': 'FOOD', 'Cosmetic': 'COSMETIC', 'Research': 'RESEARCH' }
   if (facts.use) {
     const val = useMap[facts.use]
@@ -53,4 +56,12 @@ export function factsToBackendPassport(facts, ingredientRows = []) {
     alias_unresolved: true
   }))
   return { facts: backendFacts, ingredients }
+}
+
+export function backendPassportToFacts(passport,title){
+ const facts={name:title},mapping={intended_use:'use',administration_route:'administration',food_subroute:'foodRoute',formula_source:'source',dosage_form:'form',commercial_stage:'stage',target_market:'market',prior_disclosure:'disclosure',ingredient_summary:'ingredients'}
+ const values={intended_use:{THERAPEUTIC:'Therapeutic',FOOD:'Food',COSMETIC:'Cosmetic',RESEARCH:'Research'},administration_route:{ORAL:'Oral',EXTERNAL:'External',OTHER:'Other'},food_subroute:{AYURVEDA_AAHARA:'Ayurveda Aahara',OTHER:'Other food / nutraceutical'},origin:{IN:'India',FOREIGN:'Outside India',MIXED:'Mixed'}}
+ for(const [key,fact] of Object.entries(passport?.facts||{}))facts[mapping[key]||key]=fact.unknown||fact.value===null?'Unknown':values[key]?.[fact.value]??fact.value
+ facts.ingredientRows=(passport?.ingredients||[]).map((r,i)=>({id:`stored-${i}`,name:r.name,kind:r.biological_type,part:r.part,origin:r.origin,sourcing:r.sourcing}))
+ return facts
 }

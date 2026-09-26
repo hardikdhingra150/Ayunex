@@ -101,7 +101,7 @@ def create_app(settings=None, guidance_client=None):
         try:
             with sessions() as db:
                 version=db.execute(text('SELECT version_num FROM alembic_version')).scalar()
-                if version!='0005':raise ValueError('Migrations pending')
+                if version!='0006':raise ValueError('Migrations pending')
             if settings.redis_url:
                 from redis import Redis
                 with Redis.from_url(settings.redis_url,socket_timeout=2,socket_connect_timeout=2) as cache:
@@ -172,8 +172,13 @@ def create_app(settings=None, guidance_client=None):
         return {'service':'AYUNEX Module B','status':'ok','rules_reviewed':False,'identity_configured':bool(settings.identity_url),'guidance_configured':bool(settings.guidance_url),'environment':settings.environment}
 
     @app.get('/api/v1/me')
-    def me(user:User):
-        return user
+    def me(user:User,db:DB):
+        from .models import Account
+        account=db.get(Account,user.subject)
+        profile=user.model_dump()
+        if account and account.tenant==user.tenant:
+            profile.update(email=account.email,display_name=account.display_name or account.email.split('@')[0])
+        return profile
 
     @app.post('/api/v1/cases',status_code=201,response_model=CaseResponse)
     def create_case(body:CreateCase,db:DB,user:User):
