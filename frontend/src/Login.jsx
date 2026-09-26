@@ -18,11 +18,26 @@ export default function Login(){
   if(mode==='signup')body.display_name=displayName.trim()
   try{
    const response=await fetch('/api/v1/auth/'+mode,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Protection':'1'},body:JSON.stringify(body),signal:AbortSignal.timeout(30000)})
-   const data=await response.json()
-   if(!response.ok)throw new Error(typeof data.detail==='string'?data.detail:'Check your email address and password (12–128 characters).')
+   const text=await response.text()
+   let data={}
+   try{data=text?JSON.parse(text):{}}catch{}
+   if(!response.ok){
+    const detail=typeof data.detail==='string'?data.detail:(typeof data.message==='string'?data.message:'')
+    if(detail)throw new Error(detail)
+    if(response.status===502||response.status===503||response.status===504||!text){
+     throw new Error('Backend server is unreachable on port 8000. Please start the backend with: npm start')
+    }
+    throw new Error(`Server returned ${response.status}: ${response.statusText||'Please verify your email and password.'}`)
+   }
    if(mode==='signup'&&!options.email_verification_required){
     const login=await fetch('/api/v1/auth/login',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','X-CSRF-Protection':'1'},body:JSON.stringify({email,password}),signal:AbortSignal.timeout(30000)})
-    if(!login.ok){setMode('login');throw new Error('Please sign in with your existing password, or retry if your account is temporarily locked.')}
+    if(!login.ok){
+     const lText=await login.text()
+     let lData={}
+     try{lData=lText?JSON.parse(lText):{}}catch{}
+     setMode('login')
+     throw new Error(lData.detail||'Account created. Please sign in with your password.')
+    }
    }
    setPassword('');setMessage(data.message||'Signed in')
    if(mode==='login'||(mode==='signup'&&!options.email_verification_required)){const result=await connectBackend();if(!result.ok)throw new Error(result.error);navigate('/workspace')}

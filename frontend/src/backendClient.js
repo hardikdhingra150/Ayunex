@@ -9,7 +9,7 @@ export function createBackendClient({baseUrl=defaultApiBase(),getToken=()=>'',co
   if(!token&&!cookieAuth)throw new Error('Module D identity or local development token required')
   const response=await fetchImpl(new URL('/api/v1'+path,base),{method,credentials:cookieAuth?'same-origin':'omit',headers:{...(token?{Authorization:'Bearer '+token}:{}),'X-CSRF-Protection':'1',...(body?{'Content-Type':'application/json'}:{}),...(idempotencyKey?{'Idempotency-Key':idempotencyKey}:{})},body:body?JSON.stringify(body):undefined,signal:signal?AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]):AbortSignal.timeout(timeoutMs)})
   if(!response.ok){const problem=await response.json().catch(()=>({}));const error=new Error(typeof problem.detail==='string'?problem.detail:'Backend request failed');error.status=response.status;error.details=problem.detail;throw error}
-  return response.status===204?null:response.json()
+  return response.status===204?null:response.json().catch(()=>null)
  }
  const id=value=>encodeURIComponent(value)
  return {

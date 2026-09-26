@@ -50,7 +50,7 @@ def create_app(settings=None, guidance_client=None):
     app.state.guidance=guidance_client or (HostedGuidance(sessions,settings) if settings.guidance_mode=='hosted' else ExtractiveGuidance(sessions,allow_source_checked=settings.environment!='production') if settings.guidance_mode=='corpus' else GuidanceClient(settings))
     app.add_middleware(RequestGuard,settings=settings)
     app.add_middleware(TrustedHostMiddleware,allowed_hosts=settings.allowed_hosts)
-    app.add_middleware(CORSMiddleware,allow_origins=settings.cors_origins,allow_methods=['GET','POST','PATCH','DELETE'],allow_headers=['Authorization','Content-Type','Idempotency-Key','X-CSRF-Protection'],allow_credentials=False)
+    app.add_middleware(CORSMiddleware,allow_origins=settings.cors_origins,allow_methods=['GET','POST','PATCH','DELETE'],allow_headers=['Authorization','Content-Type','Idempotency-Key','X-CSRF-Protection'],allow_credentials=True)
 
     @app.middleware('http')
     async def security_headers(request, call_next):

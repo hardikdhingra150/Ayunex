@@ -49,7 +49,10 @@ def csrf(request):
     if origin:
         settings=request.app.state.settings
         allowed={settings.public_app_url.rstrip('/')}
-        if settings.environment!='production':allowed.update(settings.cors_origins)
+        if settings.environment!='production':
+            allowed.update(settings.cors_origins)
+            parsed=urlsplit(origin)
+            if parsed.hostname in {'localhost','127.0.0.1','::1'}:return
         if origin not in allowed:raise HTTPException(403,'Request origin rejected')
 
 
