@@ -34,6 +34,7 @@ def _default_dev_token():
 
 @dataclass
 class Settings:
+    require_email_verification: bool = field(default_factory=lambda: os.getenv('REQUIRE_EMAIL_VERIFICATION','false').lower()=='true')
     auth_mode: str = field(default_factory=lambda: os.getenv('AUTH_MODE','builtin'))
     public_app_url: str = field(default_factory=lambda: os.getenv('PUBLIC_APP_URL','http://127.0.0.1:8000'))
     smtp_host: str = field(default_factory=lambda: os.getenv('SMTP_HOST',''))
@@ -88,8 +89,10 @@ class Settings:
             if self.guidance_mode=='external' and (not self.guidance_url or not self.guidance_service_token):raise ValueError('Production external guidance needs configured service credentials')
             if self.dev_token or (self.auth_mode=='external' and (not self.identity_url or not self.identity_service_token)):
                 raise ValueError('Production requires Module D identity; development tokens forbidden')
-            if self.auth_mode=='builtin' and (not self.public_app_url.startswith('https://') or not all((self.smtp_host,self.smtp_user,self.smtp_password,self.mail_from))):
-                raise ValueError('Builtin production accounts require HTTPS PUBLIC_APP_URL and authenticated SMTP')
+            if self.auth_mode=='builtin' and not self.public_app_url.startswith('https://'):
+                raise ValueError('Builtin production accounts require HTTPS PUBLIC_APP_URL')
+            if self.auth_mode=='builtin' and self.require_email_verification and not all((self.smtp_host,self.smtp_user,self.smtp_password,self.mail_from)):
+                raise ValueError('Email verification requires authenticated SMTP in production')
             if not self.database_url.startswith('postgresql'):
                 raise ValueError('Production requires PostgreSQL')
             if '*' in self.cors_origins or any(not x.startswith('https://') for x in self.cors_origins):

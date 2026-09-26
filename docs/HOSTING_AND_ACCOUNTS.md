@@ -1,5 +1,9 @@
 # Hosting and account setup
 
+## Showcase update
+
+Email verification is now optional and defaults OFF per the project owner's request. Signup logs the user in immediately; existing unverified accounts remain accessible using their password. SMTP is not required for this mode, and password-reset UI stays hidden until SMTP is configured. Set `REQUIRE_EMAIL_VERIFICATION=true` to restore the verified-email flow described below. Unverified emails are not proof of ownership. See [current showcase status](SHOWCASE_STATUS.md); this update supersedes the mandatory-SMTP/verification statements below.
+
 ## Recommended first deployment
 
 Use one paid Render Docker web service for the React build and FastAPI, managed PostgreSQL, managed Redis-compatible Key Value, and persistent storage for corpus files. Serving UI and API on the same HTTPS origin is required by the browser cookie implementation. A separate Vercel frontend is not the recommended configuration. Render's free web service has no persistent disks; do not use it for durable production corpus storage.

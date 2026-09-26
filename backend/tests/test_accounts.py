@@ -2,9 +2,16 @@ from test_module_d import client
 from sqlalchemy import select
 from app.models import Account,AccountSession
 from app.accounts import password_matches
+import secrets
+import pytest
 
 HEADERS={'X-CSRF-Protection':'1'}
-PASSWORD='unique test passphrase 123'
+PASSWORD=secrets.token_urlsafe(24)
+
+@pytest.fixture(autouse=True)
+def verification_mode(client):
+    client[1].state.settings.require_email_verification=True
+    client[1].state.settings.environment='test'
 
 def register(c,monkeypatch,email='person@example.org'):
     mail=[]
@@ -34,7 +41,7 @@ def test_reset_revokes_sessions_and_token_single_use(client,monkeypatch):
     c.post('/api/v1/auth/login',headers=HEADERS,json={'email':'person@example.org','password':PASSWORD})
     assert c.post('/api/v1/auth/forgot-password',headers=HEADERS,json={'email':'person@example.org'}).status_code==202
     token=mail[-1][1]
-    body={'token':token,'password':'replacement passphrase 456'}
+    body={'token':token,'password':secrets.token_urlsafe(24)}
     assert c.post('/api/v1/auth/reset-password',headers=HEADERS,json=body).status_code==200
     assert c.get('/api/v1/me').status_code==401
     assert c.post('/api/v1/auth/reset-password',headers=HEADERS,json=body).status_code==400
@@ -54,9 +61,33 @@ def test_unverified_registration_replaces_unverified_password(client,monkeypatch
     monkeypatch.setattr('app.accounts.send_action',lambda settings,address,purpose,token:mail.append(token))
     body={'email':'person@example.org','password':PASSWORD}
     c.post('/api/v1/auth/signup',headers=HEADERS,json=body)
-    replacement={**body,'password':'a different secret passphrase'}
+    replacement={**body,'password':secrets.token_urlsafe(24)}
+
     c.post('/api/v1/auth/signup',headers=HEADERS,json=replacement)
     assert c.post('/api/v1/auth/verify-email',headers=HEADERS,json={'token':mail[0]}).status_code==400
     assert c.post('/api/v1/auth/verify-email',headers=HEADERS,json={'token':mail[1]}).status_code==200
     assert c.post('/api/v1/auth/login',headers=HEADERS,json=body).status_code==401
     assert c.post('/api/v1/auth/login',headers=HEADERS,json=replacement).status_code==200
+
+def test_showcase_signup_login_without_email_and_duplicate_cannot_reset(client,monkeypatch):
+    c,app=client;app.state.settings.require_email_verification=False
+    monkeypatch.setattr('app.accounts.send_action',lambda *args:pytest.fail('Signup must not send email'))
+    body={'email':'showcase@example.org','password':secrets.token_urlsafe(24)}
+    assert c.post('/api/v1/auth/signup',headers=HEADERS,json=body).status_code==202
+    assert c.post('/api/v1/auth/login',headers=HEADERS,json=body).status_code==200
+    assert c.get('/api/v1/me').status_code==200
+    c.post('/api/v1/auth/logout',headers=HEADERS)
+    replacement={**body,'password':secrets.token_urlsafe(24)}
+    assert c.post('/api/v1/auth/signup',headers=HEADERS,json=replacement).status_code==202
+    assert c.post('/api/v1/auth/login',headers=HEADERS,json=replacement).status_code==401
+    assert c.post('/api/v1/auth/login',headers=HEADERS,json=body).status_code==200
+    with app.state.sessions() as db:
+        assert db.scalar(select(Account)).verified is False
+
+def test_existing_unverified_account_can_login_in_showcase_mode(client,monkeypatch):
+    c,app=client
+    monkeypatch.setattr('app.accounts.send_action',lambda *args:None)
+    body={'email':'existing@example.org','password':secrets.token_urlsafe(24)}
+    c.post('/api/v1/auth/signup',headers=HEADERS,json=body)
+    app.state.settings.require_email_verification=False
+    assert c.post('/api/v1/auth/login',headers=HEADERS,json=body).status_code==200

@@ -42,12 +42,13 @@ services:
       ALLOWED_HOSTS: ${ALLOWED_HOSTS:?Set ALLOWED_HOSTS including 127.0.0.1 for health probes}
       CORS_ORIGINS: ${CORS_ORIGINS:?Set explicit HTTPS CORS_ORIGINS}
       AUTH_MODE: builtin
+      REQUIRE_EMAIL_VERIFICATION: ${REQUIRE_EMAIL_VERIFICATION:-false}
       PUBLIC_APP_URL: ${PUBLIC_APP_URL:?Set the HTTPS application origin}
-      SMTP_HOST: ${SMTP_HOST:?Set authenticated SMTP host}
+      SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-587}
-      SMTP_USER: ${SMTP_USER:?Set SMTP user}
-      SMTP_PASSWORD: ${SMTP_PASSWORD:?Set SMTP password}
-      MAIL_FROM: ${MAIL_FROM:?Set verified sender address}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-}
       GUIDANCE_MODE: ${GUIDANCE_MODE:-corpus}
       GUIDANCE_SERVICE_URL: ${GUIDANCE_SERVICE_URL:-}
       GUIDANCE_SERVICE_TOKEN: ${GUIDANCE_SERVICE_TOKEN:-}

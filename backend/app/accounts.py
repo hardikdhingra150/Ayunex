@@ -36,7 +36,7 @@ def password_matches(password,stored):
         actual=hashlib.pbkdf2_hmac('sha256',password.encode(),bytes.fromhex(salt),600000).hex()
         return hmac.compare_digest(actual,expected)
     except (ValueError,TypeError):return False
-_DUMMY_HASH=password_hash('dummy-password-not-an-account')
+_DUMMY_HASH=password_hash(secrets.token_urlsafe(32))
 
 
 def cookie_name(settings):return '__Host-ayunex_session' if settings.environment=='production' else 'ayunex_session'
@@ -62,7 +62,7 @@ def cookie_identity(request):
         row=db.get(AccountSession,digest(raw))
         if not row or row.expires<=int(time.time()):return None
         account=db.get(Account,row.account_id)
-        if not account or not account.verified or account.role!='user':return None
+        if not account or (settings.require_email_verification and not account.verified) or account.role!='user':return None
         return Principal(subject=account.id,tenant=account.tenant,role=account.role)
 
 
@@ -105,6 +105,9 @@ def send_action(settings,email,purpose,token):
 
 def accounts_router(sessions,settings):
     router=APIRouter(prefix='/api/v1/auth',tags=['Accounts'])
+    @router.get('/options')
+    def options():
+        return {'email_verification_required':settings.require_email_verification,'password_reset_available':bool(settings.smtp_host)}
     # Shared Redis in production; bounded local limiter in development.
     from dataclasses import replace
     limiter=RequestGuard(None,replace(settings,rate_limit=10))
@@ -130,11 +133,11 @@ def accounts_router(sessions,settings):
             account=db.scalar(select(Account).where(Account.email==body.email).with_for_update())
             if not account:
                 account=Account(email=body.email,password_hash=password_hash(body.password));db.add(account);db.flush()
-            if not account.verified:
+            if settings.require_email_verification and not account.verified:
                 account.password_hash=password_hash(body.password)
                 issue_action(db,account,'verify')
             db.commit()
-        return {'message':'If eligible, a verification email has been sent. Check your inbox.'}
+        return {'message':'If eligible, a verification email has been sent. Check your inbox.' if settings.require_email_verification else 'You can now sign in using your email and password. If you already have an account, use its existing password.'}
     @router.post('/verify-email')
     def verify(body:ActionIn,request:Request):
         guard(request)
@@ -152,12 +155,12 @@ def accounts_router(sessions,settings):
         with sessions() as db:
             account=db.scalar(select(Account).where(Account.email==body.email).with_for_update())
             valid=password_matches(body.password,account.password_hash if account else _DUMMY_HASH)
-            if not account or not valid or not account.verified or account.locked_until>int(time.time()):
+            if not account or not valid or (settings.require_email_verification and not account.verified) or account.locked_until>int(time.time()):
                 if account and not valid:
                     account.failures+=1
                     if account.failures>=5:account.locked_until=int(time.time())+900;account.failures=0
                     db.commit()
-                raise HTTPException(401,'Invalid credentials, unverified email or temporarily locked account')
+                raise HTTPException(401,'Invalid credentials or temporarily locked account' if not settings.require_email_verification else 'Invalid credentials, unverified email or temporarily locked account')
             account.failures=0;account.locked_until=0
             raw=secrets.token_urlsafe(32)
             db.execute(delete(AccountSession).where(AccountSession.expires<=int(time.time())))
@@ -175,9 +178,10 @@ def accounts_router(sessions,settings):
     @router.post('/forgot-password',status_code=202)
     def forgot(body:EmailIn,request:Request):
         guard(request,body.email)
+        if settings.environment!='test' and not settings.smtp_host:raise HTTPException(503,'Password reset is not available until email delivery is configured')
         with sessions() as db:
             account=db.scalar(select(Account).where(Account.email==body.email))
-            if account and account.verified:issue_action(db,account,'reset')
+            if account:issue_action(db,account,'reset')
             db.commit()
         return {'message':'If eligible, a password-reset email has been sent.'}
     @router.post('/reset-password')
