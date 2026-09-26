@@ -42,3 +42,16 @@ def test_groq_generation_only_configuration():
 @pytest.mark.parametrize('model',['../unsafe','qwen/../../unsafe','https://host/model','model?key=secret'])
 def test_model_identifier_cannot_change_endpoint(model):
     with pytest.raises(ProviderError,match='model ID'):HostedProvider(settings(ai_model=model)).structured('test',{}, {})
+
+
+def test_rate_limit_cooldown_does_not_leak_body_or_retry(monkeypatch):
+    calls=[]
+    @contextmanager
+    def stream(method,url,**kwargs):
+        calls.append(1)
+        yield httpx.Response(429,json={'error':'private provider detail'},request=httpx.Request(method,url))
+    monkeypatch.setattr(httpx,'stream',stream)
+    p=HostedProvider(settings())
+    with pytest.raises(ProviderError,match='HTTP 429'):p.structured('test',{}, {})
+    with pytest.raises(ProviderError,match='rate limited'):p.structured('test',{}, {})
+    assert len(calls)==1

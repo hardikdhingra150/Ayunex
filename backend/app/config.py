@@ -18,6 +18,8 @@ def _normalize_db_url(url: str | None = None) -> str:
 
 
 def _default_dev_token():
+    if os.getenv('APP_ENV','development') not in {'development','test'}:
+        return ''
     env_token = os.getenv('DEV_API_TOKEN', '')
     if env_token:
         return env_token
@@ -32,6 +34,13 @@ def _default_dev_token():
 
 @dataclass
 class Settings:
+    auth_mode: str = field(default_factory=lambda: os.getenv('AUTH_MODE','builtin'))
+    public_app_url: str = field(default_factory=lambda: os.getenv('PUBLIC_APP_URL','http://127.0.0.1:8000'))
+    smtp_host: str = field(default_factory=lambda: os.getenv('SMTP_HOST',''))
+    smtp_port: int = field(default_factory=lambda: int(os.getenv('SMTP_PORT','587')))
+    smtp_user: str = field(default_factory=lambda: os.getenv('SMTP_USER',''))
+    smtp_password: str = field(default_factory=lambda: os.getenv('SMTP_PASSWORD',''))
+    mail_from: str = field(default_factory=lambda: os.getenv('MAIL_FROM',''))
     ai_provider: str = field(default_factory=lambda: os.getenv('AI_PROVIDER',''))
     ai_key: str = field(default_factory=lambda: os.getenv('AI_API_KEY',''))
     ai_model: str = field(default_factory=lambda: os.getenv('AI_GENERATION_MODEL',''))
@@ -57,6 +66,7 @@ class Settings:
             self.dev_token = _default_dev_token()
 
     def validate(self):
+        if self.auth_mode not in {'builtin','external'}:raise ValueError('Invalid AUTH_MODE')
         if self.guidance_mode not in {'external','corpus','hosted'}:raise ValueError('Invalid GUIDANCE_MODE')
         if self.guidance_mode=='hosted':
             if self.ai_provider not in {'openai','gemini','groq'}:raise ValueError('Choose AI_PROVIDER=openai, gemini or groq')
@@ -76,8 +86,10 @@ class Settings:
             if not self.redis_url:raise ValueError('Production requires shared Redis rate limits')
             if '*' in self.allowed_hosts or 'testserver' in self.allowed_hosts:raise ValueError('Production requires explicit ALLOWED_HOSTS')
             if self.guidance_mode=='external' and (not self.guidance_url or not self.guidance_service_token):raise ValueError('Production external guidance needs configured service credentials')
-            if self.dev_token or not self.identity_url or not self.identity_service_token:
+            if self.dev_token or (self.auth_mode=='external' and (not self.identity_url or not self.identity_service_token)):
                 raise ValueError('Production requires Module D identity; development tokens forbidden')
+            if self.auth_mode=='builtin' and (not self.public_app_url.startswith('https://') or not all((self.smtp_host,self.smtp_user,self.smtp_password,self.mail_from))):
+                raise ValueError('Builtin production accounts require HTTPS PUBLIC_APP_URL and authenticated SMTP')
             if not self.database_url.startswith('postgresql'):
                 raise ValueError('Production requires PostgreSQL')
             if '*' in self.cors_origins or any(not x.startswith('https://') for x in self.cors_origins):

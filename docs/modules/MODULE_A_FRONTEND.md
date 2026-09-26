@@ -1,9 +1,11 @@
 # Module A — Frontend and User Experience
 
+**26 September 2026 audit:** This specification is not a completion certificate. Current fixes, tested scope and remaining production gates are recorded in [the release audit](../RELEASE_AUDIT_2026-09-26.md). Local guest access and source-text pilot evidence do not satisfy real identity or expert legal approval requirements.
+
 **Revision:** 2 · 9 September 2026. Updated implementation specification, not implemented application code. [Research and change rationale](../IP-SAKTI_RESEARCH_AND_SOLUTION.md). These revised module documents supersede conflicting details in the older master blueprint.
 
 **Owner:** Frontend team  
-**Primary stack:** Next.js, TypeScript, Tailwind CSS, accessible UI components, TanStack Query, React Hook Form, Zod and next-intl/i18next  
+**Primary stack:** React, JavaScript, Vite, CSS, accessible UI components, TanStack Query, React Hook Form, Zod and i18next (per the requested React/JavaScript implementation)
 **Depends on:** Module B APIs, Module C answer/citation schema and Module D authentication/consent
 
 ## 1. Objective

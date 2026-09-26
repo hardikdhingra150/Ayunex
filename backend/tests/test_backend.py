@@ -368,7 +368,7 @@ def test_openapi_exposes_bearer_and_core_models(env):
     assert {'CaseResponse','PassportResponse','GuidanceAnswer'} <= set(s['components']['schemas'])
 
 
-def test_dev_role_tokens_support_roles(env):
+def test_dev_role_suffix_cannot_elevate(env):
     c,app,_,_=env;app.dependency_overrides.clear()
     token = app.state.settings.dev_token
     # default dev token -> role user
@@ -377,10 +377,7 @@ def test_dev_role_tokens_support_roles(env):
     assert r_user.json()['role'] == 'user'
     # facilitator dev token -> role facilitator
     r_fac = c.get('/api/v1/me', headers={'Authorization': f'Bearer {token}:facilitator'})
-    assert r_fac.status_code == 200
-    assert r_fac.json()['role'] == 'facilitator'
+    assert r_fac.status_code == 401
     # admin dev token -> role administrator
     r_admin = c.get('/api/v1/me', headers={'Authorization': f'Bearer {token}:administrator'})
-    assert r_admin.status_code == 200
-    assert r_admin.json()['role'] == 'administrator'
-
+    assert r_admin.status_code == 401

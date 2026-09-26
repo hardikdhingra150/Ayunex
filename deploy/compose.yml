@@ -4,7 +4,7 @@ services:
     environment:
       POSTGRES_DB: ayunex
       POSTGRES_USER: ayunex
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ayunex_secure_db_pass_2026}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set a strong POSTGRES_PASSWORD}
     volumes:
       - database:/var/lib/postgresql/data
     healthcheck:
@@ -15,14 +15,14 @@ services:
     restart: unless-stopped
   redis:
     image: redis:8-alpine
-    command: [redis-server, --requirepass, "${REDIS_PASSWORD:-ayunex_redis_secure_pass}", --maxmemory, 128mb, --maxmemory-policy, noeviction]
+    command: [redis-server, --requirepass, "${REDIS_PASSWORD:?Set a strong REDIS_PASSWORD}", --maxmemory, 128mb, --maxmemory-policy, noeviction]
     restart: unless-stopped
   migrate:
     build:
       context: ..
       dockerfile: backend/Dockerfile
     environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://ayunex:${POSTGRES_PASSWORD:-ayunex_secure_db_pass_2026}@database:5432/ayunex}
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL}
     command: [alembic, upgrade, head]
     depends_on:
       database:
@@ -37,12 +37,17 @@ services:
       dockerfile: backend/Dockerfile
     environment:
       APP_ENV: production
-      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://ayunex:${POSTGRES_PASSWORD:-ayunex_secure_db_pass_2026}@database:5432/ayunex}
-      REDIS_URL: ${REDIS_URL:-redis://:${REDIS_PASSWORD:-ayunex_redis_secure_pass}@redis:6379/0}
-      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1,api,${API_DOMAIN:-localhost}}
-      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173,http://localhost:8000,http://127.0.0.1:8000}
-      IDENTITY_INTROSPECTION_URL: ${IDENTITY_INTROSPECTION_URL:-}
-      IDENTITY_SERVICE_TOKEN: ${IDENTITY_SERVICE_TOKEN:-}
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL}
+      REDIS_URL: ${REDIS_URL:?Set REDIS_URL}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:?Set ALLOWED_HOSTS including 127.0.0.1 for health probes}
+      CORS_ORIGINS: ${CORS_ORIGINS:?Set explicit HTTPS CORS_ORIGINS}
+      AUTH_MODE: builtin
+      PUBLIC_APP_URL: ${PUBLIC_APP_URL:?Set the HTTPS application origin}
+      SMTP_HOST: ${SMTP_HOST:?Set authenticated SMTP host}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:?Set SMTP user}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:?Set SMTP password}
+      MAIL_FROM: ${MAIL_FROM:?Set verified sender address}
       GUIDANCE_MODE: ${GUIDANCE_MODE:-corpus}
       GUIDANCE_SERVICE_URL: ${GUIDANCE_SERVICE_URL:-}
       GUIDANCE_SERVICE_TOKEN: ${GUIDANCE_SERVICE_TOKEN:-}

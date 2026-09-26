@@ -21,6 +21,16 @@ jobs:
         working-directory: backend
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Frontend lint, tests and production build
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run lint
+          node --test src/*.test.js
+          npm run build
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

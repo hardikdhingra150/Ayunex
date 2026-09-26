@@ -8,6 +8,7 @@
 !**/.env.example
 **/production.env
 **/.dev-token*
+**/.mail-outbox/
 
 # Dependencies & Build
 **/.venv/
@@ -32,4 +33,3 @@ data/corpus/raw/
 deploy/backups/
 tmp/
 *.log
-

@@ -16,6 +16,7 @@ if __name__=='__main__':
     settings.guidance_mode='hosted'
     if not settings.dev_token:settings.dev_token=(root/'.dev-token').read_text().strip()
     with TestClient(create_app(settings)) as client:
+        client.post('/api/v1/consent/record',headers={'Authorization':'Bearer '+settings.dev_token},json={'purpose':'hosted_ai_processing','notice_version':'pilot-check-v1'})
         response=client.post('/api/v1/guidance',headers={'Authorization':'Bearer '+settings.dev_token},json={
             'question':'What does Section 3(p) of the Indian Patents Act say about traditional knowledge?',
             'original_language':'en','allow_hosted_processing':True,

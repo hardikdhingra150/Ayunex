@@ -26,6 +26,10 @@ def bounded_post(url, payload, service_token, timeout, max_bytes):
 def identity(request: Request, credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer)]):
     config = request.app.state.settings
     authorization = request.headers.get('authorization', '')
+    if credentials is None and config.auth_mode=='builtin':
+        from .accounts import cookie_identity
+        principal=cookie_identity(request)
+        if principal:return principal
     if credentials is None or len(authorization)>8192:
         raise HTTPException(401, 'Bearer authentication required')
     token = credentials.credentials
@@ -38,13 +42,8 @@ def identity(request: Request, credentials: Annotated[HTTPAuthorizationCredentia
             role=session_payload['role']
         )
     if config.environment in {'development','test'} and config.dev_token:
-        parts = token.split(':', 1)
-        base_token = parts[0]
-        dev_role = parts[1] if len(parts) > 1 else 'user'
-        if dev_role not in {'user', 'facilitator', 'curator', 'administrator', 'auditor'}:
-            dev_role = 'user'
-        if secrets.compare_digest(base_token, config.dev_token):
-            return Principal(subject=f'local-{dev_role}', tenant='local-demo', role=dev_role)
+        if secrets.compare_digest(token, config.dev_token):
+            return Principal(subject='local-developer', tenant='local-demo', role='user')
     if not config.identity_url:
         raise HTTPException(401, 'Module D identity unavailable or invalid credential')
     try:

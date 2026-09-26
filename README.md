@@ -1,6 +1,8 @@
-# AYUNEX · Naut IQ
+# AYUNEX
 
 Ayurveda intellectual-property and regulatory research workspace · SIH 26045.
+
+**Current release status:** hardened local pilot, not a public-production certification. See the [26 September security and module audit](docs/RELEASE_AUDIT_2026-09-26.md) for fixes, test evidence and outstanding release gates.
 
 ## Run
 

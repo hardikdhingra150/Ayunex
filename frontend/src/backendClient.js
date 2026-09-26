@@ -1,12 +1,13 @@
 // Module B contract, explicitly opt-in. The existing demo remains mock-only.
 // Keep bearer credentials in memory; never save them to localStorage.
-export function createBackendClient({baseUrl='http://127.0.0.1:8000',getToken,fetchImpl=fetch,timeoutMs=25000}){
+export function defaultApiBase(){return typeof window==='undefined'?'http://127.0.0.1:8000':window.location.origin}
+export function createBackendClient({baseUrl=defaultApiBase(),getToken=()=>'',cookieAuth=false,fetchImpl=fetch,timeoutMs=140000}){
  const base=new URL(baseUrl)
  if(base.protocol!=='https:'&&!['127.0.0.1','localhost'].includes(base.hostname))throw new Error('HTTPS required outside loopback')
  async function request(path,{method='GET',body,idempotencyKey,signal}={}){
   const token=await getToken()
-  if(!token)throw new Error('Module D identity or local development token required')
-  const response=await fetchImpl(new URL('/api/v1'+path,base),{method,credentials:'omit',headers:{Authorization:'Bearer '+token,...(body?{'Content-Type':'application/json'}:{}),...(idempotencyKey?{'Idempotency-Key':idempotencyKey}:{})},body:body?JSON.stringify(body):undefined,signal:signal?AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]):AbortSignal.timeout(timeoutMs)})
+  if(!token&&!cookieAuth)throw new Error('Module D identity or local development token required')
+  const response=await fetchImpl(new URL('/api/v1'+path,base),{method,credentials:cookieAuth?'same-origin':'omit',headers:{...(token?{Authorization:'Bearer '+token}:{}),'X-CSRF-Protection':'1',...(body?{'Content-Type':'application/json'}:{}),...(idempotencyKey?{'Idempotency-Key':idempotencyKey}:{})},body:body?JSON.stringify(body):undefined,signal:signal?AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]):AbortSignal.timeout(timeoutMs)})
   if(!response.ok){const problem=await response.json().catch(()=>({}));const error=new Error(typeof problem.detail==='string'?problem.detail:'Backend request failed');error.status=response.status;error.details=problem.detail;throw error}
   return response.status===204?null:response.json()
  }
@@ -45,7 +46,8 @@ export function createBackendClient({baseUrl='http://127.0.0.1:8000',getToken,fe
  }
 }
 
-export async function fetchSession(role='user',baseUrl='http://127.0.0.1:8000'){
+export async function fetchSession(role='user',baseUrl=defaultApiBase()){
+ if(role!=='user')throw new Error('Privileged roles require verified identity, not self-selection')
  const base=new URL(baseUrl)
  const res=await fetch(new URL('/api/v1/auth/session',base),{
   method:'POST',
@@ -55,4 +57,3 @@ export async function fetchSession(role='user',baseUrl='http://127.0.0.1:8000'){
  if(!res.ok)throw new Error('Failed to obtain session from server')
  return res.json()
 }
-

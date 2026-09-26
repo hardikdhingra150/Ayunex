@@ -47,10 +47,10 @@ def create_app(settings=None, guidance_client=None):
     app.state.settings=settings
     app.state.engine=engine
     app.state.sessions=sessions
-    app.state.guidance=guidance_client or (HostedGuidance(sessions,settings) if settings.guidance_mode=='hosted' else ExtractiveGuidance(sessions) if settings.guidance_mode=='corpus' else GuidanceClient(settings))
+    app.state.guidance=guidance_client or (HostedGuidance(sessions,settings) if settings.guidance_mode=='hosted' else ExtractiveGuidance(sessions,allow_source_checked=settings.environment!='production') if settings.guidance_mode=='corpus' else GuidanceClient(settings))
     app.add_middleware(RequestGuard,settings=settings)
     app.add_middleware(TrustedHostMiddleware,allowed_hosts=settings.allowed_hosts)
-    app.add_middleware(CORSMiddleware,allow_origins=settings.cors_origins,allow_methods=['GET','POST','PATCH','DELETE'],allow_headers=['Authorization','Content-Type','Idempotency-Key'],allow_credentials=False)
+    app.add_middleware(CORSMiddleware,allow_origins=settings.cors_origins,allow_methods=['GET','POST','PATCH','DELETE'],allow_headers=['Authorization','Content-Type','Idempotency-Key','X-CSRF-Protection'],allow_credentials=False)
 
     @app.middleware('http')
     async def security_headers(request, call_next):
@@ -60,6 +60,9 @@ def create_app(settings=None, guidance_client=None):
         response.headers['Cache-Control']='no-store'
         response.headers['Referrer-Policy']='strict-origin-when-cross-origin'
         response.headers['Permissions-Policy']='camera=(), microphone=(self), geolocation=()'
+        if settings.environment=='production':
+            response.headers['Content-Security-Policy']="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+            response.headers['Referrer-Policy']='no-referrer'
         return response
 
     @app.exception_handler(StaleDataError)
@@ -88,15 +91,17 @@ def create_app(settings=None, guidance_client=None):
     User=Annotated[Principal,Depends(identity)]
     app.include_router(corpus_router(database))
     from .module_d import module_d_router, init_module_d_tables
-    init_module_d_tables(engine)
+    if settings.environment!='production':init_module_d_tables(engine)
     app.include_router(module_d_router(sessions, settings, identity))
+    from .accounts import accounts_router
+    app.include_router(accounts_router(sessions,settings))
 
     @app.get('/health/readiness')
     def readiness():
         try:
             with sessions() as db:
                 version=db.execute(text('SELECT version_num FROM alembic_version')).scalar()
-                if version!='0003':raise ValueError('Migrations pending')
+                if version!='0005':raise ValueError('Migrations pending')
             if settings.redis_url:
                 from redis import Redis
                 with Redis.from_url(settings.redis_url,socket_timeout=2,socket_connect_timeout=2) as cache:
@@ -104,6 +109,7 @@ def create_app(settings=None, guidance_client=None):
             return {'ready':True,'schema':version,'guidance_mode':settings.guidance_mode}
         except Exception:
             return JSONResponse(status_code=503,content={'ready':False,'reason':'Database, migrations or shared limiter unavailable'})
+    app.state.readiness=readiness
 
     def scoped(db, principal, case_id, write=False):
         case=db.get(Case,case_id)
@@ -278,6 +284,7 @@ def create_app(settings=None, guidance_client=None):
     @app.post('/api/v1/cases/{case_id}/guidance')
     def case_guidance(case_id:str,body:Guidance,db:DB,user:User,idempotency_key:Annotated[str,Header(min_length=8,max_length=128)]):
         case=scoped(db,user,case_id,True)
+        require_hosted_consent(user,body.allow_hosted_processing)
         fingerprint=digest(body.model_dump())
         cached=db.scalar(select(Artifact).where(Artifact.case_id==case.id,Artifact.kind=='answer',Artifact.idempotency_key==idempotency_key))
         if cached:
@@ -301,9 +308,16 @@ def create_app(settings=None, guidance_client=None):
 
     @app.post('/api/v1/guidance',response_model=GuidanceAnswer)
     def general_guidance(body:GeneralGuidance,user:User):
+        require_hosted_consent(user,body.allow_hosted_processing)
         payload={**body.model_dump(mode='json'),'request_id':str(uuid4()),'query_kind':'GENERAL_INFORMATION','case_id':None,'passport_version_id':None,'classification_run_id':None,'allowed_access_classes':['PUBLIC'],'domains':route_domains({},body.jurisdiction.model_dump())}
         payload['context_hash']=digest(body.model_dump(mode='json'))
         return verified_guidance(payload)
+
+    def require_hosted_consent(user,requested):
+        if not requested:return
+        with sessions() as consent_db:
+            granted=consent_db.execute(text("SELECT id FROM platform_consents WHERE tenant=:tenant AND subject=:subject AND purpose='hosted_ai_processing' AND status='GRANTED' LIMIT 1"),{'tenant':user.tenant,'subject':user.subject}).first()
+            if not granted:raise HTTPException(403,'Record explicit hosted_ai_processing consent before requesting AI processing')
 
     @app.get('/api/v1/answers/{answer_id}')
     def answer(answer_id:str,db:DB,user:User):
@@ -423,7 +437,9 @@ def create_app(settings=None, guidance_client=None):
         async def serve_spa(full_path: str):
             if full_path.startswith(('api/', 'health', 'docs', 'redoc', 'openapi.json', 'readyz', 'healthz')):
                 raise HTTPException(status_code=404, detail="Not Found")
-            file_candidate = frontend_dist / full_path
+            file_candidate = (frontend_dist / full_path).resolve()
+            if not file_candidate.is_relative_to(frontend_dist.resolve()):
+                raise HTTPException(status_code=404,detail='Not Found')
             if file_candidate.is_file():
                 return FileResponse(file_candidate)
             return FileResponse(frontend_dist / 'index.html')

@@ -1,20 +1,17 @@
 import { useRef, useState, useEffect } from 'react'
-import { Key, Sparkles, BookOpen, ShieldCheck, AlertCircle, ExternalLink, RefreshCw } from 'lucide-react'
-import { createBackendClient } from './backendClient'
+import { Sparkles, BookOpen, ShieldCheck, AlertCircle, ExternalLink, RefreshCw } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useApp } from './context'
 
-const DEV_TOKEN = '-o7JRlGIO4I9t4q2xvreNNSiDL_3uyTZ9b-95rp9WXo'
 const example = 'What does Section 3(p) of the Indian Patents Act say about traditional knowledge?'
 
 export default function LiveQuestion() {
-  const { language, backendToken, backendClient } = useApp()
+  const { language, backendClient } = useApp()
   const hi = language === 'hi'
   const t = (en, hindi) => hi ? hindi : en
 
-  const [customToken, setCustomToken] = useState('')
-  const token = customToken || backendToken || ''
   const [question, setQuestion] = useState(example)
-  const [consent, setConsent] = useState(true)
+  const [consent, setConsent] = useState(false)
   const [busy, setBusy] = useState(false)
   const [answer, setAnswer] = useState(null)
   const [error, setError] = useState('')
@@ -32,10 +29,12 @@ export default function LiveQuestion() {
     pending.current = controller
 
     try {
-      const activeClient = backendClient || createBackendClient({ getToken: () => token.trim(), timeoutMs: 140000 })
+      const activeClient = backendClient
+      if(!activeClient)throw new Error('Please sign in first.')
+      if(consent)await activeClient.recordConsent('hosted_ai_processing','hosted-ai-v1')
       const result = await activeClient.ask({
         question: question.trim(),
-        original_language: 'en',
+        original_language: hi ? 'hi' : 'en',
         allow_hosted_processing: consent,
         jurisdiction: { layer: 'NATIONAL', country: 'IN' },
         as_of_date: new Date().toLocaleDateString('en-CA')
@@ -44,7 +43,7 @@ export default function LiveQuestion() {
     } catch (err) {
       if (!controller.signal.aborted) {
         setError(err.status === 401
-          ? t('Local token rejected. Copy backend/.dev-token, not your Groq key.', 'स्थानीय टोकन अस्वीकृत। backend/.dev-token कॉपी करें।')
+          ? t('Your session expired. Please sign in again.', 'कृपया फिर से साइन इन करें।')
           : err.message === 'Failed to fetch'
           ? t('Backend unavailable. Start npm run backend on port 8000.', 'बैकएंड अनुपलब्ध है। कृपया पोर्ट 8000 पर बैकएंड शुरू करें।')
           : err.message)
@@ -73,41 +72,15 @@ export default function LiveQuestion() {
           <strong>{t('Curated Seed Knowledge Base', 'सत्यापित प्रारंभिक ज्ञान आधार')}</strong>
           <p style={{ margin: '4px 0 0', fontSize: 13 }}>
             {t(
-              'Active approved provisions: Patents Act Section 3(p) (traditional knowledge), Section 3(e) (mere admixture), Section 3(d) (known substance efficacy), and Biological Diversity ABS Regulations 2025 Regulation 5 (commercial access intimation). Information only, not legal advice.',
-              'सक्रिय अनुमोदित धाराएँ: पेटेंट अधिनियम धारा 3(p) (पारंपरिक ज्ञान), धारा 3(e) (घटकों का सम्मिश्रण), धारा 3(d) (प्रभावकारिता), एवं राष्ट्रीय जैव विविधता प्राधिकरण नियम 5। केवल सूचना हेतु, कानूनी सलाह नहीं।'
+              'Limited source-text pilot, not expert legal approval. Try the Section 3(p) traditional-knowledge example. Coverage depends on current source reviews; missing or incomplete evidence is withheld. Information only, not legal advice.',
+              'सीमित स्रोत-पाठ पायलट, विशेषज्ञ कानूनी अनुमोदन नहीं। धारा 3(p) का उदाहरण आजमाएँ। अपूर्ण साक्ष्य पर उत्तर रोका जाता है। केवल जानकारी, कानूनी सलाह नहीं।'
             )}
           </p>
         </div>
       </div>
 
       <form className="panel" onSubmit={submit} style={{ marginTop: 18 }}>
-        <div className="field">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-            <label htmlFor="local-token" style={{ margin: 0 }}>
-              {t('Local development token', 'स्थानीय डेवलपर टोकन')}
-            </label>
-            <button
-              type="button"
-              className="button"
-              style={{ fontSize: 12, padding: '2px 8px' }}
-              onClick={() => setCustomToken(DEV_TOKEN)}
-            >
-              <Key size={13} />
-              {t('Fill dev token', 'डेव टोकन भरें')}
-            </button>
-          </div>
-          <input
-            id="local-token"
-            type="password"
-            autoComplete="off"
-            required
-            disabled={busy}
-            value={customToken || token}
-            onChange={e => setCustomToken(e.target.value)}
-            placeholder="Paste contents of backend/.dev-token"
-          />
-          <small>{t('Kept in browser memory only. Your Groq API key stays securely on the server.', 'केवल ब्राउज़र मेमोरी में रहता है। आपकी Groq API कुंजी सर्वर पर सुरक्षित रहती है।')}</small>
-        </div>
+        {!backendClient&&<Link className="button primary" to="/login">Sign in to ask a question</Link>}
 
         <div className="field">
           <label htmlFor="live-question">{t('Your question', 'आपका प्रश्न')}</label>
@@ -148,7 +121,7 @@ export default function LiveQuestion() {
         <div style={{ display: 'flex', gap: 12 }}>
           <button
             className="button primary"
-            disabled={busy || !token.trim() || question.trim().length < 3}
+            disabled={busy || !backendClient || question.trim().length < 3}
           >
             {busy ? (
               <>

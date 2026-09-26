@@ -24,15 +24,17 @@ export function factsToBackendPassport(facts, ingredientRows = []) {
   }
   if (facts.source) {
     const isUnknown = facts.source === 'Unknown'
-    const isTextMatch = !isUnknown && facts.source.trim().length > 0
-    backendFacts['formula_matches_text'] = { value: isTextMatch, provenance: 'user-entered', confirmed: true, unknown: isUnknown }
-    backendFacts['method_matches_text'] = { value: isTextMatch, provenance: 'user-entered', confirmed: true, unknown: isUnknown }
-    backendFacts['ingredients_in_texts'] = { value: isTextMatch, provenance: 'user-entered', confirmed: true, unknown: isUnknown }
+    backendFacts['formula_source'] = { value: isUnknown ? null : facts.source, provenance: 'user-entered', confirmed: !isUnknown, unknown: isUnknown }
+    for(const key of ['formula_matches_text','method_matches_text','ingredients_in_texts']){
+      const explicit=facts[key]
+      backendFacts[key]={value:typeof explicit==='boolean'?explicit:null,provenance:'user-entered',confirmed:typeof explicit==='boolean',unknown:typeof explicit!=='boolean'}
+    }
   }
   if (facts.processing) {
-    const isMod = facts.processing.toLowerCase().includes('modif') || facts.processing.toLowerCase().includes('extract')
-    backendFacts['modified'] = { value: isMod, provenance: 'user-entered', confirmed: true, unknown: facts.processing === 'Unknown' }
-    backendFacts['purified_fraction'] = { value: facts.processing.toLowerCase().includes('purif') || facts.processing.toLowerCase().includes('isolat'), provenance: 'user-entered', confirmed: true, unknown: facts.processing === 'Unknown' }
+    for(const key of ['modified','purified_fraction']){
+      const explicit=facts[key]
+      backendFacts[key]={value:typeof explicit==='boolean'?explicit:null,provenance:'user-entered',confirmed:typeof explicit==='boolean',unknown:typeof explicit!=='boolean'}
+    }
     backendFacts['processing'] = { value: facts.processing, provenance: 'user-entered', confirmed: true, unknown: facts.processing === 'Unknown' }
   }
   if (facts.origin) {
@@ -52,4 +54,3 @@ export function factsToBackendPassport(facts, ingredientRows = []) {
   }))
   return { facts: backendFacts, ingredients }
 }
-

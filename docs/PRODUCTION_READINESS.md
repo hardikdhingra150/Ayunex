@@ -42,3 +42,6 @@ The India Code biodiversity PDF timed out. India Code migration and registry lin
 8. Resolve trusted-proxy rate limiting before public traffic; currently requests behind the proxy share its IP budget.
 
 The backend has a tested local foundation and prepared deployment files. It is **not yet a fully validated production service**. No credentials or legal approvals have been invented to remove these gates.
+# Current release audit
+
+The [26 September 2026 release audit](RELEASE_AUDIT_2026-09-26.md) supersedes older implementation/test claims below. Public deployment is blocked on verified identity, hosting/operations, expert-reviewed rules/corpus and acceptance testing. Local pilot access is not production authentication.

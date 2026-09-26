@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
 import { AppContext, initialCases } from './context'
 import { invalidateCase, factsToBackendPassport } from './domain'
 import { uiHindi } from './uiHindi'
-import { createBackendClient, fetchSession } from './backendClient'
+import { createBackendClient } from './backendClient'
 
 export function AppProvider({children}){
  const [cases,setCases]=useState(()=>structuredClone(initialCases))
@@ -11,30 +11,33 @@ export function AppProvider({children}){
  const [consent,setConsent]=useState(false),[toast,setToast]=useState('')
 
  const [backendMode,setBackendMode]=useState(()=>sessionStorage.getItem('ipsakti-mode')||'live')
- const [backendToken,setBackendToken]=useState(()=>sessionStorage.getItem('ipsakti-token')||'')
+ const [backendToken,setBackendToken]=useState('')
  const [backendRole,setBackendRole]=useState('user')
  const [connectionStatus,setConnectionStatus]=useState('disconnected')
+ const identityEpoch=useRef(0)
 
  const backendClient = useMemo(()=>{
-  if(!backendToken) return null
+  if(connectionStatus!=='connected') return null
   try {
    return createBackendClient({
-    getToken: () => backendToken + (backendRole !== 'user' ? `:${backendRole}` : '')
+    cookieAuth: true
    })
   } catch(err) {
    void err
    return null
   }
- },[backendToken, backendRole])
+ },[connectionStatus])
 
  const syncLiveCases = useCallback(async (clientInstance = backendClient) => {
   if (!clientInstance) return
+  const epoch=identityEpoch.current
   try {
    const serverCases = await clientInstance.cases()
+   if(epoch!==identityEpoch.current)return
    if (Array.isArray(serverCases)) {
     setCases(old => {
      const serverMap = new Map(serverCases.map(c => [c.id, c]))
-     const updated = old.map(c => {
+     const updated = old.filter(c=>!c.live||serverMap.has(c.id)).map(c => {
       const sc = serverMap.get(c.id)
       if (!sc) return c
       return {
@@ -74,33 +77,43 @@ export function AppProvider({children}){
   }
  }, [backendClient])
 
- const connectBackend = useCallback(async (token, role = 'user') => {
+ const connectBackend = useCallback(async () => {
+  const epoch=++identityEpoch.current
   try {
    setConnectionStatus('connecting')
    const testClient = createBackendClient({
-    getToken: () => token.trim() + (role !== 'user' ? `:${role}` : '')
+    cookieAuth: true
    })
    const user = await testClient.me()
-   setBackendToken(token.trim())
-   setBackendRole(role)
+   if(epoch!==identityEpoch.current)return {ok:false,error:'Connection superseded'}
+   setBackendToken('')
+   setBackendRole(user.role)
+   setCases(structuredClone(initialCases))
    setBackendMode('live')
    setConnectionStatus('connected')
    sessionStorage.setItem('ipsakti-mode', 'live')
-   sessionStorage.setItem('ipsakti-token', token.trim())
+   sessionStorage.removeItem('ipsakti-token')
    setToast(language === 'hi' ? 'लाइव बैकएंड से जुड़ा' : `Connected to live backend as ${user.role}`)
    await syncLiveCases(testClient)
    return { ok: true, user }
   } catch (err) {
    setConnectionStatus('disconnected')
-   const msg = err.status === 401 ? 'Invalid token' : err.message || 'Connection failed'
-   setToast(language === 'hi' ? `कनेक्शन विफल: ${msg}` : `Backend connection failed: ${msg}`)
+   setBackendMode('mock')
+   const msg = err.status === 401 ? 'Please sign in to save your work.' : err.message || 'Connection failed'
    return { ok: false, error: msg }
   }
  }, [language, syncLiveCases])
 
- const disconnectBackend = useCallback(() => {
+ const disconnectBackend = useCallback(async () => {
+  try {
+   const response=await fetch('/api/v1/auth/logout',{method:'POST',credentials:'same-origin',headers:{'X-CSRF-Protection':'1'},signal:AbortSignal.timeout(15000)})
+   if(!response.ok)throw new Error('Sign out failed')
+  } catch {setToast('Could not sign out. Please retry.');return}
+  identityEpoch.current++
   setBackendMode('mock')
   setBackendToken('')
+  setBackendRole('user')
+  setCases(structuredClone(initialCases))
   setConnectionStatus('disconnected')
   sessionStorage.setItem('ipsakti-mode', 'mock')
   sessionStorage.removeItem('ipsakti-token')
@@ -117,21 +130,12 @@ export function AppProvider({children}){
   autoConnectAttempted.current = true
   const mode = sessionStorage.getItem('ipsakti-mode') || 'live'
   if (mode === 'mock') return
-  const token = sessionStorage.getItem('ipsakti-token')
-  if (token) {
-   setTimeout(() => { connectBackend(token, backendRole) }, 0)
-  } else {
-   fetchSession(backendRole)
-    .then(res => {
-     if (res?.token) {
-      connectBackend(res.token, backendRole)
-     }
-    })
+  sessionStorage.removeItem('ipsakti-token')
+   Promise.resolve().then(()=>connectBackend())
     .catch(() => {
      setBackendMode('mock')
      setConnectionStatus('disconnected')
     })
-  }
  }, [backendRole, connectBackend])
 
  function updateCase(id,patch,invalidate=false){
@@ -164,4 +168,3 @@ export function AppProvider({children}){
   connectionStatus,backendClient,connectBackend,disconnectBackend,syncLiveCases
  }}>{children}{toast&&<div className="toast" role="status">{language==='hi'?(uiHindi[toast]||toast):toast}</div>}</AppContext.Provider>
 }
-

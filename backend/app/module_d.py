@@ -12,6 +12,7 @@ import hashlib
 import hmac
 import json
 import time
+import secrets
 from datetime import datetime, timezone
 from typing import Literal, Annotated
 from uuid import uuid4
@@ -22,6 +23,10 @@ from sqlalchemy import text
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from .schemas import Strict, Principal
+
+# Ephemeral development sessions are intentionally invalidated on restart.
+# Production identity is verified by the configured external identity service.
+_DEVELOPMENT_SIGNING_KEY = secrets.token_bytes(32)
 
 
 def _b64url_encode(data: bytes) -> str:
@@ -36,8 +41,9 @@ def _b64url_decode(s: str) -> bytes:
 
 
 def _get_signing_key(settings) -> bytes:
-    key = getattr(settings, 'dev_token', '') or getattr(settings, 'ai_key', '') or 'ayunex-production-secret-key-32b'
-    return hashlib.sha256(key.encode('utf-8')).digest()
+    if settings.environment not in {'development','test'}:
+        raise ValueError('Local session signing is disabled in production')
+    return _DEVELOPMENT_SIGNING_KEY
 
 
 def create_session_token(
@@ -45,7 +51,7 @@ def create_session_token(
     tenant: str,
     role: str,
     settings,
-    expires_in_seconds: int = 86400 * 7
+    expires_in_seconds: int = 3600
 ) -> str:
     """Creates a cryptographically signed HMAC-SHA256 session token."""
     now_ts = int(time.time())
@@ -70,10 +76,12 @@ def create_session_token(
 def verify_session_token(token: str, settings) -> dict | None:
     """Verifies HMAC signature and expiration; returns decoded payload or None."""
     try:
+        if settings.environment not in {'development','test'} or len(token)>8192:return None
         parts = token.split('.')
         if len(parts) != 3:
             return None
         h_b64, p_b64, sig_b64 = parts
+        if json.loads(_b64url_decode(h_b64))!={'alg':'HS256','typ':'JWT'}:return None
         signing_input = f"{h_b64}.{p_b64}".encode('ascii')
         expected_sig = hmac.new(_get_signing_key(settings), signing_input, hashlib.sha256).digest()
         provided_sig = _b64url_decode(sig_b64)
@@ -82,50 +90,19 @@ def verify_session_token(token: str, settings) -> dict | None:
         payload = json.loads(_b64url_decode(p_b64).decode('utf-8'))
         if not isinstance(payload, dict):
             return None
-        if payload.get('exp', 0) < int(time.time()):
+        if type(payload.get('exp')) is not int or type(payload.get('iat')) is not int or not payload['iat']<=int(time.time())<payload['exp'] or payload['exp']-payload['iat']>3600:
             return None
+        Principal(subject=payload['sub'],tenant=payload['tenant'],role=payload['role'])
         return payload
     except Exception:
         return None
 
 
 def init_module_d_tables(engine):
-    """Initializes tables for DPDP consent ledger and tamper-evident audit chain."""
-    with engine.begin() as conn:
-        conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS platform_consents (
-                id VARCHAR(36) PRIMARY KEY,
-                tenant VARCHAR(160) NOT NULL,
-                subject VARCHAR(160) NOT NULL,
-                purpose VARCHAR(80) NOT NULL,
-                notice_version VARCHAR(40) NOT NULL,
-                status VARCHAR(20) NOT NULL,
-                granted_at VARCHAR(40) NOT NULL,
-                withdrawn_at VARCHAR(40),
-                metadata_json TEXT
-            );
-        """))
-        conn.execute(text("""
-            CREATE INDEX IF NOT EXISTS ix_platform_consents_subject 
-            ON platform_consents (tenant, subject, purpose);
-        """))
-        conn.execute(text("""
-            CREATE TABLE IF NOT EXISTS platform_audit_ledger (
-                id VARCHAR(36) PRIMARY KEY,
-                sequence INTEGER NOT NULL,
-                tenant VARCHAR(160) NOT NULL,
-                actor VARCHAR(160) NOT NULL,
-                action VARCHAR(80) NOT NULL,
-                timestamp VARCHAR(40) NOT NULL,
-                prev_hash VARCHAR(64) NOT NULL,
-                entry_hash VARCHAR(64) NOT NULL,
-                payload_json TEXT
-            );
-        """))
-        conn.execute(text("""
-            CREATE INDEX IF NOT EXISTS ix_platform_audit_seq 
-            ON platform_audit_ledger (sequence);
-        """))
+    """Development/test bootstrap only; production uses Alembic."""
+    from .models import platform_consents, platform_audit_ledger
+    platform_consents.create(engine,checkfirst=True)
+    platform_audit_ledger.create(engine,checkfirst=True)
 
 
 def append_audit_event(db, tenant: str, actor: str, action: str, payload: dict | None = None) -> dict:
@@ -133,6 +110,10 @@ def append_audit_event(db, tenant: str, actor: str, action: str, payload: dict |
     payload_str = json.dumps(payload or {}, sort_keys=True, separators=(',', ':'))
     iso_now = datetime.now(timezone.utc).isoformat()
     
+    if db.bind.dialect.name=='postgresql':
+        db.execute(text('SELECT pg_advisory_xact_lock(26045001)'))
+    else:
+        db.execute(text('UPDATE platform_audit_ledger SET sequence=sequence WHERE 1=0'))
     last = db.execute(text("""
         SELECT sequence, entry_hash FROM platform_audit_ledger 
         ORDER BY sequence DESC LIMIT 1
@@ -183,9 +164,9 @@ def verify_audit_chain(db) -> dict:
         return {'verified': True, 'count': 0, 'head_hash': '0' * 64}
         
     expected_prev = '0' * 64
-    for row in rows:
+    for expected_sequence,row in enumerate(rows,1):
         _id, seq, tenant, actor, action, ts, prev_hash, entry_hash, payload_json = row
-        if prev_hash != expected_prev:
+        if seq!=expected_sequence or prev_hash != expected_prev:
             return {'verified': False, 'failed_sequence': seq, 'reason': 'Chain continuity broken'}
         hash_data = f"{prev_hash}|{seq}|{tenant}|{actor}|{action}|{ts}|{payload_json}".encode('utf-8')
         recomputed = hashlib.sha256(hash_data).hexdigest()
@@ -199,9 +180,7 @@ def verify_audit_chain(db) -> dict:
 # --- Schemas ---
 
 class SessionRequest(Strict):
-    role: Literal['user', 'facilitator', 'curator', 'administrator', 'auditor'] = 'user'
-    subject: str | None = None
-    tenant: str = 'local-demo'
+    role: Literal['user'] = 'user'
 
 
 class IntrospectRequest(Strict):
@@ -248,28 +227,33 @@ def module_d_router(sessions, settings, identity_dependency):
     router = APIRouter(tags=['Module D — Platform, Security & Identity'])
 
     @router.post('/api/v1/auth/session')
-    @router.get('/api/v1/auth/session')
     def get_or_create_session(body: SessionRequest | None = None):
-        """Zero-friction session issuance for visitors or specific demo roles."""
-        req = body or SessionRequest()
-        sub = req.subject or f"{req.role}-{uuid4().hex[:8]}"
-        token = create_session_token(sub, req.tenant, req.role, settings)
+        """Isolated, unprivileged local guest. Never a production login endpoint."""
+        if settings.environment not in {'development','test'}:
+            raise HTTPException(403,'Sign in through the configured production identity provider')
+        sub = 'guest-'+uuid4().hex
+        tenant = 'guest-'+uuid4().hex
+        token = create_session_token(sub, tenant, 'user', settings)
         with sessions() as db:
-            append_audit_event(db, req.tenant, sub, 'auth.session_created', {'role': req.role})
+            append_audit_event(db, tenant, sub, 'auth.session_created', {'role':'user'})
             db.commit()
         return {
             'token': token,
             'principal': {
                 'subject': sub,
-                'tenant': req.tenant,
-                'role': req.role
+                'tenant': tenant,
+                'role': 'user'
             },
-            'expires_in': 86400 * 7
+            'expires_in': 3600
         }
 
     @router.post('/api/v1/auth/introspect')
-    def introspect_token(req: IntrospectRequest):
+    def introspect_token(req: IntrospectRequest, request:Request):
         """Fulfills the Module D IDENTITY_INTROSPECTION_URL interface."""
+        expected=settings.identity_service_token
+        supplied=request.headers.get('authorization','')
+        if not expected or not hmac.compare_digest(supplied,'Bearer '+expected):
+            raise HTTPException(401,'Service authentication required')
         payload = verify_session_token(req.token, settings)
         if payload:
             return {
@@ -282,18 +266,13 @@ def module_d_router(sessions, settings, identity_dependency):
             }
         # Check dev tokens if in dev/test environment
         if settings.environment in {'development', 'test'} and settings.dev_token:
-            parts = req.token.split(':', 1)
-            base_token = parts[0]
-            dev_role = parts[1] if len(parts) > 1 else 'user'
-            if dev_role not in {'user', 'facilitator', 'curator', 'administrator', 'auditor'}:
-                dev_role = 'user'
-            if hmac.compare_digest(base_token, settings.dev_token):
+            if hmac.compare_digest(req.token, settings.dev_token):
                 return {
                     'active': True,
                     'principal': {
-                        'subject': f'local-{dev_role}',
+                        'subject': 'local-developer',
                         'tenant': 'local-demo',
-                        'role': dev_role
+                        'role': 'user'
                     }
                 }
         return {'active': False}
@@ -397,7 +376,7 @@ def module_d_router(sessions, settings, identity_dependency):
             """), {'tenant': user.tenant, 'sub': user.subject})
             append_audit_event(db, user.tenant, user.subject, 'privacy.erasure_executed', {'confirmed': True})
             db.commit()
-        return {'status': 'ERASED', 'subject': user.subject, 'message': 'All personal cases and artifacts permanently deleted.'}
+        return {'status': 'ERASED', 'subject': user.subject, 'message': 'Owned cases and dependent artifacts deleted; consent metadata cleared. Audit and consent identifiers remain subject to the retention policy. Provider-side deletion is not certified.'}
 
     # --- D8: Tamper-Evident Audit Ledger ---
 
@@ -409,8 +388,9 @@ def module_d_router(sessions, settings, identity_dependency):
             rows = db.execute(text("""
                 SELECT id, sequence, tenant, actor, action, timestamp, prev_hash, entry_hash, payload_json
                 FROM platform_audit_ledger
+                WHERE tenant = :tenant
                 ORDER BY sequence DESC LIMIT :limit
-            """), {'limit': min(max(1, limit), 200)}).all()
+            """), {'tenant':user.tenant,'limit': min(max(1, limit), 200)}).all()
             
             events = []
             for r in rows:
@@ -433,7 +413,7 @@ def module_d_router(sessions, settings, identity_dependency):
 
     @router.get('/api/v1/audit/verify')
     def verify_audit_ledger(user: Annotated[Principal, Depends(identity_dependency)]):
-        if user.role not in {'curator', 'administrator', 'auditor'}:
+        if user.role != 'administrator':
             raise HTTPException(403, 'Auditor or Administrator role required')
         with sessions() as db:
             return verify_audit_chain(db)
@@ -445,16 +425,8 @@ def module_d_router(sessions, settings, identity_dependency):
         return {'status': 'ok', 'service': 'AYUNEX Platform', 'time': datetime.now(timezone.utc).isoformat()}
 
     @router.get('/readyz')
-    def readiness_probe():
-        try:
-            with sessions() as db:
-                db.execute(text('SELECT 1')).scalar()
-            return {'ready': True, 'environment': settings.environment}
-        except Exception as e:
-            return Response(
-                content=json.dumps({'ready': False, 'error': str(e)}),
-                status_code=503,
-                media_type='application/json'
-            )
-
+    def readiness_probe(request:Request):
+        return request.app.state.readiness()
+        # The shared readiness check covers database migrations and Redis too.
+        # Kept separate from the liveness endpoint.
     return router

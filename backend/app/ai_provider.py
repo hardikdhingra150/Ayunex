@@ -7,11 +7,15 @@ This transport is fixture-tested, not live-account certified.
 import json
 import math
 import re
+import time
 import httpx
 
 
 class ProviderError(ValueError):
     pass
+
+class ProviderUnavailableError(ProviderError):
+    """Safe transport-only message; never includes provider bodies or keys."""
 
 
 def vector(value):
@@ -29,8 +33,11 @@ class HostedProvider:
         self.settings=settings
         self.model=settings.ai_model
         self.embedding_model=settings.ai_provider+':'+settings.embedding_model
+        self._blocked_until=0
 
     def request(self,path,payload):
+        if time.monotonic()<self._blocked_until:
+            raise ProviderUnavailableError('Hosted provider is rate limited; retry later')
         s=self.settings
         if not s.cloud_processing_allowed or not s.ai_key:raise ProviderError('Hosted processing disabled')
         if s.ai_provider=='openai':
@@ -50,7 +57,14 @@ class HostedProvider:
                 result=json.loads(body)
                 if not isinstance(result,dict):raise ProviderError('Expected JSON object')
                 return result
-        except (httpx.HTTPError,ValueError) as exc:
+        except httpx.HTTPStatusError as exc:
+            if exc.response.status_code==429:self._blocked_until=time.monotonic()+60
+            raise ProviderUnavailableError('Hosted provider returned HTTP '+str(exc.response.status_code)) from None
+        except httpx.TimeoutException:
+            raise ProviderUnavailableError('Hosted provider timed out') from None
+        except httpx.RequestError:
+            raise ProviderUnavailableError('Hosted provider network connection failed') from None
+        except ValueError:
             # Never propagate response bodies, request text or credentials to logs/errors.
             raise ProviderError('Hosted provider unavailable or response invalid') from None
 

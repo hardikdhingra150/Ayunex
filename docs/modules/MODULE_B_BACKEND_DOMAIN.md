@@ -1,5 +1,7 @@
 # Module B — Backend and Domain Logic
 
+**26 September 2026 audit:** This specification is not a completion certificate. Current fixes, tested scope and remaining production gates are recorded in [the release audit](../RELEASE_AUDIT_2026-09-26.md). Local guest access and source-text pilot evidence do not satisfy real identity or expert legal approval requirements.
+
 **Implementation update — 23 September 2026:** The executable AYUNEX backend now lives in [backend/README.md](../../backend/README.md). See [delivery status and release gates](../PRODUCTION_READINESS.md). The specification below remains the target; expert-reviewed legal journeys and live Modules C/D are not claimed complete.
 
 **Revision:** 2 · 9 September 2026. Updated implementation specification, not implemented application code. [Research and change rationale](../IP-SAKTI_RESEARCH_AND_SOLUTION.md). These revised module documents supersede conflicting details in the older master blueprint.

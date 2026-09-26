@@ -23,7 +23,7 @@ export default function MockGuidance({ item }) {
   // --- Live state ---
   const defaultQuestion = `What are the regulatory classification, patentability, and biological resource conditions for ${item.title || 'this formulation'} under Indian law?`
   const [question, setQuestion] = useState(defaultQuestion)
-  const [allowHosted, setAllowHosted] = useState(true)
+  const [allowHosted, setAllowHosted] = useState(false)
   const [liveAnswer, setLiveAnswer] = useState(null)
   const [liveBusy, setLiveBusy] = useState(false)
   const [liveError, setLiveError] = useState('')
@@ -105,6 +105,7 @@ export default function MockGuidance({ item }) {
     const idempotencyKey = `live-guidance-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
 
     try {
+      if(allowHosted)await backendClient.recordConsent('hosted_ai_processing','hosted-ai-v1')
       const payload = {
         question: question.trim(),
         original_language: 'en',

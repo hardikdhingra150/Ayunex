@@ -9,4 +9,5 @@
 archive
 presentations
 data/corpus/raw
-frontend
+**/dist
+**/.mail-outbox

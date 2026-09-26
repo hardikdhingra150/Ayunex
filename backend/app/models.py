@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from uuid import uuid4
-from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, UniqueConstraint, Text
+from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, UniqueConstraint, Text, Table, Column, Index
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
@@ -14,6 +14,20 @@ def now():
 
 class Base(DeclarativeBase):
     pass
+
+
+platform_consents=Table('platform_consents',Base.metadata,
+    Column('id',String(36),primary_key=True),Column('tenant',String(160),nullable=False),
+    Column('subject',String(160),nullable=False),Column('purpose',String(80),nullable=False),
+    Column('notice_version',String(40),nullable=False),Column('status',String(20),nullable=False),
+    Column('granted_at',String(40),nullable=False),Column('withdrawn_at',String(40)),Column('metadata_json',Text),
+    Index('ix_platform_consents_subject','tenant','subject','purpose'))
+platform_audit_ledger=Table('platform_audit_ledger',Base.metadata,
+    Column('id',String(36),primary_key=True),Column('sequence',Integer,nullable=False),
+    Column('tenant',String(160),nullable=False),Column('actor',String(160),nullable=False),
+    Column('action',String(80),nullable=False),Column('timestamp',String(40),nullable=False),
+    Column('prev_hash',String(64),nullable=False),Column('entry_hash',String(64),nullable=False),Column('payload_json',Text),
+    Index('ix_platform_audit_seq','sequence'),Index('ux_platform_audit_sequence','sequence',unique=True))
 
 
 class Case(Base):
@@ -114,3 +128,30 @@ class CorpusReviewEvent(Base):
     actor: Mapped[str]=mapped_column(String(160))
     payload: Mapped[dict]=mapped_column(JSON)
     created_at: Mapped[datetime]=mapped_column(DateTime(timezone=True),default=now)
+
+
+class Account(Base):
+    __tablename__='accounts'
+    id: Mapped[str]=mapped_column(String(36),primary_key=True,default=uid)
+    email: Mapped[str]=mapped_column(String(254),unique=True)
+    password_hash: Mapped[str]=mapped_column(String(256))
+    tenant: Mapped[str]=mapped_column(String(36),default=uid)
+    verified: Mapped[bool]=mapped_column(default=False)
+    role: Mapped[str]=mapped_column(String(24),default='user')
+    failures: Mapped[int]=mapped_column(Integer,default=0)
+    locked_until: Mapped[int]=mapped_column(Integer,default=0)
+
+
+class AccountSession(Base):
+    __tablename__='account_sessions'
+    digest: Mapped[str]=mapped_column(String(64),primary_key=True)
+    account_id: Mapped[str]=mapped_column(ForeignKey('accounts.id',ondelete='CASCADE'),index=True)
+    expires: Mapped[int]=mapped_column(Integer)
+
+
+class AccountAction(Base):
+    __tablename__='account_actions'
+    digest: Mapped[str]=mapped_column(String(64),primary_key=True)
+    account_id: Mapped[str]=mapped_column(ForeignKey('accounts.id',ondelete='CASCADE'),index=True)
+    purpose: Mapped[str]=mapped_column(String(16))
+    expires: Mapped[int]=mapped_column(Integer)

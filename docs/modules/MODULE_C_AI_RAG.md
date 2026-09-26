@@ -1,5 +1,7 @@
 # Module C — AI, RAG and Knowledge System
 
+**26 September 2026 audit:** This specification is not a completion certificate. Current fixes, tested scope and remaining production gates are recorded in [the release audit](../RELEASE_AUDIT_2026-09-26.md). Local guest access and source-text pilot evidence do not satisfy real identity or expert legal approval requirements.
+
 **Implementation update — 24 September 2026:** The local extractive retrieval baseline is now implemented. See [actual delivery, tests and remaining work](MODULE_C_IMPLEMENTATION_STATUS.md). The specification below remains the full target; semantic RAG, multilingual translation and expert benchmark gates are not claimed complete.
 
 **Revision:** 2 · 9 September 2026. Updated implementation specification, not implemented application code. [Research and change rationale](../IP-SAKTI_RESEARCH_AND_SOLUTION.md). These revised module documents supersede conflicting details in the older master blueprint.

@@ -1,12 +1,14 @@
 """Typed, local Module C orchestration with mechanically verified quotations."""
 from .retrieval import search, verify_answer, VERSION, RetrievalCapacityError
 from .schemas import GuidanceAnswer
+import re
 
 
 class KnowledgeGuidance:
-    def __init__(self, sessions,retriever=None):
+    def __init__(self, sessions,retriever=None,allow_source_checked=True):
         self.sessions = sessions
         self.retriever = retriever or search
+        self.allow_source_checked=allow_source_checked
 
     def generate(self, payload):
         jurisdiction = payload['jurisdiction']
@@ -35,9 +37,20 @@ class KnowledgeGuidance:
                 except RetrievalCapacityError:
                     reason = 'Too many eligible lexical candidates. Narrow the question; no truncated answer was produced.'
         # Diversify by immutable source version; keep at most two excerpts per document.
+        # Prefer an explicitly requested statutory locator over overlapping broad
+        # chunks; matching generic words must not pull in unrelated statutes.
+        question=payload['question'].lower()
+        if 'patent' in question:
+            hits=[h for h in hits if h['domain']=='PATENT']
+        locator=re.search(r'\bsection\s+(\d+)\s*\(\s*([a-z])\s*\)',question)
+        if locator:
+            target='section'+locator.group(1)+'('+locator.group(2)+')'
+            exact=[h for h in hits if target in re.sub(r'\s+','',h['review'].get('provision','').lower())]
+            if exact:hits=exact
         selected = []
         counts = {}
         for hit in hits:
+            if not self.allow_source_checked and hit['review'].get('review_status','VERIFIED')!='VERIFIED':continue
             if counts.get(hit['document_id'],0) >= 2: continue
             selected.append(hit); counts[hit['document_id']] = counts.get(hit['document_id'],0)+1
             if len(selected) == 3: break

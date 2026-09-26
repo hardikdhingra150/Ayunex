@@ -9,7 +9,7 @@ from .schemas import Strict,GuidanceAnswer
 from .knowledge import KnowledgeGuidance
 from .hybrid import retrieve
 from .retrieval import verify_answer
-from .ai_provider import HostedProvider,ProviderError
+from .ai_provider import HostedProvider,ProviderError,ProviderUnavailableError
 
 PROMPT_VERSION='ayunex-evidence-1'
 
@@ -32,7 +32,8 @@ class Verdict(Strict):
 class HostedGuidance:
     def __init__(self,sessions,settings,provider=None):
         self.sessions=sessions;self.provider=provider or HostedProvider(settings)
-        self.local=KnowledgeGuidance(sessions)
+        self.allow_source_checked=settings.environment!='production'
+        self.local=KnowledgeGuidance(sessions,allow_source_checked=self.allow_source_checked)
         self.generation_only=settings.ai_provider=='groq'
 
     def generate(self,payload):
@@ -41,7 +42,7 @@ class HostedGuidance:
             answer['sections'][0]['reason']+=' Hosted processing was not authorized for this request.'
             return answer
         try:
-            baseline=(self.local if self.generation_only else KnowledgeGuidance(self.sessions,lambda db,q,c,d,**kw:retrieve(db,q,c,d,self.provider,**kw))).generate(payload)
+            baseline=(self.local if self.generation_only else KnowledgeGuidance(self.sessions,lambda db,q,c,d,**kw:retrieve(db,q,c,d,self.provider,**kw),allow_source_checked=self.allow_source_checked)).generate(payload)
         except ProviderError:
             return self.local.generate(payload)
         if not baseline['citations']:return baseline
@@ -77,6 +78,10 @@ class HostedGuidance:
                 with self.sessions() as db:
                     if verify_answer(db,answer,exact_quotes=False):raise ProviderError('Evidence changed during synthesis')
                 return answer
+            except ProviderUnavailableError as exc:
+                fallback=self.local.generate(payload)
+                fallback['sections'][0]['reason']+=' '+str(exc)+'. Showing local source excerpts; no AI explanation was published.'
+                return fallback
             except (ValueError,KeyError,TypeError,AttributeError):
                 continue
         # Both attempts failed. Re-run local retrieval so stale evidence is not reused.

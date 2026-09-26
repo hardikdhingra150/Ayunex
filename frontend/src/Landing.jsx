@@ -103,6 +103,6 @@ export default function Landing() {
 
       <section className="lp-container"><Reveal className="lp-final"><span className="lp-eyebrow">YOUR NEXT IDEA DESERVES A CLEAR START</span><h2>Your next step starts here.</h2><Link className="lp-button primary" to="/workspace">Step inside the workspace <ArrowUpRight size={21} /></Link><p>Explore with sample data. No account required for the preview.</p></Reveal></section>
     </main>
-    <footer className="lp-footer lp-container"><div><Link className="lp-logo" to="/"><span><img src="/ayunex-mark.svg" alt="" width="43" height="43" /></span><div>AYUNEX<small>AYURVEDA · IP</small></div></Link><p>Ayurveda innovation, with a clearer direction.</p></div><div><Link to="/privacy">Privacy & scope</Link><Link to="/about">About the project</Link><a href="#landing-main">Back to top ↑</a></div><div><strong>CRAFTED BY NAUT IQ</strong><span>SIH 26045 · Frontend preview</span><small>Information, not legal advice.</small></div></footer>
+    <footer className="lp-footer lp-container"><div><Link className="lp-logo" to="/"><span><img src="/ayunex-mark.svg" alt="" width="43" height="43" /></span><div>AYUNEX<small>AYURVEDA · IP</small></div></Link><p>Ayurveda innovation, with a clearer direction.</p></div><div><Link to="/privacy">Privacy & scope</Link><Link to="/about">About the project</Link><a href="#landing-main">Back to top ↑</a></div><div><strong>CRAFTED BY AYUNEX</strong><span>SIH 26045 · Frontend preview</span><small>Information, not legal advice.</small></div></footer>
   </div></Localized>
 }
