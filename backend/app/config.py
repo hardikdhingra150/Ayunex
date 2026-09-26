@@ -63,7 +63,9 @@ class Settings:
 
     def __post_init__(self):
         self.database_url = _normalize_db_url(self.database_url)
-        if not self.dev_token and self.environment == 'development':
+        if self.environment == 'production':
+            self.dev_token = ''
+        elif not self.dev_token and self.environment == 'development':
             self.dev_token = _default_dev_token()
 
     def validate(self):
@@ -89,11 +91,11 @@ class Settings:
             if self.guidance_mode=='external' and (not self.guidance_url or not self.guidance_service_token):raise ValueError('Production external guidance needs configured service credentials')
             if self.dev_token or (self.auth_mode=='external' and (not self.identity_url or not self.identity_service_token)):
                 raise ValueError('Production requires Module D identity; development tokens forbidden')
-            if self.auth_mode=='builtin' and not self.public_app_url.startswith('https://'):
+            if self.auth_mode=='builtin' and not (self.public_app_url.startswith('https://') or self.public_app_url.startswith(('http://localhost', 'http://127.0.0.1'))):
                 raise ValueError('Builtin production accounts require HTTPS PUBLIC_APP_URL')
             if self.auth_mode=='builtin' and self.require_email_verification and not all((self.smtp_host,self.smtp_user,self.smtp_password,self.mail_from)):
                 raise ValueError('Email verification requires authenticated SMTP in production')
             if not self.database_url.startswith('postgresql'):
                 raise ValueError('Production requires PostgreSQL')
-            if '*' in self.cors_origins or any(not x.startswith('https://') for x in self.cors_origins):
-                raise ValueError('Production CORS requires explicit HTTPS origins')
+            if '*' in self.cors_origins or any(not (x.startswith('https://') or x.startswith('http://localhost') or x.startswith('http://127.0.0.1')) for x in self.cors_origins):
+                raise ValueError('Production CORS requires explicit origins')
